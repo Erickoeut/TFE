@@ -1,4 +1,4 @@
-[
+const teams = [
     {
         id:1,
         name:"BBRFC Celtics",
@@ -40,3 +40,7 @@
         logo:"https://admin.touch-belgium.be/media/team_logos/rhinos_logo.jpeg"
     }
 ]
+
+export const getAllTeams = ()=>{
+    return structuredClone(teams)
+}
