@@ -1,9 +1,9 @@
 import App from "../App"
-import TeamDetails from "../pages/team-page/pages/team-details/team-details"
-import TeamsIndex from "../pages/team-page/pages/teams-index/teams-index"
-import TeamsPage from "../pages/team-page/teams-page"
-
 import WelcomePage from "../pages/welcome-page/welcome-page"
+import TeamsPage from "../pages/team-page/teams-page"
+import TeamsIndexPage from "../pages/team-page/pages/teams-index/teams-index-page"
+import TeamDetailsPage from "../pages/team-page/pages/team-details/team-details-page"
+
 const route = [
     {
         path:'/',
@@ -19,11 +19,11 @@ const route = [
                 children:[
                     {
                         index:true,
-                        element:<TeamsIndex/>
+                        element:<TeamsIndexPage/>
                     },
                     {
                         path:":id",
-                        element:<TeamDetails/>
+                        element:<TeamDetailsPage/>
                     }
                 ]
             }

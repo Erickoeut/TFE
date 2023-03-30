@@ -1,0 +1,16 @@
+.playerDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 15rem;
+    height: 15rem;
+    border: 1px solid;
+    margin: 1rem;
+}
+
+.playerIndex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
