@@ -14,10 +14,12 @@ const TeamCard = ({ name, logo, id }) => {
 function TeamsIndex() {
     const allTeams = getAllTeams()
     return (
+        <>
+            <h1>Team Index</h1>
         <div className={style.TeamsIndex}>
-            <h1>TeamIndex</h1>
             {allTeams.map(team => <TeamCard key={team.id} {...team} />)}
         </div>
+        </>
     )
 }
 
