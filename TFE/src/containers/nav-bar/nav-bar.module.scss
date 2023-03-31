@@ -5,13 +5,13 @@
     height: 5rem;
     align-items: center;
     border-bottom: 1px solid;
-    padding: 1rem 1rem 1rem 1rem;
+    padding: 1rem 2rem 1rem 1rem;
 
     a {
         display: flex;
         align-items: center;
         height: 100%;
-
+margin-left: 1rem;
         img{
         height: 100%;
         object-fit: contain;
@@ -22,10 +22,6 @@
         height: 100%;
         display: flex;
         list-style: none;
-
-        li {
-            margin-left: 1rem;
-        }
     }
 
 }

@@ -44,3 +44,8 @@ const teams = [
 export const getAllTeams = ()=>{
     return structuredClone(teams)
 }
+
+export const getOneteam = (id)=>{
+    const allteams = structuredClone(teams)
+    return allteams.filter(team => team.id == id)
+}
