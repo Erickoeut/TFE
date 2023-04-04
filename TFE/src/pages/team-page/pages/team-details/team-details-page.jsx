@@ -1,20 +1,18 @@
 import { getTeam } from "../../../../db/players"
-import { useParams} from "react-router-dom"
+import { useParams } from "react-router-dom"
 import style from "./team-details-page.module.scss"
 import { getOneteam } from "../../../../db/teams"
-export default function TeamDetailsPage(){
-    const {id} = useParams()
-
+export default function TeamDetailsPage() {
+    const { id } = useParams()
     const teamPlayers = getTeam(id)
     const team = getOneteam(id)
-    console.log(team);
-    return(
-    <>
-        <h1>Team details</h1>
-        <div className={style.playerIndex}>
-            {teamPlayers.map(player=>(
-                
-                    <div key={player.id}className={style.playerDetails}>
+
+    return (
+        <>
+            <h1>Team details</h1>
+            <div className={style.playerIndex}>
+                {teamPlayers.map(player => (
+                    <div key={player.id} className={style.playerDetails}>
                         <h2>
                             {player.first_name} {player.last_name.toUpperCase()}
                         </h2>
@@ -25,9 +23,7 @@ export default function TeamDetailsPage(){
                             {player.age} ans
                         </p>
                     </div>
-                
-            ))}
-            
-        </div>
-    </>)
+                ))}
+            </div>
+        </>)
 }

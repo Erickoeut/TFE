@@ -16,9 +16,9 @@ function TeamsIndexPage() {
     return (
         <>
             <h1>Team Index</h1>
-        <div className={style.TeamsIndex}>
-            {allTeams.map(team => <TeamCard key={team.id} {...team} />)}
-        </div>
+            <div className={style.TeamsIndex}>
+                {allTeams.map(team => <TeamCard key={team.id} {...team} />)}
+            </div>
         </>
     )
 }

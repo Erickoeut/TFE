@@ -10,7 +10,7 @@ export default function NavBar() {
                     </Link>
                     <ul>
                         <li>
-                            <NavLink to={"/classement"}>
+                            <NavLink to={"/ranking"}>
                                 Classement
                             </NavLink>
                         </li>
