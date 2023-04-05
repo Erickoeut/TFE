@@ -1,0 +1,19 @@
+.resultRow{
+    display:flex;
+    margin: 2rem 0;
+    justify-content: center;
+    // border: 1px solid;
+    .team {
+        display: flex;
+        width: 45%;
+        // border: 1px solid red;
+        &:first-child{
+            justify-content: flex-end;
+        }
+    }
+    .score{
+        display: flex;
+        justify-content: center;
+        width: 5rem;
+    }
+}

@@ -1,4 +1,5 @@
 export default function ResultDetailsPage(){
+    
     return(
         <>
         <h2>details</h2>
