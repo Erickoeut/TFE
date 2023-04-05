@@ -8,6 +8,7 @@ import AboutPage from "../pages/about-page/about-page"
 import ResultsPage from "../pages/results-page/results-page"
 import ResultIndexPage from "../pages/results-page/pages/results-index-page/results-index-page"
 import ResultDetailsPage from "../pages/results-page/pages/results-details-page/results-details-page"
+import LoginPage from "../pages/login-page/login-page"
 
 const route = [
     {
@@ -54,6 +55,10 @@ const route = [
                 path: "about",
                 element: <AboutPage />
             },
+            {
+                path:"login",
+                element:<LoginPage/>
+            }
         ]
     }
 ]

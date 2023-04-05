@@ -31,7 +31,7 @@ export default function NavBar() {
                         </li>
                     </ul>
                 </div>
-                <Link className={style.login}>
+                <Link to={"/login"} className={style.login}>
                     Login
                 </Link>
             </div>
