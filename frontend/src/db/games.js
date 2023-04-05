@@ -124,3 +124,7 @@ const games = [
 export function getAllGame  (){
     return structuredClone(games)
 }
+
+export function getOneGame(id){
+    return (games.find(game=>game.id==id))
+}

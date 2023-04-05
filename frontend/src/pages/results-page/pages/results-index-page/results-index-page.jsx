@@ -11,6 +11,7 @@ export default function ResultIndexPage() {
     useEffect(()=>{
         const temp = structuredClone(games)
         setGameOfDay(temp.filter(game=>game.round==day))
+        
     },[day])
 
     const handleSetDay = (e)=>{

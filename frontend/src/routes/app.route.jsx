@@ -31,7 +31,7 @@ const route = [
                         element:<ResultIndexPage/>
                     },
                     {
-                        path:":GameId",
+                        path:":gameId",
                         element:<ResultDetailsPage/>
                     }
                 ]
