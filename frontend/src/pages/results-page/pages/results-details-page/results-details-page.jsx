@@ -12,19 +12,31 @@ export default function ResultDetailsPage() {
     const away_team = getOneteam(game.away_team_id)
     return (
         <>
-            <h2>details résultats</h2>
+            <h2>Result details</h2>
+
             <div className={style.resultDetails}>
-                <div>
-                    {home_team.name}
-                    <img src={home_team.logo} alt={`logo ${home_team.name}`} />
+                <div className={style.gameInfos}>
+                    <p>
+                        localisation : {game.localisation}
+                    </p>
+                    <p>
+                        Tour {game.round}
+                    </p>
                 </div>
-                <div>
-                    {game.home_score}-{game.away_score}
+                <div className={style.gameResult}>
+                    <div>
+                        {home_team.name}
+                        <img src={home_team.logo} alt={`logo ${home_team.name}`} />
+                    </div>
+                    <div>
+                        {game.home_score}-{game.away_score}
+                    </div>
+                    <div>
+                        {away_team.name}
+                        <img src={away_team.logo} alt={`logo ${away_team.name}`} />
+                    </div>
                 </div>
-                <div>
-                    {away_team.name}
-                    <img src={away_team.logo} alt={`logo ${away_team.name}`} />
-                </div>
+
             </div>
         </>
     )

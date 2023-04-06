@@ -1,0 +1,10 @@
+insert into team (team_name , team_logo) values ('Celtics','https://admin.touch-belgium.be/media/team_logos/bbrfcceltic_logo.png');
+insert into team (team_name , team_logo) values ('Boitsfort RC','https://admin.touch-belgium.be/media/team_logos/boitsfort_logo.jpg');
+insert into team (team_name , team_logo) values ('Brussels citizens','https://admin.touch-belgium.be/media/team_logos/citizens_logo.jpg');
+insert into team (team_name , team_logo) values ('BUC St Josse','https://admin.touch-belgium.be/media/team_logos/buc_logo.png');
+insert into team (team_name , team_logo) values ('Gent Rugby','https://admin.touch-belgium.be/media/team_logos/gent_logo.png');
+insert into team (team_name , team_logo) values ('Kituro Rugby','https://admin.touch-belgium.be/media/team_logos/kituro_logo.jpg');
+insert into team (team_name , team_logo) values ('RC La Hulpe','https://admin.touch-belgium.be/media/team_logos/rclhlogo.jpg');
+insert into team (team_name , team_logo) values ('Oudenaarde Rhinos','https://admin.touch-belgium.be/media/team_logos/rhinos_logo.jpeg');
+insert into team (team_name , team_logo) values ('RC Luxembourg','https://www.s50static.com/cms/uploads/images/tinymce_images/774364ed8c2d84fdbf5d98f45e0e4c057cd9a_.png');
+insert into team (team_name , team_logo) values ('RFC Liège','http://rugbyliege.be/wp-content/uploads/2019/07/Logo_RFCL_1958_84x100.png'); 
