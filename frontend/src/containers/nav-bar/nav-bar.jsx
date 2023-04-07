@@ -20,13 +20,13 @@ export default function NavBar() {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={"/about"}>
-                                A propos
+                            <NavLink to={"/teams"}>
+                                Les équipes
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={"/teams"}>
-                                Les équipes
+                            <NavLink to={"/about"}>
+                                A propos
                             </NavLink>
                         </li>
                     </ul>

@@ -10,7 +10,7 @@ import { GameModule } from './games/game.module';
     TypeOrmModule.forRoot({
       type : "mssql",
       host : "localhost",
-      port : 1433,
+      port : 65448,
       username : "EricKt",
       password : "Vonnas01",
       database : "tfe",

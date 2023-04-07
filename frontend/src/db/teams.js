@@ -47,7 +47,7 @@ const teams = [
     {
         id:10,
         name:"RFC Liège",
-        logo:"http://rugbyliege.be/wp-content/uploads/2019/07/Logo_RFCL_1958_84x100.png"
+        logo:"https://admin.touch-belgium.be/media/team_logos/liege.jpg"
     }
 ]
 
