@@ -6,18 +6,18 @@ import { useEffect, useState } from "react"
 import style from "./result-index-page.module.scss"
 
 export default function ResultIndexPage() {
-    
+
     const games = getAllGame() //a remplacer en axios quand backend pret
 
-    const [day,setDay]=useState(1)
-    const [gameOfDay,setGameOfDay]= useState(games)
+    const [day, setDay] = useState(1)
+    const [gameOfDay, setGameOfDay] = useState(games)
 
-    useEffect(()=>{
+    useEffect(() => {
         const temp = structuredClone(games)
-        setGameOfDay(temp.filter(game=>game.round==day))
-    },[day])
+        setGameOfDay(temp.filter(game => game.round == day))
+    }, [day])
 
-    const handleSetDay = (e)=>{
+    const handleSetDay = (e) => {
         setDay(e.target.value)
     }
 
@@ -30,19 +30,19 @@ export default function ResultIndexPage() {
                     <option value="2">Journée 2</option>
                 </select>
             </form>
-            {gameOfDay.map(game => <ResultRow key={game.id}{...game}/>)}
+            {gameOfDay.map(game => <ResultRow key={game.id}{...game} />)}
         </>
     )
 }
 
-function ResultRow({id, home_team_id, away_team_id, home_score, away_score }) {
+function ResultRow({ id, home_team_id, away_team_id, home_score, away_score }) {
     const navigate = useNavigate()
 
     const home_team = getOneteam(home_team_id)
     const away_team = getOneteam(away_team_id)
-    
+
     return (
-        <div className={style.resultRow} onClick={()=>navigate("/results/"+id)}>
+        <div className={style.resultRow} onClick={() => navigate("/results/" + id)}>
             <div className={style.team}>{home_team.name}</div>
             <div className={style.score}>{home_score} - {away_score}</div>
             <div className={style.team}>{away_team.name}</div>

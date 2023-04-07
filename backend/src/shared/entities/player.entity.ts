@@ -1,25 +1,25 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity("team")
-export class TeamEntity{
+@Entity("player")
+export class PlayerEntity{
     @PrimaryGeneratedColumn()
     id:number;
 
     @Column()
-    first_name:string
+    first_name:string;
 
     @Column()
-    last_name:string
+    last_name:string;
     
     @Column()
-    age:number
+    age:number;
     
     @Column()
-    gender:string
+    gender:string;
     
     @Column()
-    team_id:number
+    team_id:number;
     
     @Column()
-    position:string
+    position:string;
 }

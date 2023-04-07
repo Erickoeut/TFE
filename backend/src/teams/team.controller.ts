@@ -7,15 +7,14 @@ export class TeamController{
         private readonly teamServe:TeamService
     ){}
     @Get()
-    getAll(){
-        return this.teamServe.getAll()
+    async getAll(){
+        return await this.teamServe.getAll()
     }
 
     @Get(":teamId")
-    
-    getOne(
+    async getOne(
         @Param("teamId") teamId
     ){
-        return this.teamServe.getOne(teamId)
+        return await this.teamServe.getOne(teamId)
     }
 }

@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TeamModule } from './teams/team.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { PlayerModule } from './players/player.module';
+import { GameModule } from './games/game.module';
 
 
 @Module({
@@ -20,7 +22,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         trustServerCertificate : true
       }
     }),
-    TeamModule
+    TeamModule,
+    PlayerModule,
+    GameModule
   ],
   controllers: [],
   providers: [],
