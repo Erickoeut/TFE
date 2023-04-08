@@ -3,16 +3,18 @@ import { TeamModule } from './teams/team.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PlayerModule } from './players/player.module';
 import { GameModule } from './games/game.module';
+import { ConfigModule } from '@nestjs/config';
 
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type : "mssql",
       host : "localhost",
-      port : 65448,
-      username : "EricKt",
-      password : "Vonnas01",
+      port : parseInt(process.env.DATABASE_PORT),
+      username : process.env.DATABASE_USERNAME,
+      password : process.env.DATABASE_PASSWORD,
       database : "tfe",
       entities : [__dirname + '/**/*.entity.{ts, js}'],
       autoLoadEntities : true,
