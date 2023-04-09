@@ -8,11 +8,11 @@ export default function TeamDetailsPage() {
     const team = getOneteam(id)
 
     return (
-        <>
-            <h1>Team details</h1>
+        <div>
             <div className={style.teamDetails} style={{
                 backgroundImage: `url(${team.logo})`
             }}>
+                <h1>Team details</h1>
 
                 <div>
                     <h2>{team.name}</h2>
@@ -34,5 +34,5 @@ export default function TeamDetailsPage() {
                 ))}
             </div>
 
-        </>)
+        </div>)
 }

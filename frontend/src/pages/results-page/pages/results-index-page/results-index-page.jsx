@@ -22,7 +22,7 @@ export default function ResultIndexPage() {
     }
 
     return (
-        <>
+        <div className={style.ResutltIndexPage}>
             <h2>Liste résultats</h2>
             <form action="">
                 <select name="day" id="" onChange={handleSetDay}>
@@ -31,7 +31,7 @@ export default function ResultIndexPage() {
                 </select>
             </form>
             {gameOfDay.map(game => <ResultRow key={game.id}{...game} />)}
-        </>
+        </div>
     )
 }
 

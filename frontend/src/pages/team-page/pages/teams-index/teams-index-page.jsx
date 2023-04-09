@@ -1,25 +1,33 @@
 import { useNavigate } from "react-router-dom"
-import { getAllTeams } from "../../../../db/teams"
+import axios from 'axios'
 import style from "./team-index-page.module.scss"
-const TeamCard = ({ name, logo, id }) => {
+import { useEffect, useState } from "react"
+const TeamCard = ({ team_name, team_logo, id }) => {
     const navigate = useNavigate()
     return (<>
         <div className={style.TeamCard} onClick={() => navigate('/teams/' + id)} >
-            <h2>{name}</h2>
-            <img src={logo} alt="" />
+            <h2>{team_name}</h2>
+            <img src={team_logo} alt="" />
         </div>
     </>)
 }
 
 function TeamsIndexPage() {
-    const allTeams = getAllTeams()
+    const [allTeams,setAllTeams] = useState([])    
+    useEffect(()=>{
+        axios.get("http://localhost:3000/api/teams")
+            .then(({data})=>{
+                setAllTeams(data)
+            })
+    },[])
+
     return (
-        <>
-            <h1>Team Index</h1>
+        <div>
+            <h2>Team Index</h2>
             <div className={style.TeamsIndex}>
                 {allTeams.map(team => <TeamCard key={team.id} {...team} />)}
             </div>
-        </>
+        </div>
     )
 }
 
