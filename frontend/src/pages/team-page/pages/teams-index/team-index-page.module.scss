@@ -2,24 +2,23 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 60vw;
+    max-width: 80vw;
     flex-grow: 1;
-    margin: auto;
-    border: 1px solid;
 }
-// .TeamCard{
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-around;
-//     align-items: center;
-//     width: 15rem;
-//     height: 15rem;
-//     border: 1px solid;
-//     margin: 1rem;
+.TeamCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 15rem;
+    height: 15rem;
+    border: 1px solid;
+    margin: 1rem;
+    cursor: pointer;
 
-//     img{
-//         height: 50%;
-//         max-width: 80%;
-//         object-fit: contain;
-//     }
-// }
+    img{
+        height: 50%;
+        max-width: 80%;
+        object-fit: contain;
+    }
+}

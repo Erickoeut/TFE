@@ -1,4 +1,8 @@
 .AdminLateralBar{
-    width: 400px;
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
     border: 1px solid;
+    justify-self: flex-end;
+    flex-shrink: 0;
 }

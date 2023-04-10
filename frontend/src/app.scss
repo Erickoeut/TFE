@@ -1,6 +1,13 @@
+.App{
+    display: flex;
+    flex-direction: column;
+}
+
 .content{
     display: flex;
-    justify-content: space-between;
+    min-height: 90vh;
     width: 100vw;
-    border: 1px solid red;
+    &>div:first-child{
+        flex-grow: 1;
+    }
 }

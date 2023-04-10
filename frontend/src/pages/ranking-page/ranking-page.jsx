@@ -1,5 +1,5 @@
 export default function RankingPage (){
-    return (<>
+    return (<div>
     <h1>Ranking page</h1>
-    </>)
+    </div>)
 }
