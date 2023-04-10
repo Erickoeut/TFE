@@ -6,9 +6,7 @@ import axios from "axios"
 //import { getOneteam } from "../../../../db/teams"
 export default function TeamDetailsPage() {
 
-    const navigate = useNavigate()
-
-    const id=useParams().id
+    const {id} = useParams()
     const [team, setTeam] = useState(null)
     const [teamPlayers, setTeamPlayers] = useState([])
     useEffect(() => {
@@ -23,12 +21,10 @@ export default function TeamDetailsPage() {
     }, [])
 
     return (
-        <div>
-            <div className={style.teamDetails}
-            >
-                <h1>Team details</h1>
-                <Link to={'/teams'}> <button>Retour</button> </Link>
-
+        <>
+            <h2>Team details</h2>
+            <Link to={'/teams'}> <button>Retour</button> </Link>
+            <div className={style.teamDetails}>
                 <div>
                     <h2>{team && team.team_name}</h2>
                     {team && <img src={team.team_logo} alt="" />}
@@ -49,5 +45,5 @@ export default function TeamDetailsPage() {
                     </div>
                 )))}
             </div>
-        </div>)
+        </>)
 }
