@@ -25,6 +25,7 @@ export default function TeamDetailsPage() {
             <h2>Team details</h2>
             <Link to={'/teams'}> <button>Retour</button> </Link>
             <div className={style.teamDetails}>
+
                 <div>
                     <h2>{team && team.team_name}</h2>
                     {team && <img src={team.team_logo} alt="" />}

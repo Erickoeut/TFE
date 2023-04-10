@@ -4,7 +4,7 @@ function WelcomePage(){
     return(
         <div className={style.WelcomePage}>
             <h1>Welcome page</h1>
-            <GameSheetPage/>
+            <p>Bienvenue sur le site représentant mon projet de fin d'étude</p>
         </div>
     )
 }
