@@ -1,25 +1,25 @@
-.ResutltIndexPage{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+// .ResutltIndexPage{
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+// }
 
-.resultRow{
-    display:flex;
-    margin: 2rem 0;
-    justify-content: center;
-    // border: 1px solid;
-    .team {
-        display: flex;
-        width: 45%;
-        // border: 1px solid red;
-        &:first-child{
-            justify-content: flex-end;
-        }
-    }
-    .score{
-        display: flex;
-        justify-content: center;
-        width: 5rem;
-    }
-}
+// .resultRow{
+//     display:flex;
+//     margin: 2rem 0;
+//     justify-content: center;
+//     // border: 1px solid;
+//     .team {
+//         display: flex;
+//         width: 45%;
+//         // border: 1px solid red;
+//         &:first-child{
+//             justify-content: flex-end;
+//         }
+//     }
+//     .score{
+//         display: flex;
+//         justify-content: center;
+//         width: 5rem;
+//     }
+// }

@@ -42,15 +42,9 @@ function ResultRow({ id, home_team_id, away_team_id, home_score, away_score }) {
     useEffect(() => {
         axios.get(`http://localhost:3000/api/teams`)
             .then(({ data }) => {
-                // console.log(data);
                 setHomeTeam(data.find(team=>team.id===home_team_id))
                 setAwayTeam(data.find(team=>team.id===away_team_id))
             })
-    //     // axios.get(`http://localhost:3000/api/teams/${away_team_id}`)
-    //     //     .then(({ data }) => {
-    //     //         console.log(data);
-    //     //         setAwayTeam(data)
-    //     //     })
     }, [])
     return (
         <div className={style.resultRow} onClick={() => navigate("/results/" + id)}>

@@ -6,11 +6,10 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar/>
+      <NavBar />
       <div className='content'>
-      <Outlet/>
-      {/* <AdminLateralBar/> */}
-
+        <Outlet />
+        <AdminLateralBar/>
       </div>
     </div>
   )
