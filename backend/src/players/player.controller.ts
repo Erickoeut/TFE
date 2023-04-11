@@ -1,29 +1,29 @@
-import { Controller, Get, Param } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, ValidationPipe } from "@nestjs/common";
 import { PlayerService } from "./player.service";
 import { PlayerDto } from "src/shared/dto/players/player.dto";
+import { CreatePlayerDto } from "src/shared/dto/players/createPlayer.dto";
 
 @Controller("api/players")
-export class PlayerController{
+export class PlayerController {
     constructor(
-        private readonly playerServe:PlayerService
-    ){}
+        private readonly playerServe: PlayerService
+    ) { }
     @Get()
-    async getAll():Promise<PlayerDto[]>{
+    async getAll(): Promise<PlayerDto[]> {
         return await this.playerServe.getAll()
     }
 
     @Get(":playerId")
     async getOnePlayerById(
-        @Param("playerId") playerId
-    ):Promise<PlayerDto>{
+        @Param("playerId") playerId:number
+    ): Promise<PlayerDto> {
         return await this.playerServe.getOnePlayerById(playerId)
     }
-
-    @Get("team/:teamId")
-    async getPlayersOfOneTeam(
-        @Param("teamId") teamId
-    ):Promise<PlayerDto[]>
-    {
-        return await this.playerServe.getPlayersOfOneTeam(teamId)
+    
+    @Post()
+    async createPlayer(
+        @Body(ValidationPipe) newPlayer:CreatePlayerDto
+    ):Promise<PlayerDto>{
+        return
     }
 }

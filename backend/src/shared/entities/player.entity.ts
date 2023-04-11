@@ -1,15 +1,16 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { TeamEntity } from "./team.entity";
 
 @Entity("player")
 export class PlayerEntity{
     @PrimaryGeneratedColumn()
     id:number;
 
-    @Column()
-    first_name:string;
+    @Column({name:'first_name'})
+    firstName:string;
 
-    @Column()
-    last_name:string;
+    @Column({name:'last_name'})
+    lastName:string;
     
     @Column()
     age:number;
@@ -18,8 +19,8 @@ export class PlayerEntity{
     gender:string;
     
     @Column()
-    team_id:number;
-    
-    @Column()
     position:string;
+
+    @ManyToOne(()=>TeamEntity,team=>team.id)
+    team: TeamEntity
 }

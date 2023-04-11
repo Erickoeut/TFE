@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { TeamEntity } from "./team.entity";
 
 @Entity("game")
 export class GameEntity{
@@ -13,14 +14,15 @@ export class GameEntity{
     type:string
     @Column()
     date:string
-    @Column()
-    home_team_id:number
-    @Column()
-    away_team_id:number
-    @Column()
-    home_score:number
-    @Column()
-    away_score:number
+    @Column({name:'home_score'})
+    homeScore:number
+    @Column({name:'away_score'})
+    awayScore:number
     @Column()
     finish:boolean
+    
+    @ManyToOne(()=>TeamEntity,awayTeam=>awayTeam.id)
+    awayTeam: TeamEntity
+    @ManyToOne(()=>TeamEntity,homeTeam=>homeTeam.id)
+    homeTeam: TeamEntity
 }

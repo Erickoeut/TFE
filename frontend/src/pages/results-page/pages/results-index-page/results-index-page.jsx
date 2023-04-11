@@ -36,22 +36,15 @@ export default function ResultIndexPage() {
     )
 }
 
-function ResultRow({ id, home_team_id, away_team_id, home_score, away_score }) {
+function ResultRow({ id, homeTeam, awayTeam, homeScore, awayScore }) {
     const navigate = useNavigate()
 
-    const [homeTeam, setHomeTeam] = useState(null)
-    const [awayTeam, setAwayTeam] = useState(null)
-    useEffect(() => {
-        axios.get(`http://localhost:3000/api/teams`)
-            .then(({ data }) => {
-                setHomeTeam(data.find(team => team.id === home_team_id))
-                setAwayTeam(data.find(team => team.id === away_team_id))
-            })
-    }, [])
+
+
     return (
         <div className={style.resultRow} onClick={() => navigate("/results/" + id)}>
-            <div className={style.team}>{homeTeam && homeTeam.team_name}</div>
-            <div className={style.score}>{home_score} - {away_score}</div>
+            <div className={style.team}>{homeTeam.team_name}</div>
+            <div className={style.score}>{homeScore} - {awayScore}</div>
             <div className={style.team}>{awayTeam && awayTeam.team_name}</div>
         </div>
     )

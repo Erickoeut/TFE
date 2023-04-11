@@ -5,12 +5,12 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { TeamEntity } from "src/shared/entities/team.entity";
 
 @Module({
-    imports:[
+    imports: [
         TypeOrmModule.forFeature([
             TeamEntity
         ])
     ],
-    controllers:[TeamController],
-    providers:[TeamService]
+    controllers: [TeamController],
+    providers: [TeamService]
 })
-export class TeamModule{}
+export class TeamModule { }

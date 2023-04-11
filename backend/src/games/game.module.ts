@@ -5,12 +5,12 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { GameEntity } from "src/shared/entities/game.entity";
 
 @Module({
-    imports:[
+    imports: [
         TypeOrmModule.forFeature([
             GameEntity
         ])
     ],
-    controllers:[GameController],
-    providers:[GameService]
+    controllers: [GameController],
+    providers: [GameService]
 })
-export class GameModule{}
+export class GameModule { }

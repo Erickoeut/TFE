@@ -1,6 +1,4 @@
-export class PlayerDto{
-
-    id:number
+export class CreatePlayerDto{
     firstName:string
     lastName:string
     age:number   

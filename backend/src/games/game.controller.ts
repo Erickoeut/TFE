@@ -21,8 +21,7 @@ export class GameController {
     @Get("round/:roundId")
     async getGameOfRound(
         @Param("roundId") roundId
-    ):Promise<GameDto[]>
-    {
+    ): Promise<GameDto[]> {
         return await this.gameServe.getGameOfRound(roundId)
     }
 }

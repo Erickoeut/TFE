@@ -5,28 +5,21 @@ import { PlayerEntity } from "src/shared/entities/player.entity";
 import { Repository } from "typeorm";
 
 @Injectable()
-export class PlayerService{
+export class PlayerService {
     constructor(
-        @InjectRepository(PlayerEntity) private playerRepo : Repository<PlayerEntity>
-    ){}
+        @InjectRepository(PlayerEntity) private playerRepo: Repository<PlayerEntity>
+    ) { }
 
-    async getAll():Promise<PlayerDto[]>{
-        const allPlayers:PlayerDto[] = await this.playerRepo.find({})
+    async getAll(): Promise<PlayerDto[]> {
+        const allPlayers: PlayerDto[] = await this.playerRepo.find({})
         return allPlayers
     }
 
-    async getPlayersOfOneTeam(teamId):Promise<PlayerDto[]>{
-        const playerOfOneTeam :PlayerDto[]= await this.playerRepo.find({
-            where:{team_id:teamId}
-        })
-        return playerOfOneTeam
-    }
-
-    async getOnePlayerById(playerId):Promise<PlayerDto>{
-        const onePlayer:PlayerDto = await this.playerRepo.findOne({
-            where:{id:playerId}
+    async getOnePlayerById(playerId): Promise<PlayerDto> {
+        const onePlayer: PlayerDto = await this.playerRepo.findOne({
+            where: { id: playerId }
         })
         return onePlayer
     }
-    
+
 }

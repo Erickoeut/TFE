@@ -6,18 +6,15 @@ import axios from "axios"
 //import { getOneteam } from "../../../../db/teams"
 export default function TeamDetailsPage() {
 
-    const {id} = useParams()
+    const { id } = useParams()
     const [team, setTeam] = useState(null)
-    const [teamPlayers, setTeamPlayers] = useState([])
     useEffect(() => {
-        Promise.all([
-            axios.get(`http://localhost:3000/api/teams/${id}`),
-            axios.get(`http://localhost:3000/api/players/team/${id}`)
-        ])
-            .then(axios.spread((res1, res2) => {
-                setTeam(res1.data)
-                setTeamPlayers(res2.data)
-            }))
+
+        axios.get(`http://localhost:3000/api/teams/${id}`)
+            .then(({ data }) => {
+                console.log(data)
+                setTeam(data)
+            })
     }, [])
 
     return (
@@ -26,7 +23,7 @@ export default function TeamDetailsPage() {
             <Link to={'/teams'}> <button>Retour</button> </Link>
             <div className={style.teamDetails}>
 
-                <div>
+                {/* <div>
                     <h2>{team && team.team_name}</h2>
                     {team && <img src={team.team_logo} alt="" />}
                 </div>
@@ -44,7 +41,7 @@ export default function TeamDetailsPage() {
                             {player.age} ans
                         </p>
                     </div>
-                )))}
+                )))} */}
             </div>
         </>)
 }

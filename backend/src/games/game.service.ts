@@ -5,33 +5,41 @@ import { GameEntity } from "src/shared/entities/game.entity";
 import { Repository } from "typeorm";
 
 @Injectable()
-export class GameService{
+export class GameService {
     constructor(
-        @InjectRepository(GameEntity) private gameRepo : Repository<GameEntity>
-    ){}
-    async getAll():Promise<GameDto[]>{
-        const allGames : GameDto[] = await this.gameRepo.find({})
+        @InjectRepository(GameEntity) private gameRepo: Repository<GameEntity>
+    ) { }
+    async getAll(): Promise<GameDto[]> {
+        const allGames: GameDto[] = await this.gameRepo.find({})
         return allGames
     }
 
-    async getOne(gameId):Promise<GameDto>{
-        let oneGame : GameDto = await this.gameRepo.findOne({
-            where:{
-                id:gameId
+    async getOne(gameId): Promise<GameDto> {
+        let oneGame: GameDto = await this.gameRepo.findOne({
+            where: {
+                id: gameId
+            },
+            relations: {
+                awayTeam: true,
+                homeTeam: true
             }
         })
-        return  oneGame
+        return oneGame
     }
-    
-    async getGameOfRound(roundId):Promise<GameDto[]>{
-        const gameOfRound:GameDto[] = await this.gameRepo.find({
-            where:{
-                round:roundId
+
+    async getGameOfRound(roundId): Promise<GameDto[]> {
+        const gameOfRound: GameDto[] = await this.gameRepo.find({
+            where: {
+                round: roundId
+            },
+            relations: {
+                awayTeam: true,
+                homeTeam: true
             }
         })
         return gameOfRound
     }
 
-    create(){}
-    update(){}
+    create() { }
+    update() { }
 }

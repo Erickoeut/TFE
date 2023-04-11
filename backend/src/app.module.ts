@@ -10,18 +10,18 @@ import { ConfigModule } from '@nestjs/config';
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-      type : "mssql",
-      host : "localhost",
-      port : parseInt(process.env.DATABASE_PORT),
-      username : process.env.DATABASE_USERNAME,
-      password : process.env.DATABASE_PASSWORD,
-      database : "tfe",
-      entities : [__dirname + '/**/*.entity.{ts, js}'],
-      autoLoadEntities : true,
-      synchronize : true,
-      extra : {
-        validateConnection : false,
-        trustServerCertificate : true
+      type: "mssql",
+      host: "localhost",
+      port: parseInt(process.env.DATABASE_PORT),
+      username: process.env.DATABASE_USERNAME,
+      password: process.env.DATABASE_PASSWORD,
+      database: "tfe",
+      entities: [__dirname + '/**/*.entity.{ts, js}'],
+      autoLoadEntities: true,
+      synchronize: true,
+      extra: {
+        validateConnection: false,
+        trustServerCertificate: true
       }
     }),
     TeamModule,
@@ -31,4 +31,4 @@ import { ConfigModule } from '@nestjs/config';
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule { }
