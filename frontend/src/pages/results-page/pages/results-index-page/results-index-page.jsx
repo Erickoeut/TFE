@@ -6,7 +6,7 @@ import axios from "axios"
 
 export default function ResultIndexPage() {
 
-    const [day, setDay] = useState(1)
+    const [day, setDay] = useState(2)
     const [gameOfDay, setGameOfDay] = useState([])
 
     useEffect(() => {
@@ -25,7 +25,7 @@ export default function ResultIndexPage() {
             <h2>Liste résultats</h2>
             <div className={style.ResutltIndexPage}>
                 <form action="">
-                    <select name="day" id="" onChange={handleSetDay}>
+                    <select name="day" id="selectDay" onChange={handleSetDay}>
                         <option value="1">Journée 1</option>
                         <option value="2">Journée 2</option>
                     </select>
@@ -38,14 +38,11 @@ export default function ResultIndexPage() {
 
 function ResultRow({ id, homeTeam, awayTeam, homeScore, awayScore }) {
     const navigate = useNavigate()
-
-
-
     return (
         <div className={style.resultRow} onClick={() => navigate("/results/" + id)}>
-            <div className={style.team}>{homeTeam.team_name}</div>
+            <div className={style.team}>{homeTeam.teamName}</div>
             <div className={style.score}>{homeScore} - {awayScore}</div>
-            <div className={style.team}>{awayTeam && awayTeam.team_name}</div>
+            <div className={style.team}>{awayTeam && awayTeam.teamName}</div>
         </div>
     )
 }

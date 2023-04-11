@@ -1,6 +1,6 @@
 import style from "./nav-bar.module.scss"
 import { Link, NavLink } from "react-router-dom"
-export default function NavBar() {
+export default function NavBar({user}) {
     return (
         <>
             <div className={style.navBar}>
@@ -31,9 +31,8 @@ export default function NavBar() {
                         </li>
                     </ul>
                 </div>
-                <Link to={"/login"} className={style.login}>
-                    Login
-                </Link>
+                {user?<Link>{user.name}</Link>:<Link to={"/login"} className={style.login}>Login</Link>}
+                
             </div>
         </>
     )

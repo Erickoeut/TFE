@@ -15,7 +15,6 @@ export default function ResultDetailsPage() {
             })
     }, [])
 
-
     return (
         game && (
             <>
@@ -33,15 +32,15 @@ export default function ResultDetailsPage() {
                     </div>
                     <div className={style.gameResult}>
                         <div>
-                            {game.homeTeam.name}
-                            <img src={game.homeTeam.team_logo} alt={`logo ${game.homeTeam.name}`} />
+                            {game.homeTeam.teamName}
+                            <img src={game.homeTeam.teamLogo} alt={`logo ${game.homeTeam.name}`} />
                         </div>
                         <div>
                             {game.homeScore} - {game.awayScore}
                         </div>
                         <div>
-                            {game.awayTeam.name}
-                            <img src={game.awayTeam.team_logo} alt={`logo ${game.awayTeam.name}`} />
+                            {game.awayTeam.teamName}
+                            <img src={game.awayTeam.teamLogo} alt={`logo ${game.awayTeam.name}`} />
                         </div>
                     </div>
                 </div>
