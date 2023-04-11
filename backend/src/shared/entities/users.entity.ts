@@ -6,5 +6,11 @@ export class UserEntity{
     id:number
 
     @Column({name:"user_name"})
-    userName
+    userName:string
+
+    @Column()
+    password:string
+
+    @Column()
+    role:string
 }
