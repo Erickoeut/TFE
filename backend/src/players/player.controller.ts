@@ -1,7 +1,7 @@
-import { Body, Controller, Get, Param, Post, ValidationPipe } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, ParseIntPipe,ValidationPipe } from "@nestjs/common";
 import { PlayerService } from "./player.service";
-import { PlayerDto } from "src/shared/dto/players/player.dto";
 import { CreatePlayerDto } from "src/shared/dto/players/createPlayer.dto";
+import { Player } from "src/shared/entities/player.entity";
 
 @Controller("api/players")
 export class PlayerController {
@@ -9,21 +9,21 @@ export class PlayerController {
         private readonly playerServe: PlayerService
     ) { }
     @Get()
-    async getAll(): Promise<PlayerDto[]> {
+    async getAll(): Promise<Player[]> {
         return await this.playerServe.getAll()
     }
 
     @Get(":playerId")
     async getOnePlayerById(
-        @Param("playerId") playerId:number
-    ): Promise<PlayerDto> {
+        @Param("playerId",ParseIntPipe) playerId:number
+    ): Promise<Player> {
         return await this.playerServe.getOnePlayerById(playerId)
     }
     
     @Post()
     async createPlayer(
-        @Body(ValidationPipe) newPlayer:CreatePlayerDto
-    ):Promise<PlayerDto>{
+        @Body() newPlayer:CreatePlayerDto
+    ):Promise<Player>{
         return this.playerServe.createPlayer(newPlayer)
     }
 }

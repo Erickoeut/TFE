@@ -1,8 +1,8 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { TeamEntity } from "./team.entity";
+import { Team } from "./team.entity";
 
 @Entity("player")
-export class PlayerEntity{
+export class Player{
     @PrimaryGeneratedColumn()
     id:number;
 
@@ -21,6 +21,6 @@ export class PlayerEntity{
     @Column()
     position:string;
 
-    @ManyToOne(()=>TeamEntity,team=>team.id)
-    team: TeamEntity
+    @ManyToOne(()=>Team,team=>team.id)
+    team: Team
 }

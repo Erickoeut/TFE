@@ -1,9 +1,9 @@
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { GameEntity } from "./game.entity";
-import { PlayerEntity } from "./player.entity";
+import { Game } from "./game.entity";
+import { Player } from "./player.entity";
 
 @Entity("team")
-export class TeamEntity{
+export class Team{
     @PrimaryGeneratedColumn()
     id:number;
 
@@ -13,12 +13,12 @@ export class TeamEntity{
     @Column({name:'team_logo'})
     teamLogo:string
 
-    @OneToMany(()=>GameEntity,games=>games.homeTeam)
-    homeGames: GameEntity[]
+    @OneToMany(()=>Game,games=>games.homeTeam)
+    homeGames: Game[]
 
-    @OneToMany(()=>GameEntity,games=>games.awayTeam)
-    awayGames: GameEntity[]
+    @OneToMany(()=>Game,games=>games.awayTeam)
+    awayGames: Game[]
 
-    @OneToMany(()=>PlayerEntity,players=>players.team)
-    players:PlayerEntity[]
+    @OneToMany(()=>Player,players=>players.team)
+    players:Player[]
 }

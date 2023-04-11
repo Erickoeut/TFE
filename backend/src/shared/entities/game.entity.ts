@@ -1,8 +1,8 @@
 import { Column, Entity, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
-import { TeamEntity } from "./team.entity";
+import { Team } from "./team.entity";
 
 @Entity("game")
-export class GameEntity{
+export class Game{
     @PrimaryGeneratedColumn()
     id:number
 
@@ -21,8 +21,8 @@ export class GameEntity{
     @Column()
     finish:boolean
     
-    @ManyToOne(()=>TeamEntity,awayTeam=>awayTeam.id)
-    awayTeam: TeamEntity
-    @ManyToOne(()=>TeamEntity,homeTeam=>homeTeam.id)
-    homeTeam: TeamEntity
+    @ManyToOne(()=>Team,awayTeam=>awayTeam.id)
+    awayTeam: Team
+    @ManyToOne(()=>Team,homeTeam=>homeTeam.id)
+    homeTeam: Team
 }

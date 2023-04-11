@@ -13,7 +13,7 @@ export class TeamController {
 
     @Get(":teamId")
     async getOne(
-        @Param("teamId") teamId
+        @Param("teamId") teamId:number
     ) {
         return await this.teamServe.getOne(teamId)
     }
