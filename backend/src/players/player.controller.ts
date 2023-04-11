@@ -24,6 +24,6 @@ export class PlayerController {
     async createPlayer(
         @Body(ValidationPipe) newPlayer:CreatePlayerDto
     ):Promise<PlayerDto>{
-        return
+        return this.playerServe.createPlayer(newPlayer)
     }
 }
