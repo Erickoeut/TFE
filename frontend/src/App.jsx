@@ -4,10 +4,7 @@ import AdminLateralBar from './components/admin-lateral-bar/admin-lateral-bar'
 import "./app.scss"
 import { useState } from 'react'
 function App() {
-  const [user,setUser] = useState({
-    name:"Eric",
-    team:"team"
-  })
+  const [user,setUser] = useState(null)
   return (
     <div className="App">
       <NavBar user={user}/>
