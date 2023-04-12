@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { CreateGameDto } from "src/shared/dto/games/createGame.dto";
 import { Game } from "src/shared/entities/game.entity";
@@ -9,6 +9,7 @@ export class GameService {
     constructor(
         @InjectRepository(Game) private gameRepo: Repository<Game>
     ) { }
+    
     async getAll(): Promise<Game[]> {
         const allGames: Game[] = await this.gameRepo.find({})
         return allGames
@@ -24,7 +25,12 @@ export class GameService {
                 homeTeam: true
             }
         })
-        return oneGame
+        if(oneGame){
+            return oneGame
+        }
+        else{
+            throw new NotFoundException('match non trouvé')
+        }
     }
 
     async getGameOfRound(roundId): Promise<Game[]> {
@@ -42,7 +48,7 @@ export class GameService {
 
     async create(newGame:CreateGameDto):Promise<Game> {
         const createdGame:Game = await this.gameRepo.create({...newGame,finish:false})
-        return createdGame
+        return this.gameRepo.save(createdGame)
     }
     update() { }
 }

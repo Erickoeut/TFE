@@ -13,9 +13,7 @@ export class AuthService {
 
     async signIn(signIn: SignInDto) {
         const user = await this.usersService.findOne(signIn.username);
-        if(!user){
-            throw new NotFoundException("l'utilisateur n'existe pas")
-        }
+
         if (user?.password !== signIn.password) {
             throw new UnauthorizedException('le mot de passe est incorrect');
         }

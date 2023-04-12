@@ -1,4 +1,4 @@
-import { ForbiddenException, Injectable } from "@nestjs/common";
+import { ForbiddenException, Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { CreatePlayerDto } from "src/shared/dto/players/createPlayer.dto";
 // import { PlayerDto } from "src/shared/dto/players/player.dto";
@@ -16,14 +16,19 @@ export class PlayerService {
         return allPlayers
     }
 
-    async getOnePlayerById(playerId): Promise<Player> {
+    async getOnePlayerById(playerId): Promise<Player|undefined> {
         const onePlayer: Player = await this.playerRepo.findOne({
             where: { id: playerId },
             relations:{
                 team:true
             }
         })
-        return onePlayer
+        if(onePlayer){
+            return onePlayer
+        }   
+        else{
+            throw new NotFoundException("il n'y a pas de joueur avec cet id")
+        }
     }
 
     async createPlayer(player:CreatePlayerDto):Promise<Player>{

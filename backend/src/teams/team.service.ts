@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Team } from "src/shared/entities/team.entity";
 import { Repository } from "typeorm";
@@ -8,14 +8,13 @@ export class TeamService {
     constructor(
         @InjectRepository(Team) private teamRepo: Repository<Team>
     ) { }
-    async getAll() {
-        const allTeams = await this.teamRepo.find({})
+    async getAll():Promise<Team[]> {
+        const allTeams:Team[]= await this.teamRepo.find({})
         return allTeams
     }
 
-    async getOne(teamId: number) {
-        const oneTeam = await this.teamRepo.findOne({
-
+    async getOne(teamId: number):Promise<Team> {
+        const oneTeam:Team = await this.teamRepo.findOne({
             where: {
                 id: teamId
             },
@@ -23,8 +22,10 @@ export class TeamService {
                 players: true
             }
         })
-
-        return oneTeam
+        if(oneTeam){return oneTeam}
+        else{
+            throw new NotFoundException("il n'y a pas d'equipe avec cet id")
+        }
     }
     create() { }
     delete() { }
