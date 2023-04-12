@@ -10,7 +10,7 @@ export class AuthController {
     @Post('login')
     signIn(
         @Body() signIn: SignInDto
-    ): Promise<{accessToken}>{
+    ): Promise<any>{
         return this.authService.signIn(signIn);
     }
 }

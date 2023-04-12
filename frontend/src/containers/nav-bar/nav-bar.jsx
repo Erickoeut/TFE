@@ -31,7 +31,7 @@ export default function NavBar({user}) {
                         </li>
                     </ul>
                 </div>
-                {user?<Link>{user.name}</Link>:<Link to={"/login"} className={style.login}>Login</Link>}
+                {user?<h2>{user.username}</h2>:<Link to={"/login"} className={style.login}>Login</Link>}
                 
             </div>
         </>
