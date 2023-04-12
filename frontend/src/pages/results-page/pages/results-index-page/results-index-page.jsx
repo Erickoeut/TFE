@@ -6,7 +6,7 @@ import axios from "axios"
 
 export default function ResultIndexPage() {
 
-    const [day, setDay] = useState(2)
+    const [day, setDay] = useState(1)
     const [gameOfDay, setGameOfDay] = useState([])
 
     useEffect(() => {

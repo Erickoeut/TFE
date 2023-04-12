@@ -13,7 +13,7 @@ async function bootstrap() {
     .setTitle('TFE')
     .setDescription('site championnat de touch')
     .setVersion('1.0')
-      .build();
+    .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
   app.enableCors();

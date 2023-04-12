@@ -9,6 +9,6 @@ export class UsersService {
         @InjectRepository(User) private userRepo:Repository<User>
     ){}
     async findOne(username:string):Promise<User>{
-        return this.userRepo.findOneByOrFail({username:username})
+        return this.userRepo.findOneBy({username:username})
     }
 }

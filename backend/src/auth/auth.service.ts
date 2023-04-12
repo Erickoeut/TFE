@@ -1,8 +1,9 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { HttpException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { UsersService } from 'src/users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import { SignInDto } from 'src/shared/dto/signIn/signInDto';
 import { jwtConstants } from './constants';
+
 @Injectable()
 export class AuthService {
     constructor(
@@ -12,14 +13,17 @@ export class AuthService {
 
     async signIn(signIn: SignInDto) {
         const user = await this.usersService.findOne(signIn.username);
+        if(!user){
+            throw new NotFoundException("l'utilisateur n'existe pas")
+        }
         if (user?.password !== signIn.password) {
-            throw new UnauthorizedException();
+            throw new UnauthorizedException('le mot de passe est incorrect');
         }
         const payload = { username: user.username }
         return {
             username:user.username,
             teamId:user.teamId,
-            accessToken: await this.jwtService.signAsync(payload, { secret: jwtConstants.secret })
+            accessToken: await this.jwtService.signAsync(payload, { secret: jwtConstants.secret }) 
         }
     }
 }

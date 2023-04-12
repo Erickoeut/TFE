@@ -14,11 +14,9 @@ export default function LoginPage() {
     console.log(userState.user)
     const handleSetUsername = (e) => {
         setUsername(e.target.value)
-        // console.log("handleSetUsername" + username);
     }
     const handleSetPassword = (e) => {
         setPassword(e.target.value)
-        // console.log(password);
     }
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -28,18 +26,17 @@ export default function LoginPage() {
         }).then(({data})=>{
 
             dispatch(userConnect(data))
-            // navigate(-1)
+            navigate(-1)
         })
         // console.log("handleSubmit");
     }
 
-    const handleBlopTest = (e) => {
-        e.preventDefault();
-
-        axios.get("http://localhost:3000/api/players", { headers: { 'Authorization': `Bearer ${userState.user.accessToken}`}}).then(data => {
-            console.log(data)
-        })
-    }
+    // const handleBlopTest = (e) => {
+    //     e.preventDefault();
+    //     axios.get("http://localhost:3000/api/players", { headers: { 'Authorization': `Bearer ${userState.user.accessToken}`}}).then(data => {
+    //         console.log(data)
+    //     })
+    // }
 
     return (<>
         <h1>Login</h1>
@@ -54,6 +51,5 @@ export default function LoginPage() {
             </div>
             <button type="submit">Se connecter</button>
         </form>
-        <button onClick={(e) => handleBlopTest(e)}>DEMo</button>
     </>)
 }
