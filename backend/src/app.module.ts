@@ -30,7 +30,7 @@ import { AuthModule } from './auth/auth.module';
     PlayerModule,
     GameModule,
     UsersModule,
-    // AuthModule
+    AuthModule
   ],
   controllers: [],
   providers: [],

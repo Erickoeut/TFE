@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
+import { CreateGameDto } from "src/shared/dto/games/createGame.dto";
 import { Game } from "src/shared/entities/game.entity";
 import { Repository } from "typeorm";
 
@@ -13,7 +14,7 @@ export class GameService {
         return allGames
     }
 
-    async getOne(gameId): Promise<Game> {
+    async getOne(gameId): Promise<Game|undefined> {
         let oneGame: Game = await this.gameRepo.findOne({
             where: {
                 id: gameId
@@ -39,6 +40,9 @@ export class GameService {
         return gameOfRound
     }
 
-    create() { }
+    async create(newGame:CreateGameDto):Promise<Game> {
+        const createdGame:Game = await this.gameRepo.create({...newGame,finish:false})
+        return createdGame
+    }
     update() { }
 }
