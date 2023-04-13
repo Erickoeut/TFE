@@ -13,7 +13,7 @@ export class Game{
     @Column()
     type:string
     @Column()
-    date:string
+    date:Date
     @Column({name:'home_score'})
     homeScore:number
     @Column({name:'away_score'})

@@ -2,7 +2,7 @@ import { useId, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import style from "./login-page.module.scss"
 import axios, { AxiosHeaders } from "axios"
-import { userConnect } from "../../../store/actions/user.action"
+import { userConnect } from "../../store/actions/user.action"
 import { useNavigate } from "react-router-dom"
 export default function LoginPage() {
     const id = useId()
@@ -10,8 +10,8 @@ export default function LoginPage() {
     const dispatch = useDispatch()
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const userState = useSelector((state) => state.user)
-    console.log(userState.user)
+    const user = useSelector(state => state.user.user)
+    console.log(user)
     const handleSetUsername = (e) => {
         setUsername(e.target.value)
     }
