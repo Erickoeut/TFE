@@ -7,25 +7,33 @@ import { useEffect, useState } from "react";
 export default function ResultDetailsPage() {
     const { gameId } = useParams()
     const [game, setGame] = useState(null)
-
+    const [weather, setWeather] = useState(null)
     useEffect(() => {
         axios.get(`http://localhost:3000/api/games/${gameId}`)
             .then(({ data }) => {
                 setGame(data)
-            })
-    }, [])
-
+                axios.get(`http://localhost:3000/api/weather/${data.localisation}`)
+                .then(({ data }) => { 
+                    setWeather(data) 
+                })
+            })}
+        , [])
+        
     return (
-        game && (
+        game && weather&&(
             <>
                 <h2>Result details</h2>
                 <Link to={'/results'}> <button>Retour</button> </Link>
                 <div className={style.resultDetails}>
-
                     <div className={style.gameInfos}>
                         <p>
                             localisation : {game.localisation}
                         </p>
+                        <div>
+                            <p>
+                            meteo actuelle:{weather.skyMeteo}
+                            </p>
+                        </div>
                         <p>
                             Tour {game.round}
                         </p>
@@ -44,8 +52,6 @@ export default function ResultDetailsPage() {
                         </div>
                     </div>
                 </div>
-
             </>)
-
     )
 }
