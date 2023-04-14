@@ -13,6 +13,7 @@ import { TeamModule } from "src/teams/team.module";
         TeamModule
     ],
     controllers: [GameController],
-    providers: [GameService]
+    providers: [GameService],
+    exports:[GameService]
 })
 export class GameModule { }
