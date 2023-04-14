@@ -23,10 +23,17 @@ export class GameController {
 
     @Get("round/:roundId")
     async getGameOfRound(
-        @Param("roundId") roundId
+        @Param("roundId",ParseIntPipe) roundId
     ): Promise<Game[]> {
         return await this.gameServe.getGameOfRound(roundId)
     }
+    @Get("team/:teamId")
+    async getGameOfTeam(
+        @Param("teamId",ParseIntPipe) teamId:number
+    ):Promise<any>{
+        return await this.gameServe.getGameOfTeam(teamId)
+    }
+
 
     @UseGuards(AuthModule)
     @Post()

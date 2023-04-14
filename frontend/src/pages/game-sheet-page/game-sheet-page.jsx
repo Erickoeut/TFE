@@ -1,4 +1,6 @@
-export default function GameSheetPage({team_id}){
+import { Outlet } from "react-router-dom";
+
+export default function GameSheetPage(){
     return(
         <>
             <Outlet/>

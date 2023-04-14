@@ -10,6 +10,7 @@ import ResultIndexPage from "../pages/results-page/pages/results-index-page/resu
 import ResultDetailsPage from "../pages/results-page/pages/results-details-page/results-details-page"
 import LoginPage from "../pages/login-page/login-page"
 import GameSheetPage from "../pages/game-sheet-page/game-sheet-page"
+import GameSheetIndex from "../pages/game-sheet-page/pages/game-sheet-index"
 
 const route = [
     {
@@ -66,7 +67,7 @@ const route = [
                 children:[
                     {
                         index:true,
-
+                        element:<GameSheetIndex/>
                     }
                 ]
             }

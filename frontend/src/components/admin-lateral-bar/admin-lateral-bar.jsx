@@ -5,7 +5,7 @@ export default function AdminLateralBar(){
         <div className={style.AdminLateralBar}>
             <h1>Admin lateral bar</h1>
 
-            <Link>Feuilles de match</Link>
+            <Link to={"/game-sheet"} >Feuilles de match</Link>
             
         </div>
     )
