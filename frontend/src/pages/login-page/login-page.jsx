@@ -11,7 +11,6 @@ export default function LoginPage() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const user = useSelector(state => state.user.user)
-    console.log(user)
     const handleSetUsername = (e) => {
         setUsername(e.target.value)
     }

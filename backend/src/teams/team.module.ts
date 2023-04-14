@@ -11,6 +11,7 @@ import { Team } from "src/shared/entities/team.entity";
         ])
     ],
     controllers: [TeamController],
-    providers: [TeamService]
+    providers: [TeamService],
+    exports:[TeamService]
 })
 export class TeamModule { }

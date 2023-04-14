@@ -1,6 +1,5 @@
-import { Controller, Get, Post,Param,Body, ParseIntPipe, Put ,UseGuards} from "@nestjs/common";
+import { Controller, Get, Post, Param, Body, ParseIntPipe, Put, UseGuards } from "@nestjs/common";
 import { GameService } from "./game.service";
-import { GameDto } from "src/shared/dto/games/game.dto";
 import { Game } from "src/shared/entities/game.entity";
 import { CreateGameDto } from "src/shared/dto/games/createGame.dto";
 import { UpdateGameDto } from "src/shared/dto/games/updateGame.dto";
@@ -18,7 +17,7 @@ export class GameController {
     }
 
     @Get(":id")
-    async getOne(@Param("id",ParseIntPipe) id): Promise<Game> {
+    async getOne(@Param("id", ParseIntPipe) id): Promise<Game> {
         return await this.gameServe.getOne(id)
     }
 
@@ -32,16 +31,16 @@ export class GameController {
     @UseGuards(AuthModule)
     @Post()
     async create(
-        @Body() newGame:CreateGameDto
-    ):Promise<Game>{
+        @Body() newGame: CreateGameDto
+    ): Promise<Game> {
         return await this.gameServe.create(newGame)
     }
 
     @UseGuards(AuthModule)
     @Put("admin/:id")
     async update(
-        @Body() updateGame:UpdateGameDto
-    ):Promise<Game>{
+        @Body() updateGame: UpdateGameDto
+    ): Promise<Game> {
         return
     }
 }
