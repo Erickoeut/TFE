@@ -9,10 +9,7 @@ export class WeatherService{
         }; 
         return await axios.get(`https://api.openweathermap.org/data/2.5/weather`,{params})
             .then(function ({data}) {
-                console.log(data);
-                
-                return (
-                    
+                return (                    
                     {
                     skyMeteo: data.weather[0].description,
                     icon:  data.weather[0].icon,
@@ -22,6 +19,9 @@ export class WeatherService{
                 }
                 )
             })
-            .catch(() => { throw new NotFoundException("la ville recherchée n'existe pas") })
+            .catch((e) => { 
+                console.log(e);
+                
+                throw new NotFoundException("la ville recherchée n'existe pas") })
     }
 }

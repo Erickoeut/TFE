@@ -13,30 +13,36 @@ export default function ResultDetailsPage() {
             .then(({ data }) => {
                 setGame(data)
                 axios.get(`http://localhost:3000/api/weather/${data.localisation}`)
-                .then(({ data }) => { 
-                    setWeather(data) 
-                })
-            })}
+                    .then(({ data }) => {
+                        setWeather(data)
+                    })
+            })
+    }
         , [])
-        
+
     return (
-        game && weather&&(
+        game && weather && (
             <>
                 <h2>Result details</h2>
                 <Link to={'/results'}> <button>Retour</button> </Link>
                 <div className={style.resultDetails}>
                     <div className={style.gameInfos}>
                         <p>
+                            Tour {game.round}
+                        </p>
+                        <p>
+                            {/* {game.date} */}
+                        </p>
+                        <p>
                             localisation : {game.localisation}
                         </p>
                         <div>
                             <p>
-                            meteo actuelle:{weather.skyMeteo}
+                                meteo actuelle:
                             </p>
+                            <img src={`https://openweathermap.org/img/wn/${weather.icon}@4x.png`} alt="weather-icon" />
+                            <p> {weather.skyMeteo} , température : {weather.temp} °C </p>
                         </div>
-                        <p>
-                            Tour {game.round}
-                        </p>
                     </div>
                     <div className={style.gameResult}>
                         <div>
