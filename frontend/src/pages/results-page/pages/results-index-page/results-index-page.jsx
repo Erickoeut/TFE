@@ -19,7 +19,7 @@ export default function ResultIndexPage() {
     const handleSetDay = (e) => {
         setDay(e.target.value)
     }
-
+    
     return (
         <>
             <h2>Liste résultats</h2>

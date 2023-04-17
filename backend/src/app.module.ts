@@ -7,6 +7,7 @@ import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { WeatherModule } from './weather/weather.module';
+import { SeasonModule } from './seasons/season.module';
 
 
 @Module({
@@ -32,7 +33,8 @@ import { WeatherModule } from './weather/weather.module';
     GameModule,
     UsersModule,
     AuthModule,
-    WeatherModule
+    WeatherModule,
+    SeasonModule
   ],
   controllers: [],
   providers: [],

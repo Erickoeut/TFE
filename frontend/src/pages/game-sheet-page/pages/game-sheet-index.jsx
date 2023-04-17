@@ -8,6 +8,7 @@ export default function GameSheetIndex() {
     useEffect(() => {
         axios.get(`http://localhost:3000/api/games/team/${user.teamId}`)
             .then(({ data }) => {
+                console.log(data);
                 setGames(data)
             })
     }, [])
