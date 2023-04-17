@@ -12,10 +12,10 @@ export default function ResultDetailsPage() {
         axios.get(`http://localhost:3000/api/games/${gameId}`)
             .then(({ data }) => {
                 setGame(data)
-                // axios.get(`http://localhost:3000/api/weather/${data.localisation}`)
-                //     .then(({ data }) => {
-                //         setWeather(data)
-                //     })
+                axios.get(`http://localhost:3000/api/weather/${data.localisation}`)
+                    .then(({ data }) => {
+                        setWeather(data)
+                    })
             })
     }
         , [])
@@ -31,7 +31,7 @@ export default function ResultDetailsPage() {
                             Tour {game.round}
                         </p>
                         <p>
-                            {/* {game.date} */}
+                            {game.date}
                         </p>
                         <p>
                             localisation : {game.localisation}
