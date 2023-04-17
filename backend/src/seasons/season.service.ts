@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { GameService } from "src/games/game.service";
 import { Season } from "src/shared/entities/season.entity";
+import { Team } from "src/shared/entities/team.entity";
 
 import { TeamService } from "src/teams/team.service";
 import { Repository } from "typeorm";
@@ -19,8 +20,8 @@ export class SeasonService {
         return allSeason
     }
 
-    async getRanking() { //seasonId a ajouter
-        const teams = await this.teamService.getAll()
+    async getRanking() :Promise<any>{ //seasonId a ajouter
+        const teams:Team[] = await this.teamService.getAll()
         const ranking=[]
         for (const team of teams) {
             const teamResults = await this.gameService.getGameOfTeam(team.id)
