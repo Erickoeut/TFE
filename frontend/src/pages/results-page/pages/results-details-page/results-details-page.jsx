@@ -12,16 +12,16 @@ export default function ResultDetailsPage() {
         axios.get(`http://localhost:3000/api/games/${gameId}`)
             .then(({ data }) => {
                 setGame(data)
-                axios.get(`http://localhost:3000/api/weather/${data.localisation}`)
-                    .then(({ data }) => {
-                        setWeather(data)
-                    })
+                // axios.get(`http://localhost:3000/api/weather/${data.localisation}`)
+                //     .then(({ data }) => {
+                //         setWeather(data)
+                //     })
             })
     }
         , [])
 
     return (
-        game && weather && (
+        game  && (
             <>
                 <h2>Result details</h2>
                 <Link to={'/results'}> <button>Retour</button> </Link>
@@ -36,13 +36,13 @@ export default function ResultDetailsPage() {
                         <p>
                             localisation : {game.localisation}
                         </p>
-                        <div>
+                        {weather&&<div>
                             <p>
                                 meteo actuelle:
                             </p>
                             <img src={`https://openweathermap.org/img/wn/${weather.icon}@4x.png`} alt="weather-icon" />
-                            <p> {weather.skyMeteo} , température : {weather.temp} °C </p>
-                        </div>
+                            {weather&&<p> {weather.skyMeteo} , température : {weather.temp} °C </p>}
+                        </div>}
                     </div>
                     <div className={style.gameResult}>
                         <div>

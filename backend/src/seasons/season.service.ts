@@ -9,8 +9,12 @@ import { Repository } from "typeorm";
 @Injectable()
 export class SeasonService{
     constructor(
-        @InjectRepository(Season) seasonRepo:Repository<Season>,
+        @InjectRepository(Season) private seasonRepo:Repository<Season>,
         private readonly teamService:TeamService,
         private readonly gameService:GameService
     ){}
+
+    async getAll(){
+        const allSeason:Season = await this.seasonRepo.find({})
+    }
 }
