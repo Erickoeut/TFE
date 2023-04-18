@@ -20,11 +20,11 @@ export class SeasonService {
         return allSeason
     }
 
-    async getRanking(): Promise<any[]> { //seasonId a ajouter
+    async getRanking(seasonId): Promise<any[]> { //seasonId a ajouter
         const teams: Team[] = await this.teamService.getAll()
         const ranking = []
         for (const team of teams) {
-            const teamResults = await this.gameService.getGameOfTeam(team.id)
+            const teamResults = await this.gameService.getGameOfTeam(seasonId,team.id)
             const teamRanking = {
                 ...team,
                 position: 0,

@@ -35,10 +35,11 @@ export class GameService {
         }
     }
 
-    async getGameOfRound(roundId): Promise<Game[]> {
+    async getGameOfRound(seasonId,roundId): Promise<Game[]> {
         const gameOfRound: Game[] = await this.gameRepo.find({
             where: {
-                round: roundId
+                round: roundId,
+                seasonId:seasonId
             },
             relations: {
                 awayTeam: true,
@@ -48,11 +49,12 @@ export class GameService {
         return gameOfRound
     }
 
-    async getGameOfTeam(teamId):Promise<any>{
+    async getGameOfTeam(seasonId:number,teamId):Promise<any>{
         const team = await this.teamService.getOne(teamId)
         const homeGameOfTeam = await this.gameRepo.find({
             where:{
-                homeTeam:team
+                homeTeam:team,
+                seasonId:seasonId
             },
             relations:{
                 homeTeam:true,
@@ -61,7 +63,8 @@ export class GameService {
         })
         const awayGamesOfTeam = await this.gameRepo.find({
             where:{
-                awayTeam:team
+                awayTeam:team,
+                seasonId:seasonId
             },
             relations:{
                 homeTeam:true,

@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Param, ParseIntPipe } from "@nestjs/common";
 import { SeasonService } from "./season.service";
 import { ApiTags } from "@nestjs/swagger";
 @ApiTags('Season')
@@ -11,8 +11,10 @@ export class SeasonController{
         return await this.seasonService.getAll()
     }
 
-    @Get('/ranking')
-    async getRanking(){
-        return await this.seasonService.getRanking()
+    @Get(':seasonId/ranking')
+    async getRanking(
+        @Param('seasonId',ParseIntPipe) seasonId:number
+    ){
+        return await this.seasonService.getRanking(seasonId)
     }
 }

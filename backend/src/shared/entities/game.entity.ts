@@ -5,7 +5,8 @@ import { Team } from "./team.entity";
 export class Game{
     @PrimaryGeneratedColumn()
     id:number
-
+    @Column()
+    seasonId:number
     @Column()
     round:number
     @Column()
@@ -20,12 +21,8 @@ export class Game{
     awayScore:number
     @Column()
     finish:boolean
-
-    
     @ManyToOne(()=>Team,awayTeam=>awayTeam.id)
     awayTeam: Team
     @ManyToOne(()=>Team,homeTeam=>homeTeam.id)
     homeTeam: Team
-
-    
 }

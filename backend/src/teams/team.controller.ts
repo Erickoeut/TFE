@@ -1,6 +1,7 @@
 import { Controller, Get, Param } from "@nestjs/common";
 import { TeamService } from "./team.service";
-
+import { ApiTags } from "@nestjs/swagger";
+@ApiTags('Teams')
 @Controller("api/teams")
 export class TeamController {
     constructor(

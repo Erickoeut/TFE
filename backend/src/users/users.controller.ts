@@ -7,14 +7,14 @@ import { AuthGuard } from "src/auth/auth.guard";
 @Controller("api/users")
 export class UsersController{
     constructor(private readonly userService:UsersService){}
-
+    @UseGuards(AuthGuard)
     @Post()
     async createUser(
         @Body() newUser:CreateUserDto
     ){
         return await this.userService.createOne(newUser)
     }
-    
+    @UseGuards(AuthGuard)
     @Put()
     async updateUserRole(
         @Body() userToUpdate:UpdateUserRoleDto

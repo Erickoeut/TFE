@@ -4,7 +4,9 @@ import { Game } from "src/shared/entities/game.entity";
 import { CreateGameDto } from "src/shared/dto/games/createGame.dto";
 import { UpdateGameDto } from "src/shared/dto/games/updateGame.dto";
 import { AuthModule } from "src/auth/auth.module";
-
+import { Season } from "src/shared/entities/season.entity";
+import { ApiTags } from "@nestjs/swagger";
+@ApiTags('Games')
 @Controller("api/games")
 export class GameController {
     constructor(
@@ -21,17 +23,25 @@ export class GameController {
         return await this.gameServe.getOne(id)
     }
 
-    @Get("round/:roundId")
-    async getGameOfRound(
-        @Param("roundId",ParseIntPipe) roundId
-    ): Promise<Game[]> {
-        return await this.gameServe.getGameOfRound(roundId)
+    @Get("/season/:id")
+    async getAllGameOfSeason(){
+
     }
-    @Get("team/:teamId")
+
+    @Get("/season/:seasonId/round/:roundId")
+    async getGameOfRound(
+        @Param("roundId", ParseIntPipe) roundId: number,
+        @Param("seasonId", ParseIntPipe) seasonId: number
+    ): Promise<Game[]> {
+        return await this.gameServe.getGameOfRound(seasonId, roundId)
+    }
+
+    @Get("season/:seasonId/team/:teamId")
     async getGameOfTeam(
-        @Param("teamId",ParseIntPipe) teamId:number
-    ):Promise<any>{
-        return await this.gameServe.getGameOfTeam(teamId)
+        @Param("teamId", ParseIntPipe) teamId: number,
+        @Param('seasonId', ParseIntPipe) seasonId
+    ): Promise<object> {
+        return await this.gameServe.getGameOfTeam(seasonId, teamId)
     }
 
 
@@ -44,7 +54,7 @@ export class GameController {
     }
 
     @UseGuards(AuthModule)
-    @Put("admin/:id")
+    @Put(":id")
     async update(
         @Body() updateGame: UpdateGameDto
     ): Promise<Game> {

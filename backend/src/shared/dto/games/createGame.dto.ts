@@ -2,6 +2,8 @@ import { IsInt, IsString } from "class-validator"
 
 export class CreateGameDto{
     @IsInt()
+    seasonYear:number
+    @IsInt()
     round:number
     @IsString()
     localisation:string
