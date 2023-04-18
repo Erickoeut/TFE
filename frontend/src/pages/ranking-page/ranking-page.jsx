@@ -4,7 +4,7 @@ import style from './ranking-page.module.scss'
 export default function RankingPage() {
     const [ranking, setRanking] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:3000/api/season/ranking')
+        axios.get('http://localhost:3000/api/season/1/ranking')
             .then(({ data }) => {
                 setRanking(data)
             })

@@ -19,8 +19,11 @@ export class SeasonService {
         const allSeason: Season[] = await this.seasonRepo.find({})
         return allSeason
     }
-
-    async getRanking(seasonId): Promise<any[]> { //seasonId a ajouter
+    async getOne(seasonId): Promise<Season> {
+        const allSeason: Season = await this.seasonRepo.findOne({where:{id:seasonId}})
+        return allSeason
+    }
+    async getRanking(seasonId): Promise<any[]> { 
         const teams: Team[] = await this.teamService.getAll()
         const ranking = []
         for (const team of teams) {
@@ -37,10 +40,6 @@ export class SeasonService {
                 scoreAgainst: 0,
                 scoreDifference: 0
             }
-
-            //TODO : Ajouter seasonId a game
-            // teamResults.homeGames.filter(game=>game.seasonId===seasonId)
-            // teamResults.awayGames.filter(game=>game.seasonId===seasonId)
 
             for (const game of teamResults.homeGames) {
                 if (game.finish) {

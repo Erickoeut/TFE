@@ -10,6 +10,12 @@ export class SeasonController{
     async getAll(){
         return await this.seasonService.getAll()
     }
+    @Get(":seasonId")
+async getOne(
+    @Param("seasonId") seasonId
+    ){
+        return await this.seasonService.getOne(seasonId)
+    }
 
     @Get(':seasonId/ranking')
     async getRanking(

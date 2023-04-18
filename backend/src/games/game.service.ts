@@ -35,6 +35,19 @@ export class GameService {
         }
     }
 
+    async getAllGameOfSeason(seasonId){
+        const gameOfSeason: Game[] = await this.gameRepo.find({
+            where: {
+                seasonId:seasonId
+            },
+            relations: {
+                awayTeam: true,
+                homeTeam: true
+            }
+        })
+        return gameOfSeason 
+    }
+
     async getGameOfRound(seasonId,roundId): Promise<Game[]> {
         const gameOfRound: Game[] = await this.gameRepo.find({
             where: {

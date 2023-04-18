@@ -9,8 +9,9 @@ export default function ResultIndexPage() {
     const [day, setDay] = useState(1)
     const [gameOfDay, setGameOfDay] = useState([])
 
+
     useEffect(() => {
-        axios.get(`http://localhost:3000/api/games/round/${day}`)
+        axios.get(`http://localhost:3000/api/games/season/1/round/${day}`)
             .then(({ data }) => {
                 setGameOfDay(data)
             })
