@@ -3,7 +3,9 @@ import { PlayerService } from "./player.service";
 import { CreatePlayerDto } from "src/shared/dto/players/createPlayer.dto";
 import { Player } from "src/shared/entities/player.entity";
 import { AuthGuard } from "src/auth/auth.guard";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags('Players')
 @Controller("api/players")
 export class PlayerController {
     constructor(

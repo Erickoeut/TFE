@@ -11,7 +11,7 @@ export class AuthService {
         private jwtService: JwtService
     ) { }
 
-    async signIn(signIn: SignInDto) {
+    async signIn(signIn: SignInDto) :Promise<any>{
         const user = await this.usersService.findOne(signIn.username);
 
         if (user?.password !== signIn.password) {

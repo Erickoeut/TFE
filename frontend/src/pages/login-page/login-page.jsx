@@ -20,9 +20,12 @@ export default function LoginPage() {
     const handleSubmit = (e) => {
         e.preventDefault()
         axios.post("http://localhost:3000/api/auth/login",{
-            "username":username,
-            "password":password
-        }).then(({data})=>{
+            body:{
+                "username":username,
+                "password":password
+            }
+            })
+            .then(({data})=>{
 
             dispatch(userConnect(data))
             navigate(-1)

@@ -48,7 +48,7 @@ export class GameService {
         return gameOfRound
     }
 
-    async getGameOfTeam(teamId){
+    async getGameOfTeam(teamId):Promise<any>{
         const team = await this.teamService.getOne(teamId)
         const homeGameOfTeam = await this.gameRepo.find({
             where:{

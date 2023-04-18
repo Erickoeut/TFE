@@ -7,4 +7,8 @@ export class Season{
 
     @Column()
     nbOfGame:number
+
+    @Column()
+    year:number
+
 }
