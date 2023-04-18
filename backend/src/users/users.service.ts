@@ -59,4 +59,5 @@ export class UsersService {
             throw new BadRequestException("cet utilisateur n'existe pas")
         }
     }
+
 }

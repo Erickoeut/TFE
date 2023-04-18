@@ -15,18 +15,23 @@ export default function RankingPage() {
             <div className={style.RankingPage}>
                 <table>
                     <thead>
-                        <td>Classement</td>
-                        <td>Equipe</td>
-                        <td>Joués</td>
-                        <td>Pts</td>
-                        <td>G</td>
-                        <td>N</td>
-                        <td>P</td>
-                        <td>+</td>
-                        <td>-</td>
-                        <td>diff</td>
+                        <tr>
+                            <th>Classement</th>
+                            <th>Equipe</th>
+                            <th>Pts</th>
+                            <th>Joués</th>
+                            <th>G</th>
+                            <th>N</th>
+                            <th>P</th>
+                            <th>+</th>
+                            <th>-</th>
+                            <th>diff</th>
+                        </tr>
+                        
                     </thead>
-                    {ranking.map((team, i) => <RankingRow key={team.id}{...team} i={i} />)}
+                    <tbody>
+                        {ranking.map((team, i) => <RankingRow key={team.id}{...team} i={i} />)}
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -42,8 +47,8 @@ const RankingRow = ({ i, teamName, gamePlayed, teamPoints, win, draw, lost, scor
         <tr>
             <td>{i + 1}</td>
             <td>{teamName}</td>
-            <td>{gamePlayed}</td>
             <td>{teamPoints}</td>
+            <td>{gamePlayed}</td>
             <td>{win}</td>
             <td>{draw}</td>
             <td>{lost}</td>

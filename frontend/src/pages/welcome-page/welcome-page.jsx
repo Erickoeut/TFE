@@ -1,4 +1,4 @@
-import GameSheetPage from "../game-sheet-page/game-sheet-page"
+
 import style from "./welcome-page.module.scss"
 function WelcomePage(){
     return(

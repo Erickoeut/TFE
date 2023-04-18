@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-export default function GameSheetIndex() {
+export default function GameSheetIndexPage() {
     const user = useSelector(state => state.user.user)
     const [games, setGames] = useState([])
     useEffect(() => {

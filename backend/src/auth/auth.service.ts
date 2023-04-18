@@ -19,8 +19,10 @@ export class AuthService {
         }
         const payload = { username: user.username }
         return {
-            username:user.username,
-            teamId:user.teamId,
+            user:{
+                username:user.username,
+                teamId:user.teamId
+            },
             accessToken: await this.jwtService.signAsync(payload, { secret: jwtConstants.secret }) 
         }
     }

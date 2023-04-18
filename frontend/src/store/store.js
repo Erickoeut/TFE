@@ -6,7 +6,7 @@ const store = configureStore({
         user:userReducer
     },
     devTools: process.env.NODE_ENV !== 'production',
-    middleware : (getDefaultMiddleware) => [...getDefaultMiddleware(), reduxLogger]
+    // middleware : (getDefaultMiddleware) => [...getDefaultMiddleware(), reduxLogger]
 })
 
 export default store

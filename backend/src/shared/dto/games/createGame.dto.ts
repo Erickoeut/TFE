@@ -9,4 +9,8 @@ export class CreateGameDto{
     type:string
     @IsString()
     date:string
+    @IsInt()
+    homeTeamId:number
+    @IsInt()
+    awayTeamId:number
 }

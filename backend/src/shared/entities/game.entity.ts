@@ -20,9 +20,12 @@ export class Game{
     awayScore:number
     @Column()
     finish:boolean
+
     
     @ManyToOne(()=>Team,awayTeam=>awayTeam.id)
     awayTeam: Team
     @ManyToOne(()=>Team,homeTeam=>homeTeam.id)
     homeTeam: Team
+
+    
 }

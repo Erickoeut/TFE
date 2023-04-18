@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Game } from "./game.entity";
 
 @Entity()
 export class Season{
@@ -6,7 +7,7 @@ export class Season{
     id:number
 
     @Column()
-    nbOfGame:number
+    nbOfRound:number
 
     @Column()
     year:number

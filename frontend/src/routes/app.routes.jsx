@@ -9,8 +9,10 @@ import ResultsPage from "../pages/results-page/results-page"
 import ResultIndexPage from "../pages/results-page/pages/results-index-page/results-index-page"
 import ResultDetailsPage from "../pages/results-page/pages/results-details-page/results-details-page"
 import LoginPage from "../pages/login-page/login-page"
-import GameSheetPage from "../pages/game-sheet-page/game-sheet-page"
-import GameSheetIndex from "../pages/game-sheet-page/pages/game-sheet-index"
+import GameSheetIndexPage from "../pages/admin-pages/game-sheet-page/pages/game-sheet-index-page"
+import GameSheetPage from "../pages/admin-pages/game-sheet-page/game-sheet-page"
+import CreateGamePage from "../pages/admin-pages/create-game-page/creat-game-page"
+
 
 const route = [
     {
@@ -67,9 +69,13 @@ const route = [
                 children:[
                     {
                         index:true,
-                        element:<GameSheetIndex/>
+                        element:<GameSheetIndexPage/>
                     }
                 ]
+            },
+            {
+                path:"create-game",
+                element:<CreateGamePage/>
             }
         ]
     }
