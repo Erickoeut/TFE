@@ -14,7 +14,6 @@ function App() {
   useEffect(()=>{
     if(!user){
       const tokenJson = JSON.parse(localStorage.getItem('token'))
-
       if(tokenJson){
         axios.get('http://localhost:3000/api/users',{headers: { 'Authorization': `Bearer ${tokenJson}`}})
         .then(({data})=>{
@@ -25,7 +24,7 @@ function App() {
         })}
         
       }
-  },[])
+  },[user])
   return (
     <div className="App">
       <NavBar user={user}/>

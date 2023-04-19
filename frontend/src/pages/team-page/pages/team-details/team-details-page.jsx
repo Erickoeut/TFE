@@ -15,19 +15,19 @@ export default function TeamDetailsPage() {
     }, [])
 
     return (
-        team && <>
-            <h2>Team details</h2>
+        team && <div>
+            <h1>{team.teamName}</h1>
             <Link to={'/teams'}> <button>Retour</button> </Link>
             <div className={style.teamDetails}>
                 <div>
-                    <h2>{team.teamName}</h2>
+                    
                     {<img src={team.teamLogo} alt="" />}
                 </div>
             </div>
             <div className={style.playerIndex}>
                 {team.players.map(player => <PlayerCard key={player.id}{...player} />)}
             </div>
-        </>
+        </div>
     )
 }
 

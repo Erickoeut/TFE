@@ -1,23 +1,27 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import style from './ranking-page.module.scss'
+import { useNavigate } from "react-router-dom"
 export default function RankingPage() {
     const [ranking, setRanking] = useState([])
+    const [seasonDetail,setSeasonDetails]= useState(null)
     useEffect(() => {
         axios.get('http://localhost:3000/api/season/1/ranking')
             .then(({ data }) => {
-                setRanking(data)
+                setRanking(data.ranking)
+                setSeasonDetails({year:data.year})
             })
     }, [])
     return (
         <div >
-            <h1>Ranking page</h1>
+            {seasonDetail&&<h1>Classement saison {seasonDetail.year}-{seasonDetail.year+1}</h1>}
             <div className={style.RankingPage}>
                 <table>
                     <thead>
                         <tr>
                             <th></th>
                             <th>Equipe</th>
+                            <th></th>
                             <th>Pts</th>
                             <th>Joués</th>
                             <th>G</th>
@@ -42,11 +46,13 @@ RankingPage.defaultProps = {
     ranking: []
 }
 
-const RankingRow = ({ i, teamName, gamePlayed, teamPoints, win, draw, lost, scoreFor, scoreAgainst, scoreDifference }) => {
+const RankingRow = ({ i, id,teamLogo,teamName, gamePlayed, teamPoints, win, draw, lost, scoreFor, scoreAgainst, scoreDifference }) => {
+    const navigate = useNavigate()
     return (
         <tr>
             <td>{i + 1}</td>
-            <td>{teamName}</td>
+            <td><img src={teamLogo} alt="" /></td>
+            <td onClick={()=>navigate(`/teams/${id}`)}>{teamName}</td>
             <td>{teamPoints}</td>
             <td>{gamePlayed}</td>
             <td>{win}</td>

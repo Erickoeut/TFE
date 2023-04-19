@@ -22,8 +22,8 @@ export default function ResultDetailsPage() {
 
     return (
         game  && (
-            <>
-                <h2>Result details</h2>
+            <div>
+                <h1>Result details</h1>
                 <Link to={'/results'}> <button>Retour</button> </Link>
                 <div className={style.resultDetails}>
                     <div className={style.gameInfos}>
@@ -58,6 +58,6 @@ export default function ResultDetailsPage() {
                         </div>
                     </div>
                 </div>
-            </>)
+            </div>)
     )
 }

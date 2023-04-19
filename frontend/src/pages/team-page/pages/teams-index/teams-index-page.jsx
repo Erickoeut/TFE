@@ -15,7 +15,7 @@ export default function TeamsIndexPage() {
 
     return (
         <div>
-            <h2>Team Index</h2>
+            <h1>Les Clubs</h1>
             <div className={style.TeamsIndex}>
                 {allTeams.map(team => <TeamCard key={team.id} {...team} />)}
             </div>

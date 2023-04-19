@@ -24,9 +24,6 @@ export class SeasonService {
         const oneSeason: Season = await this.seasonRepo.findOne(
             {
                 where:{id:seasonId},
-                relations:{
-                    games:true
-                }
             }
         )
         return oneSeason
@@ -34,8 +31,9 @@ export class SeasonService {
 
 
     
-    async getRanking(seasonId): Promise<any[]> { 
+    async getRanking(seasonId): Promise<any> { 
         const teams: Team[] = await this.teamService.getAll()
+        const season:Season = await this.getOne(seasonId)
         const ranking = []
         for (const team of teams) {
             const teamResults = await this.gameService.getGameOfTeam(seasonId,team.id)
@@ -100,6 +98,9 @@ export class SeasonService {
             return b.teamPoints - a.teamPoints
         })
 
-        return ranking
+        return {
+            ...season,
+            ranking:ranking
+        }
     }
 }

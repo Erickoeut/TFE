@@ -18,11 +18,13 @@
 
 .teamDetails{
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
+    justify-content: center;
     align-items: center;
     img{
-        width: 20rem;
+        width: 15rem;
         object-fit: contain;
+        
     }
     h2{
         text-align: center;

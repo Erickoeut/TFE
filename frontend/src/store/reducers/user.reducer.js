@@ -1,19 +1,19 @@
 import { createReducer } from "@reduxjs/toolkit"
-import { userConnect } from "../actions/user.action"
+import { userConnect, userDisconnect } from "../actions/user.action"
 
-const initialState = 
+const initialState =
 {
-    user:null
-    // {accessToken:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwiaWF0IjoxNjgxNDgxMjMyfQ.vT47Nj7P6aFQdjjbMHSYbyo_gGpEpRHli6DXP5dJiCw",
-    //     teamId: 1,
-    //     username: "user1"
-    // }
+    user: null
 }
 
-const userReducer = createReducer(initialState,builder=>{
+const userReducer = createReducer(initialState, builder => {
     builder
-        .addCase(userConnect,(state,action)=>{
+        .addCase(userConnect, (state, action) => {
             state.user = action.payload
+        })
+        .addCase(userDisconnect, (state,action) => {
+            console.log('tete');
+            state.user = null
         })
 })
 
