@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Game } from "./game.entity";
 
 @Entity("season")
@@ -12,4 +12,6 @@ export class Season{
     @Column()
     year:number
 
+    @OneToMany(()=>Game,(game)=>game.season)
+    games : Game[]
 }

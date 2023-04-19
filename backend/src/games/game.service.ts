@@ -38,9 +38,10 @@ export class GameService {
     async getAllGameOfSeason(seasonId){
         const gameOfSeason: Game[] = await this.gameRepo.find({
             where: {
-                seasonId:seasonId
+                season:seasonId
             },
             relations: {
+                season:true,
                 awayTeam: true,
                 homeTeam: true
             }
@@ -52,7 +53,7 @@ export class GameService {
         const gameOfRound: Game[] = await this.gameRepo.find({
             where: {
                 round: roundId,
-                seasonId:seasonId
+                // seasonId:seasonId
             },
             relations: {
                 awayTeam: true,
@@ -67,7 +68,7 @@ export class GameService {
         const homeGameOfTeam = await this.gameRepo.find({
             where:{
                 homeTeam:team,
-                seasonId:seasonId
+                // seasonId:seasonId
             },
             relations:{
                 homeTeam:true,
@@ -77,7 +78,7 @@ export class GameService {
         const awayGamesOfTeam = await this.gameRepo.find({
             where:{
                 awayTeam:team,
-                seasonId:seasonId
+                // seasonId:seasonId
             },
             relations:{
                 homeTeam:true,

@@ -1,12 +1,11 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { Team } from "./team.entity";
+import { Season } from "./season.entity";
 
 @Entity("game")
 export class Game{
     @PrimaryGeneratedColumn()
     id:number
-    @Column()
-    seasonId:number
     @Column()
     round:number
     @Column()
@@ -25,4 +24,6 @@ export class Game{
     awayTeam: Team
     @ManyToOne(()=>Team,homeTeam=>homeTeam.id)
     homeTeam: Team
+    @ManyToOne(()=>Season,season=>season.id)
+    season:Season
 }

@@ -41,7 +41,7 @@ export default function ResultDetailsPage() {
                                 meteo actuelle:
                             </p>
                             <img src={`https://openweathermap.org/img/wn/${weather.icon}@4x.png`} alt="weather-icon" />
-                            {weather&&<p> {weather.skyMeteo} , température : {weather.temp} °C </p>}
+                            <p> {weather.skyMeteo} , température : {weather.temp} °C </p>
                         </div>}
                     </div>
                     <div className={style.gameResult}>

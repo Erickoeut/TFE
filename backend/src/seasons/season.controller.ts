@@ -3,24 +3,24 @@ import { SeasonService } from "./season.service";
 import { ApiTags } from "@nestjs/swagger";
 @ApiTags('Season')
 @Controller('api/season')
-export class SeasonController{
-    constructor(private readonly seasonService:SeasonService){}
+export class SeasonController {
+    constructor(private readonly seasonService: SeasonService) { }
 
     @Get()
-    async getAll(){
+    async getAll() {
         return await this.seasonService.getAll()
     }
     @Get(":seasonId")
-async getOne(
-    @Param("seasonId") seasonId
-    ){
+    async getOne(
+        @Param("seasonId") seasonId
+    ) {
         return await this.seasonService.getOne(seasonId)
     }
 
     @Get(':seasonId/ranking')
     async getRanking(
-        @Param('seasonId',ParseIntPipe) seasonId:number
-    ){
+        @Param('seasonId', ParseIntPipe) seasonId: number
+    ) {
         return await this.seasonService.getRanking(seasonId)
     }
 }

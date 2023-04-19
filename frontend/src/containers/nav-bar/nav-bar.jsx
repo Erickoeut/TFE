@@ -30,8 +30,8 @@ export default function NavBar({user}) {
                             </NavLink>
                         </li>
                     </ul>
-                </div>
                 {user?<h2>{user.username}</h2>:<Link to={"/login"} className={style.login}>Login</Link>}
+                </div>
                 
             </div>
         </>

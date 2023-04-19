@@ -16,7 +16,7 @@ export default function RankingPage() {
                 <table>
                     <thead>
                         <tr>
-                            <th>Classement</th>
+                            <th></th>
                             <th>Equipe</th>
                             <th>Pts</th>
                             <th>Joués</th>

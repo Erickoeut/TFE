@@ -1,28 +1,46 @@
-.ResutltIndexPage{
+.ResutltIndexPage {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
-.resultRow{
-    display:flex;
-    margin: 2rem 0;
-    justify-content: center;
-    // border: 1px solid;
-    .team {
-        display: flex;
-        width: 100%;
-        // border: 1px solid red;
-        &:first-child{
-            justify-content: flex-end;
-        }
-    }
-    .score{
+.resultIndex {
+    box-shadow: 0px 0px 30px rgba(51, 51, 51,0.15);
+    max-width: 80vw;
+    width: 30rem;
+    margin: 2rem;
+    .resultRow {
         display: flex;
         justify-content: center;
-        width: 15rem;
+        height: 4rem;
+        align-items: center;
+
+        .team {
+            display: flex;
+            width: 100%;
+            padding: 2rem;
+            &:first-child {
+                justify-content: flex-end;
+            }
+        }
+
+        .score {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 15rem;
+            height: 100%;
+            background-color: rgb(61, 61, 61);
+            color:#FFD270;
+            &:hover{
+                color: red;
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
     }
-    &:hover{
-        cursor: pointer ;
-    }
+
 }

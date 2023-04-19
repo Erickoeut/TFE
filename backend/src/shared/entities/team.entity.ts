@@ -13,6 +13,14 @@ export class Team{
     @Column({name:'team_logo'})
     teamLogo:string
 
+    @Column()
+    base:string
+
+    @Column()
+    main_color:string
+    @Column()
+    second_color:string
+
     @OneToMany(()=>Game,games=>games.homeTeam)
     homeGames: Game[]
 

@@ -15,10 +15,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 15rem;
+    height: 20rem;
     width: 100%;
     border: 1px solid;
     margin-bottom: 2rem;
+    padding: 2rem;
+    p{
+        display: flex;
+        justify-content: center;
+    }
+    img{
+        margin: auto;
+        object-fit: contain;
+    }
 }
 
 .gameResult{

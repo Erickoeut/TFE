@@ -7,7 +7,6 @@ export default function CreateGamePage(){
         axios.get('http://localhost:3000/api/teams')
             .then(({data})=>{
                 setTeams(data)
-                console.log(data);
             })
     },[])
     const[homeTeamId,setHomeTeamId]=useState(null)

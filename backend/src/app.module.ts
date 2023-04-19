@@ -28,13 +28,13 @@ import { SeasonModule } from './seasons/season.module';
         trustServerCertificate : true
       }
     }),
+    UsersModule,
+    AuthModule,
     TeamModule,
     PlayerModule,
     GameModule,
-    UsersModule,
-    AuthModule,
+    SeasonModule,
     WeatherModule,
-    SeasonModule
   ],
   controllers: [],
   providers: [],

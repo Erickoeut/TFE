@@ -6,32 +6,43 @@ import axios from "axios"
 
 export default function ResultIndexPage() {
 
-    const [day, setDay] = useState(1)
+    const [round, setRound] = useState(1)
+    const [nbRound, setNbRound] = useState([])
     const [gameOfDay, setGameOfDay] = useState([])
 
-
     useEffect(() => {
-        axios.get(`http://localhost:3000/api/games/season/1/round/${day}`)
+        axios.get(`http://localhost:3000/api/season/1`)
+            .then(({ data }) => {
+                const tab =[]
+                for(let i=1;i<=data.nbOfRound;i++){
+                    tab.push(i)
+                }
+                setNbRound(tab)
+            })
+    }, [])
+    useEffect(() => {
+        axios.get(`http://localhost:3000/api/games/season/1/round/${round}`)
             .then(({ data }) => {
                 setGameOfDay(data)
             })
-    }, [day])
+    }, [round])
 
-    const handleSetDay = (e) => {
-        setDay(e.target.value)
+    const handleSetRound = (e) => {
+        setRound(e.target.value)
     }
     
     return (
-        <>
+        nbRound&&<>
             <h2>Liste résultats</h2>
             <div className={style.ResutltIndexPage}>
                 <form action="">
-                    <select name="day" id="selectDay" onChange={handleSetDay}>
-                        <option value="1">Journée 1</option>
-                        <option value="2">Journée 2</option>
+                    <select name="day" id="selectDay" onChange={handleSetRound}>
+                        {nbRound.map(r=><option key={r}value={r}>Tour {r}</option>)}
                     </select>
                 </form>
-                {gameOfDay.map(game => <ResultRow key={game.id}{...game} />)}
+                <div className={style.resultIndex}>
+                    {gameOfDay.map(game => <ResultRow key={game.id}{...game} />)}
+                </div>
             </div>
         </>
     )
