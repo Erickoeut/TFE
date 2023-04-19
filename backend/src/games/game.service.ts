@@ -53,7 +53,7 @@ export class GameService {
         const gameOfRound: Game[] = await this.gameRepo.find({
             where: {
                 round: roundId,
-                // seasonId:seasonId
+                season:seasonId
             },
             relations: {
                 awayTeam: true,

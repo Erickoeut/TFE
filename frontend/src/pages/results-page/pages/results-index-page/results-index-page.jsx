@@ -18,6 +18,7 @@ export default function ResultIndexPage() {
                     tab.push(i)
                 }
                 setNbRound(tab)
+                
             })
     }, [])
     useEffect(() => {

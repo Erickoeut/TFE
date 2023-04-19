@@ -24,13 +24,16 @@ export class SeasonService {
         const oneSeason: Season = await this.seasonRepo.findOne(
             {
                 where:{id:seasonId},
+                relations:{
+                    games:true
+                }
             }
         )
         return oneSeason
     }
 
 
-    
+
     async getRanking(seasonId): Promise<any> { 
         const teams: Team[] = await this.teamService.getAll()
         const season:Season = await this.getOne(seasonId)
