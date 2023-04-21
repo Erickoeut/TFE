@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import style from './admin-lateral-bar.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
@@ -8,6 +8,7 @@ export default function AdminLateralBar(){
     const user=useSelector(state=>state.user.user)
     const [team,setTeam]=useState(null)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     useEffect(()=>{
         axios.get(`http://localhost:3000/api/teams/${user.teamId}`)
             .then(({data})=>{
@@ -18,6 +19,7 @@ export default function AdminLateralBar(){
         localStorage.removeItem("token")
         dispatch(userDisconnect())
         console.log("handleDisconnect");
+        navigate('/')
 
     }
     return(

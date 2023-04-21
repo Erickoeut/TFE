@@ -6,7 +6,7 @@ export default function NavBar({ user }) {
     const dispatch = useDispatch()
     return (
         <>
-            <div className={style.navBar}>
+            <header className={style.navBar}>
 
                 <Link to={"/"}>
                     <img src="https://touch-belgium.be/_nuxt/img/navbar-logo.0e3ed7d.png" />
@@ -28,6 +28,11 @@ export default function NavBar({ user }) {
                         </NavLink>
                     </li>
                     <li>
+                        <NavLink to={"/players"}>
+                            Les joueurs
+                        </NavLink>
+                    </li>
+                    <li>
                         <NavLink to={"/about"}>
                             A propos
                         </NavLink>
@@ -36,7 +41,7 @@ export default function NavBar({ user }) {
                 {user ? <h2 onClick={()=>dispatch(sideBarSwitch())}>{user.username}</h2> : <Link to={"/login"} className={style.login}>Login</Link>}
 
 
-            </div>
+            </header>
         </>
     )
 }

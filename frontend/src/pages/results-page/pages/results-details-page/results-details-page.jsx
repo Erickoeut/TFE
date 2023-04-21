@@ -31,6 +31,7 @@ export default function ResultDetailsPage() {
                     .then(({ data }) => {
                         setWeather(data)
                     })
+                    .catch((err)=>{console.log(err.response.data.message);})
                 }
             )
             }, [])

@@ -3,8 +3,8 @@ import { GameService } from "./game.service";
 import { Game } from "src/shared/entities/game.entity";
 import { CreateGameDto } from "src/shared/dto/games/createGame.dto";
 import { UpdateGameDto } from "src/shared/dto/games/updateGame.dto";
-import { AuthModule } from "src/auth/auth.module";
 import { ApiTags } from "@nestjs/swagger";
+import { AuthGuard } from "src/auth/auth.guard";
 
 @ApiTags('Games')
 @Controller("api/games")
@@ -23,15 +23,15 @@ export class GameController {
         return await this.gameServe.getOne(id)
     }
 
-    @UseGuards(AuthModule)
     @Post()
+    // @UseGuards(AuthGuard)
     async create(
         @Body() newGame: CreateGameDto
     ): Promise<Game> {
         return await this.gameServe.create(newGame)
     }
 
-    @UseGuards(AuthModule)
+    @UseGuards(AuthGuard)
     @Put(":id")
     async update(
         @Body() updateGame: UpdateGameDto
