@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom"
 import axios from 'axios'
 import style from "./results-details-page.module.scss"
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 
 export default function ResultDetailsPage() {
     const { gameId } = useParams()
@@ -10,21 +12,39 @@ export default function ResultDetailsPage() {
     const [weather, setWeather] = useState(null)
     useEffect(() => {
         axios.get(`http://localhost:3000/api/games/${gameId}`)
-            .then(({ data }) => {
-                setGame(data)
-                axios.get(`http://localhost:3000/api/weather/${data.localisation}`)
+            .then(({ data }) => (
+                {
+                    round:data.round,
+                    localisation:data.localisation,
+                    type:data.type,
+                    date:new Date(data.date).toLocaleDateString('fr-BE'),
+                    homeScore:data.homeScore,
+                    awayScore:data.awayScore,
+                    finish:data.finish,
+                    awayTeam:data.awayTeam,
+                    homeTeam:data.homeTeam
+                }))
+            .then(result=>{
+                // console.log(result);
+                setGame(result)
+                axios.get(`http://localhost:3000/api/weather/${result.localisation}`)
                     .then(({ data }) => {
                         setWeather(data)
                     })
-            })
-    }
-        , [])
+                }
+            )
+            }, [])
 
     return (
         game  && (
             <div>
-                <h1>Result details</h1>
-                <Link to={'/results'}> <button>Retour</button> </Link>
+                <div className={style.title}>
+                    <h1>Result details</h1>
+                    <Link to={'/results'}>
+                        <FontAwesomeIcon icon={faArrowLeftLong} size="xl" />
+                    </Link>
+                </div>
+                
                 <div className={style.resultDetails}>
                     <div className={style.gameInfos}>
                         <p>

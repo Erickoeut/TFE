@@ -16,10 +16,10 @@ export class Team{
     @Column()
     base:string
 
-    @Column()
-    main_color:string
-    @Column()
-    second_color:string
+    @Column({name:'main_color'})
+    mainColor:string
+    @Column({name:'second_color'})
+    secondColor:string
 
     @OneToMany(()=>Game,games=>games.homeTeam)
     homeGames: Game[]

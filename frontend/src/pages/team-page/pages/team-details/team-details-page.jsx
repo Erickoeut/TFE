@@ -2,6 +2,8 @@ import { Link, useParams } from "react-router-dom"
 import style from "./team-details-page.module.scss"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 
 export default function TeamDetailsPage() {
 
@@ -16,18 +18,20 @@ export default function TeamDetailsPage() {
 
     return (
         team && <div>
+            <Link to={'/teams'}>
+                <FontAwesomeIcon icon={faArrowLeftLong} size="xl" />
+            </Link>
             <h1>{team.teamName}</h1>
-            <Link to={'/teams'}> <button>Retour</button> </Link>
             <div className={style.teamDetails}>
                 <div>
-                    
+
                     {<img src={team.teamLogo} alt="" />}
                 </div>
             </div>
             <div className={style.playerIndex}>
                 {team.players.map(player => <PlayerCard key={player.id}{...player} />)}
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -1,5 +1,6 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Team } from "./team.entity";
+import { Game } from "./game.entity";
 
 @Entity("player")
 export class Player{
@@ -23,4 +24,7 @@ export class Player{
 
     @ManyToOne(()=>Team,team=>team.id)
     team: Team
+
+    @ManyToMany(()=>Game,game=>game.players)
+    games:Game[]
 }

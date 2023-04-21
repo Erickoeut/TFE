@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
+import { SeasonService } from "src/seasons/season.service";
 import { CreateGameDto } from "src/shared/dto/games/createGame.dto";
 import { Game } from "src/shared/entities/game.entity";
 import { TeamService } from "src/teams/team.service";
@@ -9,22 +10,33 @@ import { Repository } from "typeorm";
 export class GameService {
     constructor(
         @InjectRepository(Game) private gameRepo: Repository<Game>,
-        private readonly teamService:TeamService
+        private readonly teamService:TeamService,
     ) { }
     
     async getAll(): Promise<Game[]> {
-        const allGames: Game[] = await this.gameRepo.find({})
+        const allGames: Game[] = await this.gameRepo.find(
+            {
+                relations:{
+                    homeTeam:true,
+                    awayTeam:true,
+                }
+            }
+        )
         return allGames
     }
 
     async getOne(gameId): Promise<Game|undefined> {
         let oneGame: Game = await this.gameRepo.findOne({
+            select:{            
+            },
+            
             where: {
                 id: gameId
             },
             relations: {
                 awayTeam: true,
-                homeTeam: true
+                homeTeam: true,
+                players:true
             }
         })
         if(oneGame){
@@ -35,59 +47,6 @@ export class GameService {
         }
     }
 
-    async getAllGameOfSeason(seasonId){
-        const gameOfSeason: Game[] = await this.gameRepo.find({
-            where: {
-                season:seasonId
-            },
-            relations: {
-                season:true,
-                awayTeam: true,
-                homeTeam: true
-            }
-        })
-        return gameOfSeason 
-    }
-
-    async getGameOfRound(seasonId,roundId): Promise<Game[]> {
-        const gameOfRound: Game[] = await this.gameRepo.find({
-            where: {
-                round: roundId,
-                season:seasonId
-            },
-            relations: {
-                awayTeam: true,
-                homeTeam: true
-            }
-        })
-        return gameOfRound
-    }
-
-    async getGameOfTeam(seasonId:number,teamId):Promise<any>{
-        const team = await this.teamService.getOne(teamId)
-        const homeGameOfTeam = await this.gameRepo.find({
-            where:{
-                homeTeam:team,
-                // seasonId:seasonId
-            },
-            relations:{
-                homeTeam:true,
-                awayTeam:true
-            }
-        })
-        const awayGamesOfTeam = await this.gameRepo.find({
-            where:{
-                awayTeam:team,
-                // seasonId:seasonId
-            },
-            relations:{
-                homeTeam:true,
-                awayTeam:true
-            }
-        })
-        
-        return ({homeGames:homeGameOfTeam,awayGames:awayGamesOfTeam})
-    }
 
     async create(newGame:CreateGameDto):Promise<any> {
         const createdGame:Game = await this.gameRepo.create({...newGame,finish:false})

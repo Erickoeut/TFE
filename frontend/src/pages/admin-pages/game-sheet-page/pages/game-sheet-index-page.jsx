@@ -4,12 +4,15 @@ import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 export default function GameSheetIndexPage() {
     const user = useSelector(state => state.user.user)
-    const [games, setGames] = useState([])
+    console.log(user);
+    const [homeGames, setHomeGames] = useState([])
+    const [awayGames, setAwayGames] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:3000/api/games/team/${user.teamId}`)
+        axios.get(`http://localhost:3000/api/teams/${user.teamId}`)
             .then(({ data }) => {
                 console.log(data);
-                setGames(data)
+                setHomeGames(data.homeGames)
+                setAwayGames(data.awayGames)
             })
     }, [])
     
@@ -18,11 +21,11 @@ export default function GameSheetIndexPage() {
             <h1>test</h1>
             <h2>Matchs a domicile</h2>
             <ul>
-                {games.homeGames && games.homeGames.map(game => <li key={game.id}>Tour{game.round} vs {game.awayTeam.teamName} {!game.finish&&<button> <Link>Inscrire Equipe</Link> </button>}</li>)}
+                {homeGames && homeGames.map(g=> <li key={g.id}>Tour{g.round} vs {g.awayTeam.teamName} {!g.finish&&<button> <Link>Inscrire Equipe</Link> </button>}</li>)}
             </ul>
             <h2>Matchs à l'extérieur</h2>
             <ul>
-                {games.awayGames && games.awayGames.map(game => <li key={game.id}>Tour{game.round} vs {game.homeTeam.teamName}</li>)}
+                {awayGames && awayGames.map(g=> <li key={g.id}>Tour{g.round} vs {g.homeTeam.teamName} {!g.finish&&<button> <Link>Inscrire Equipe</Link> </button>}</li>)}
             </ul>
         </div>
         

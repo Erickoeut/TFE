@@ -22,24 +22,28 @@ export class SeasonService {
     
     async getOne(seasonId): Promise<Season> {
         const oneSeason: Season = await this.seasonRepo.findOne(
-            {
-                where:{id:seasonId},
+            {   
+                where:{
+                    id:seasonId
+                },
                 relations:{
-                    games:true
+                    games:{
+                        homeTeam:true,
+                        awayTeam:true
+                    }
                 }
             }
         )
         return oneSeason
     }
 
-
-
     async getRanking(seasonId): Promise<any> { 
-        const teams: Team[] = await this.teamService.getAll()
         const season:Season = await this.getOne(seasonId)
+        const teams: Team[] = await this.teamService.getAll()
         const ranking = []
         for (const team of teams) {
-            const teamResults = await this.gameService.getGameOfTeam(seasonId,team.id)
+            const teamHomeResults = ((await this.teamService.getOne(team.id)).homeGames).filter(game=>game.season.id===seasonId)
+            const teamAwayResults = ((await this.teamService.getOne(team.id)).awayGames).filter(game=>game.season.id===seasonId)
             const teamRanking = {
                 ...team,
                 position: 0,
@@ -53,7 +57,7 @@ export class SeasonService {
                 scoreDifference: 0
             }
 
-            for (const game of teamResults.homeGames) {
+            for (const game of teamHomeResults) {
                 if (game.finish) {
                     teamRanking.gamePlayed += 1
                     teamRanking.scoreFor += game.homeScore
@@ -72,7 +76,7 @@ export class SeasonService {
                 }
             }
 
-            for (const game of teamResults.awayGames) {
+            for (const game of teamAwayResults) {
                 if (game.finish) {
                     teamRanking.gamePlayed += 1
                     teamRanking.scoreFor += game.awayScore

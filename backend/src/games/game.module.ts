@@ -4,13 +4,15 @@ import { GameService } from "./game.service";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Game } from "src/shared/entities/game.entity";
 import { TeamModule } from "src/teams/team.module";
+import { SeasonModule } from "src/seasons/season.module";
 
 @Module({
     imports: [
         TypeOrmModule.forFeature([
             Game
         ]),
-        TeamModule
+        TeamModule,
+
     ],
     controllers: [GameController],
     providers: [GameService],

@@ -6,7 +6,7 @@ export default function RankingPage() {
     const [ranking, setRanking] = useState([])
     const [seasonDetail,setSeasonDetails]= useState(null)
     useEffect(() => {
-        axios.get('http://localhost:3000/api/season/1/ranking')
+        axios.get('http://localhost:3000/api/seasons/1/ranking')
             .then(({ data }) => {
                 setRanking(data.ranking)
                 setSeasonDetails({year:data.year})

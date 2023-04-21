@@ -15,6 +15,7 @@ import { SeasonController } from "./season.controller";
         GameModule
     ],
     controllers:[SeasonController],
-    providers:[SeasonService]
+    providers:[SeasonService],
+    exports:[SeasonService]
 })
 export class SeasonModule{}

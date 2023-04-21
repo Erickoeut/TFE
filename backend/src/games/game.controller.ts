@@ -22,28 +22,6 @@ export class GameController {
         return await this.gameServe.getOne(id)
     }
 
-    @Get("/season/:seasonId")
-    async getAllGameOfSeason(
-        @Param("seasonId",ParseIntPipe) seasonId:number
-    ){
-        return await this.gameServe.getAllGameOfSeason(seasonId)
-    }
-
-    @Get("/season/:seasonId/round/:roundId")
-    async getGameOfRound(
-        @Param("roundId", ParseIntPipe) roundId: number,
-        @Param("seasonId", ParseIntPipe) seasonId: number
-    ): Promise<Game[]> {
-        return await this.gameServe.getGameOfRound(seasonId, roundId)
-    }
-
-    @Get("season/:seasonId/team/:teamId")
-    async getGameOfTeam(
-        @Param("teamId", ParseIntPipe) teamId: number,
-        @Param('seasonId', ParseIntPipe) seasonId
-    ): Promise<object> {
-        return await this.gameServe.getGameOfTeam(seasonId, teamId)
-    }
 
 
     @UseGuards(AuthModule)

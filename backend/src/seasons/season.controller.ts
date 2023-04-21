@@ -2,7 +2,7 @@ import { Controller, Get, Param, ParseIntPipe } from "@nestjs/common";
 import { SeasonService } from "./season.service";
 import { ApiTags } from "@nestjs/swagger";
 @ApiTags('Season')
-@Controller('api/season')
+@Controller('api/seasons')
 export class SeasonController {
     constructor(private readonly seasonService: SeasonService) { }
 

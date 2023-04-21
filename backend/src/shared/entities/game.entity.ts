@@ -1,6 +1,7 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { Team } from "./team.entity";
 import { Season } from "./season.entity";
+import { Player } from "./player.entity";
 
 @Entity("game")
 export class Game{
@@ -14,9 +15,9 @@ export class Game{
     type:string
     @Column()
     date:Date
-    @Column({name:'home_score'})
+    @Column({name:'home_score',nullable:true})
     homeScore:number
-    @Column({name:'away_score'})
+    @Column({name:'away_score',nullable:true})
     awayScore:number
     @Column()
     finish:boolean
@@ -27,7 +28,12 @@ export class Game{
     @ManyToOne(()=>Team,homeTeam=>homeTeam.id)
     @JoinColumn()
     homeTeam: Team
+    
     @ManyToOne(()=>Season,season=>season.id)
     @JoinColumn()
     season:Season
+
+    @ManyToMany(()=>Player,player=>player.games)
+    @JoinTable()
+    players:Player[]
 }

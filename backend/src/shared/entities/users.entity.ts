@@ -17,6 +17,6 @@ export class User{
     @Column()
     role:string
 
-    @Column()
+    @Column({name:"team_id"})
     teamId:number
 }

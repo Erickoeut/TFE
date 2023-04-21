@@ -14,18 +14,25 @@ export class TeamService {
     }
 
     async getOne(teamId: number):Promise<Team> {
-        const oneTeam:Team = await this.teamRepo.findOne({
+        const oneTeam:Team = await this.teamRepo.findOneOrFail({
             where: {
                 id: teamId
             },
             relations: {
-                players: true
+                players: true,
+                homeGames:{
+                    season:true,
+                    awayTeam:true
+                },
+                awayGames:{
+                    season:true,
+                    homeTeam:true
+                }
             }
-        })
+        }).catch(()=>{throw new NotFoundException("il n'y a pas d'equipe avec cet id")}
+        )
         if(oneTeam){return oneTeam}
-        else{
-            throw new NotFoundException("il n'y a pas d'equipe avec cet id")
-        }
+        
     }
     create() { }
     delete() { }

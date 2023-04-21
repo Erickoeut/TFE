@@ -23,10 +23,10 @@ export default function TeamsIndexPage() {
     )
 }
 
-const TeamCard = ({ teamName, teamLogo, id }) => {
+const TeamCard = ({ teamName, teamLogo, id,mainColor }) => {
     const navigate = useNavigate()
     return (<>
-        <div className={style.TeamCard} onClick={() => navigate('/teams/' + id)} >
+        <div className={style.TeamCard } onClick={() => navigate('/teams/' + id)} >
             <h2>{teamName}</h2>
             <img src={teamLogo} alt="" />
         </div>
