@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { BadRequestException, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { GameService } from "src/games/game.service";
 import { Season } from "src/shared/entities/season.entity";
@@ -12,7 +12,6 @@ export class SeasonService {
     constructor(
         @InjectRepository(Season) private seasonRepo: Repository<Season>,
         private readonly teamService: TeamService,
-        private readonly gameService: GameService
     ) { }
 
     async getAll(): Promise<Season[]> {
@@ -34,7 +33,33 @@ export class SeasonService {
                 }
             }
         )
-        return oneSeason
+        const oneUpdatedSeason = await this.updatenbRoundSeason(oneSeason)
+        return oneUpdatedSeason
+    }
+
+    async findOneByYear(year){
+        const season:Season = await this.seasonRepo.findOne({where:{
+            year:year
+        }})
+        return season
+    }
+
+    async createOne(year){
+        const seasonExist = await this.findOneByYear(year)
+        if(seasonExist){
+            throw new BadRequestException('la saison existe déja')
+        }
+        else{
+            const newSaison = await this.seasonRepo.create({year:year})
+            return this.seasonRepo.save(newSaison)
+        }
+    }
+
+    async updatenbRoundSeason(season:Season){
+
+        const games = season.games
+        season.nbOfRound = Math.max(...games.map(game=>game.round))
+        return this.seasonRepo.save(season)        
     }
 
     async getRanking(seasonId): Promise<any> { 
