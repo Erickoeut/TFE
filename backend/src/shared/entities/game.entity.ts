@@ -11,7 +11,7 @@ export class Game{
     round:number
     @Column()
     localisation:string
-    @Column()
+    @Column({default:"championship"})
     type:string
     @Column()
     date:Date
@@ -19,7 +19,7 @@ export class Game{
     homeScore:number
     @Column({name:'away_score',nullable:true})
     awayScore:number
-    @Column()
+    @Column({default:false})
     finish:boolean
     
     @ManyToOne(()=>Team,awayTeam=>awayTeam.id)

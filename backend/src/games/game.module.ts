@@ -12,7 +12,7 @@ import { SeasonModule } from "src/seasons/season.module";
             Game
         ]),
         TeamModule,
-
+        SeasonModule
     ],
     controllers: [GameController],
     providers: [GameService],

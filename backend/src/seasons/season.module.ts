@@ -12,7 +12,6 @@ import { SeasonController } from "./season.controller";
         Season
         ]),
         TeamModule,
-        GameModule
     ],
     controllers:[SeasonController],
     providers:[SeasonService],

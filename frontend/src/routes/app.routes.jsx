@@ -11,7 +11,8 @@ import ResultDetailsPage from "../pages/results-page/pages/results-details-page/
 import LoginPage from "../pages/login-page/login-page"
 import GameSheetIndexPage from "../pages/admin-pages/game-sheet-page/pages/game-sheet-index-page"
 import GameSheetPage from "../pages/admin-pages/game-sheet-page/game-sheet-page"
-import CreateGamePage from "../pages/admin-pages/create-game-page/creat-game-page"
+import CreateGamePage from "../pages/admin-pages/create-game-page/create-game-page"
+import PlayerPage from "../pages/players/players-page"
 
 
 const route = [
@@ -76,6 +77,10 @@ const route = [
             {
                 path:"create-game",
                 element:<CreateGamePage/>
+            },
+            {
+                path:"players",
+                element:<PlayerPage/>
             }
         ]
     }

@@ -12,7 +12,7 @@ export class PlayerService {
     ) {}
 
     async getAll(): Promise<Player[]> {
-        const allPlayers: Player[] = await this.playerRepo.find({})
+        const allPlayers: Player[] = await this.playerRepo.find({relations:{team:true}})
         return allPlayers
     }
 

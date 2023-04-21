@@ -10,6 +10,7 @@ import { userConnect } from './store/actions/user.action'
 
 function App() {
   const user = useSelector(state=>state.user.user)
+  const activeSideBar = useSelector(state=>state.user.activeSideBar)
   const dispatch=useDispatch()
   useEffect(()=>{
     if(!user){
@@ -30,7 +31,7 @@ function App() {
       <NavBar user={user}/>
       <main>
         <Outlet />
-        {user&&<AdminLateralBar user={user}/>}
+        {user&&activeSideBar&&<AdminLateralBar user={user}/>}
       </main>
     </div>
   )

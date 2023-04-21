@@ -1,9 +1,10 @@
 import { createReducer } from "@reduxjs/toolkit"
-import { userConnect, userDisconnect } from "../actions/user.action"
+import { sideBarSwitch, userConnect, userDisconnect } from "../actions/user.action"
 
 const initialState =
 {
-    user: null
+    user: null,
+    activeSideBar:false
 }
 
 const userReducer = createReducer(initialState, builder => {
@@ -14,6 +15,10 @@ const userReducer = createReducer(initialState, builder => {
         .addCase(userDisconnect, (state,action) => {
             console.log('tete');
             state.user = null
+            state.activeSideBar =false
+        })
+        .addCase(sideBarSwitch,(state,action)=>{
+            state.activeSideBar = !state.activeSideBar
         })
 })
 

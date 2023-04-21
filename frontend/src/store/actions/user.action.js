@@ -5,3 +5,5 @@ payload:{...user}
 }))
 
 export const userDisconnect = createAction('user/disconnect')
+
+export const sideBarSwitch = createAction('activeSideBar/switch')

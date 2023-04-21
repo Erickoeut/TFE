@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-
+import style from "./players-page.module.scss"
 export default function PlayerPage(){
     const [players,setPlayers]=useState([])
     const [playersSelected,setPlayersSelected]=useState([])

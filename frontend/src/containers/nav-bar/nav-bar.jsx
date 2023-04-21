@@ -1,6 +1,9 @@
+import { useDispatch } from "react-redux"
 import style from "./nav-bar.module.scss"
 import { Link, NavLink } from "react-router-dom"
+import { sideBarSwitch } from "../../store/actions/user.action"
 export default function NavBar({ user }) {
+    const dispatch = useDispatch()
     return (
         <>
             <div className={style.navBar}>
@@ -30,7 +33,7 @@ export default function NavBar({ user }) {
                         </NavLink>
                     </li>
                 </ul>
-                {user ? <h2>{user.username}</h2> : <Link to={"/login"} className={style.login}>Login</Link>}
+                {user ? <h2 onClick={()=>dispatch(sideBarSwitch())}>{user.username}</h2> : <Link to={"/login"} className={style.login}>Login</Link>}
 
 
             </div>

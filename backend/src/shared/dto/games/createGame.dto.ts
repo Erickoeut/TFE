@@ -1,4 +1,4 @@
-import { IsInt, IsString } from "class-validator"
+import { IsDate, IsInt, IsString } from "class-validator"
 
 export class CreateGameDto{
     @IsInt()
@@ -7,8 +7,6 @@ export class CreateGameDto{
     round:number
     @IsString()
     localisation:string
-    @IsString()
-    type:string
     @IsString()
     date:string
     @IsInt()

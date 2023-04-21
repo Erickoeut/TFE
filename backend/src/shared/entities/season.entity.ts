@@ -6,7 +6,7 @@ export class Season{
     @PrimaryGeneratedColumn()
     id:number
 
-    @Column()
+    @Column({name:"nb_of_round",default:0})
     nbOfRound:number
 
     @Column()
