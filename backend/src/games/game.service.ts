@@ -25,11 +25,10 @@ export class GameService {
         return allGames
     }
 
-    async getOne(gameId): Promise<Game|undefined> {
-        let oneGame: Game = await this.gameRepo.findOne({
+    async getOne(gameId): Promise<Game> {
+        let oneGame: Game = await this.gameRepo.findOneOrFail({
             select:{            
             },
-            
             where: {
                 id: gameId
             },
@@ -38,13 +37,10 @@ export class GameService {
                 homeTeam: true,
                 players:true
             }
-        })
-        if(oneGame){
-            return oneGame
-        }
-        else{
+        }).catch(()=>{
             throw new NotFoundException('match non trouvé')
-        }
+        })
+        return oneGame
     }
 
 

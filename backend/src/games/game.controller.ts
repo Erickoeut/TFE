@@ -5,6 +5,7 @@ import { CreateGameDto } from "src/shared/dto/games/createGame.dto";
 import { UpdateGameDto } from "src/shared/dto/games/updateGame.dto";
 import { AuthModule } from "src/auth/auth.module";
 import { ApiTags } from "@nestjs/swagger";
+
 @ApiTags('Games')
 @Controller("api/games")
 export class GameController {
@@ -21,8 +22,6 @@ export class GameController {
     async getOne(@Param("id", ParseIntPipe) id): Promise<Game> {
         return await this.gameServe.getOne(id)
     }
-
-
 
     @UseGuards(AuthModule)
     @Post()

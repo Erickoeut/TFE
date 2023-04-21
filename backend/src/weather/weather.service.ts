@@ -21,7 +21,7 @@ export class WeatherService{
             })
             .catch((e) => { 
                 console.log(e);
-                
-                throw new NotFoundException("la ville recherchée n'existe pas") })
+                throw new NotFoundException("la ville recherchée n'existe pas") 
+            })
     }
 }

@@ -11,6 +11,7 @@ export class PlayerController {
     constructor(
         private readonly playerServe: PlayerService
     ) { }
+    
     @Get()
     async getAll(): Promise<Player[]> {
         return await this.playerServe.getAll()

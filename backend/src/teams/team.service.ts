@@ -29,7 +29,9 @@ export class TeamService {
                     homeTeam:true
                 }
             }
-        }).catch(()=>{throw new NotFoundException("il n'y a pas d'equipe avec cet id")}
+        }).catch(()=>{
+            throw new NotFoundException("il n'y a pas d'equipe avec cet id")
+        }
         )
         if(oneTeam){return oneTeam}
         
