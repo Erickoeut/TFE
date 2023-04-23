@@ -4,7 +4,6 @@
 a {
   font-size: 1.2rem;
   text-decoration: none;
-  color: black;
 }
 h1{
   font-weight: bold;
@@ -16,8 +15,32 @@ h1{
 }
 h2 {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-weight: 500;
 }
 h3 {
   font-size: 1.2rem;
+}
+
+button{
+  height: 3rem;
+  border-radius: 0px;
+  border: 0px;
+  background-color:  rgb(61, 61, 61);
+  color: #ffd885;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+select{
+  border-radius: 0;
+  height: 3rem;
+  padding: 0 1rem;
+  min-width: 10rem;
+}
+
+input{
+  min-width: 10rem;
+  border-radius: 0;
+  height: 3rem;
 }

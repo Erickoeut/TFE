@@ -5,4 +5,18 @@
     border: 1px solid;
     justify-self: flex-end;
     flex-shrink: 0;
+
+    h2{
+        margin-bottom: 1rem;
+    }
+    a{
+        margin-bottom:1rem ;
+    }
+
+    button{
+        border-radius: 0;
+        &:hover{
+            color: red;
+        }
+    }
 }

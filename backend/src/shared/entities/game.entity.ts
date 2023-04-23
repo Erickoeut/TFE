@@ -7,33 +7,45 @@ import { Player } from "./player.entity";
 export class Game{
     @PrimaryGeneratedColumn()
     id:number
+
     @Column()
     round:number
+
     @Column()
-    localisation:string
+    location:string
+
     @Column({default:"championship"})
     type:string
+
     @Column()
     date:Date
+
     @Column({name:'home_score',nullable:true})
     homeScore:number
+
     @Column({name:'away_score',nullable:true})
     awayScore:number
+
     @Column({default:false})
     finish:boolean
     
     @ManyToOne(()=>Team,awayTeam=>awayTeam.id)
-    @JoinColumn()
+    @JoinColumn({name:'away_team_id'})
     awayTeam: Team
+
     @ManyToOne(()=>Team,homeTeam=>homeTeam.id)
-    @JoinColumn()
+    @JoinColumn({name:'home_team_id'})
     homeTeam: Team
     
     @ManyToOne(()=>Season,season=>season.id)
-    @JoinColumn()
+    @JoinColumn({name:'season_id'})
     season:Season
 
-    @ManyToMany(()=>Player,player=>player.games)
+    @ManyToMany(()=>Player,player=>player.homeGames)
     @JoinTable()
-    players:Player[]
+    homePlayers:Player[]
+
+    @ManyToMany(()=>Player,player=>player.awayGames)
+    @JoinTable()
+    awayPlayers:Player[]
 }

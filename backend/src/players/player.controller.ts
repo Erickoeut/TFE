@@ -17,9 +17,9 @@ export class PlayerController {
         return await this.playerServe.getAll()
     }
 
-    @Get(":playerId")
+    @Get(":id")
     async getOnePlayerById(
-        @Param("playerId", ParseIntPipe) playerId: number
+        @Param("id", ParseIntPipe) playerId: number
     ): Promise<Player> {
         return await this.playerServe.getOnePlayerById(playerId)
     }

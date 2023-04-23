@@ -8,21 +8,24 @@ export default function GameSheetIndexPage() {
     const [homeGames, setHomeGames] = useState([])
     const [awayGames, setAwayGames] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:3000/api/teams/${user.teamId}`)
-            .then(({ data }) => {
-                console.log(data);
-                const dataTeam = {
-                    teamName:data.teamName,
-                    logo:data.teamLogo
-                }
-                setTeam({dataTeam})
-                setHomeGames(data.homeGames)
-                setAwayGames(data.awayGames)
-            })
-    }, [])
+        if(user){
+
+            axios.get(`http://localhost:3000/api/teams/${user.teamId}`)
+                .then(({ data }) => {
+                    console.log(data);
+                    const dataTeam = {
+                        teamName:data.teamName,
+                        logo:data.teamLogo
+                    }
+                    setTeam({dataTeam})
+                    setHomeGames(data.homeGames)
+                    setAwayGames(data.awayGames)
+                })
+        }
+    }, [user])
     
     return (
-        <div>
+        user&&<div>
             <h1>Liste des matchs de {}</h1>
             <h2>Matchs a domicile</h2>
             <ul>

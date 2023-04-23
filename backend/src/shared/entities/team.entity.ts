@@ -18,6 +18,7 @@ export class Team{
 
     @Column({name:'main_color'})
     mainColor:string
+    
     @Column({name:'second_color'})
     secondColor:string
 

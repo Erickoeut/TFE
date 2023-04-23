@@ -1,7 +1,6 @@
 .navBar {
     display: flex;
     justify-content: space-between;
-    // width: 100vw;
     height: 13vh;
     align-items: center;
     background-color: #ffc838;
@@ -30,7 +29,14 @@
         list-style: none;
         gap: 25px;
     }
-
+    h2{
+        vertical-align: middle;
+        color:#3d3d3d;
+        font-size: 1.2rem;
+        &:hover{
+            cursor: pointer;
+        }
+    }
 }
 
 .login{

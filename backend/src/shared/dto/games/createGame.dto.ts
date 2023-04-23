@@ -6,7 +6,7 @@ export class CreateGameDto{
     @IsInt()
     round:number
     @IsString()
-    localisation:string
+    location:string
     @IsString()
     date:string
     @IsInt()

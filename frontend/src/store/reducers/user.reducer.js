@@ -13,7 +13,6 @@ const userReducer = createReducer(initialState, builder => {
             state.user = action.payload
         })
         .addCase(userDisconnect, (state,action) => {
-            console.log('tete');
             state.user = null
             state.activeSideBar =false
         })

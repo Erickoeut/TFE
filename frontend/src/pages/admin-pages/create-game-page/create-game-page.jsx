@@ -17,13 +17,25 @@ export default function CreateGamePage() {
     const [homeTeamId, setHomeTeamId] = useState(1)
     const [awayTeamId, setAwayTeamId] = useState(1)
     const tokenJson = JSON.parse(localStorage.getItem('token'))
+
+    const [error,setError]=useState()
+    const [okRequest,setOkRequest]=useState('')
     const handleSubmit = (e) => {
         e.preventDefault()
+        if(homeTeamId===awayTeamId){
+            setError('Les des deux équipes ne peuvent être les mêmes')
+            return
+        }
+        console.log('handlesubmit');
 
+        if(!year||!round||!location||!date){
+            setError('tout les champs doivent être remplit')
+            return
+        }
         axios.post('http://localhost:3000/api/games', {
             "seasonYear": parseInt(year),
             "round": parseInt(round),
-            "localisation": location,
+            "location": location,
             "date": date.toString(),
             "homeTeamId": parseInt(homeTeamId),
             "awayTeamId": parseInt(awayTeamId),
@@ -34,6 +46,8 @@ export default function CreateGamePage() {
                 setYear('')
                 setRound('')
                 setDate('')
+                setError('')
+                setOkRequest('Le match à été créé')
             }
             )
 
@@ -74,9 +88,19 @@ export default function CreateGamePage() {
                             {teams.map(team => (<option key={team.id} value={team.id}>{team.teamName}</option>))}
                         </select>
                     </div>
+                    {error&&<p style={{color:'red'}}>{error}</p>}
+                    {okRequest&&<p style={{color:'green'}}>{okRequest}</p>}
                     <button type="submit">Enregistrer</button>
                 </form>
             </div>
         </div>
     )
 }
+
+// return isLoading ? (
+//     <LoadingScreen />
+// ) : data ? (
+//     <WeatherDisplay {...data} />
+// ) : (
+//     <WeatherError message={error} />
+// )

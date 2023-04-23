@@ -1,7 +1,8 @@
 .CreateGamePage {
     display: flex;
+    flex-direction: column;
     // background-color: aqua;
-
+    align-items: center;
     form {
         display: flex;
         flex-direction: column;
@@ -34,14 +35,10 @@
         margin: 1rem;
         align-self: center;
         width: 8rem;
-        height: 3rem;
-        border-radius: 0px;
-        border: 0px;
-        background-color:  rgb(61, 61, 61);
-        color: #ffd885;
         &:hover{
             color: #2cb54a;;
             cursor: pointer;
         }
     }
+    
 }

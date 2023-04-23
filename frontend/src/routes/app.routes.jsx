@@ -9,10 +9,15 @@ import ResultsPage from "../pages/results-page/results-page"
 import ResultIndexPage from "../pages/results-page/pages/results-index-page/results-index-page"
 import ResultDetailsPage from "../pages/results-page/pages/results-details-page/results-details-page"
 import LoginPage from "../pages/login-page/login-page"
-import GameSheetIndexPage from "../pages/admin-pages/game-sheet-page/pages/game-sheet-index-page"
+import GameSheetIndexPage from "../pages/admin-pages/game-sheet-page/pages/game-sheet-index-page/game-sheet-index-page"
 import GameSheetPage from "../pages/admin-pages/game-sheet-page/game-sheet-page"
 import CreateGamePage from "../pages/admin-pages/create-game-page/create-game-page"
 import PlayerPage from "../pages/players/players-page"
+import GameSheetUpdatePage from "../pages/admin-pages/game-sheet-page/pages/game-sheet-update-page/game-sheet-update-page"
+import AdminPage from "../pages/admin-pages/admin-page"
+import ResultUpdatePage from "../pages/admin-pages/result-update-page/result-update-page"
+
+
 
 
 const route = [
@@ -31,14 +36,14 @@ const route = [
             {
                 path: "/results",
                 element: <ResultsPage />,
-                children:[
+                children: [
                     {
-                        index:true,
-                        element:<ResultIndexPage/>
+                        index: true,
+                        element: <ResultIndexPage />
                     },
                     {
-                        path:":gameId",
-                        element:<ResultDetailsPage/>
+                        path: ":gameId",
+                        element: <ResultDetailsPage />
                     }
                 ]
             },
@@ -61,26 +66,42 @@ const route = [
                 element: <AboutPage />
             },
             {
-                path:"login",
-                element:<LoginPage/>
+                path: "login",
+                element: <LoginPage />
             },
             {
-                path:"game-sheet",
-                element:<GameSheetPage/>,
-                children:[
+                path: 'admin',
+                element: <AdminPage />,
+                children: [
                     {
-                        index:true,
-                        element:<GameSheetIndexPage/>
-                    }
+                        path: "create-game",
+                        element: <CreateGamePage />
+                    },
+                    {
+                        path: "update-result",
+                        element: <ResultUpdatePage/>
+                    },
+                    {
+                        path: "game-sheet",
+                        element: <GameSheetPage />,
+                        children: [
+                            {
+                                index: true,
+                                element: <GameSheetIndexPage />
+                            },
+                            {
+                                path: ":id",
+                                element: <GameSheetUpdatePage />,
+                                
+                            }
+                        ]
+                    },
                 ]
             },
+
             {
-                path:"create-game",
-                element:<CreateGamePage/>
-            },
-            {
-                path:"players",
-                element:<PlayerPage/>
+                path: "players",
+                element: <PlayerPage />
             }
         ]
     }

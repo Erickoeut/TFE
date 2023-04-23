@@ -1,9 +1,7 @@
-import { BadRequestException, Injectable } from "@nestjs/common";
+import {NotFoundException, BadRequestException, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { GameService } from "src/games/game.service";
 import { Season } from "src/shared/entities/season.entity";
 import { Team } from "src/shared/entities/team.entity";
-
 import { TeamService } from "src/teams/team.service";
 import { Repository } from "typeorm";
 
@@ -20,7 +18,7 @@ export class SeasonService {
     }
     
     async getOne(seasonId): Promise<Season> {
-        const oneSeason: Season = await this.seasonRepo.findOne(
+        const oneSeason: Season = await this.seasonRepo.findOneOrFail(
             {   
                 where:{
                     id:seasonId
@@ -33,10 +31,11 @@ export class SeasonService {
                 }
             }
         )
+        .catch(()=>{throw new NotFoundException('pas de saison avec cet id')})
         const oneUpdatedSeason = await this.updatenbRoundSeason(oneSeason)
         return oneUpdatedSeason
     }
-
+    //pas dans le controller mais utilisé pour creer un match 
     async findOneByYear(year){
         const season:Season = await this.seasonRepo.findOne({where:{
             year:year
@@ -56,7 +55,6 @@ export class SeasonService {
     }
 
     async updatenbRoundSeason(season:Season){
-
         const games = season.games
         season.nbOfRound = Math.max(...games.map(game=>game.round))
         return this.seasonRepo.save(season)        

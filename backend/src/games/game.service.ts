@@ -4,6 +4,8 @@ import { AuthGuard } from "src/auth/auth.guard";
 import { SeasonService } from "src/seasons/season.service";
 import { CreateGameDto } from "src/shared/dto/games/createGame.dto";
 import { Game } from "src/shared/entities/game.entity";
+import { Season } from "src/shared/entities/season.entity";
+import { Team } from "src/shared/entities/team.entity";
 import { TeamService } from "src/teams/team.service";
 import { Repository } from "typeorm";
 
@@ -37,7 +39,8 @@ export class GameService {
             relations: {
                 awayTeam: true,
                 homeTeam: true,
-                players: true
+                homePlayers: true,
+                awayPlayers:true
             }
         }).catch(() => {
             throw new NotFoundException('match non trouvé')
@@ -47,15 +50,15 @@ export class GameService {
 
 
     async create(newGame: CreateGameDto): Promise<any> {
-        const season = await this.seasonService.findOneByYear(newGame.seasonYear)
-        const homeTeam = await this.teamService.getOne(newGame.homeTeamId)
-        const awayTeam = await this.teamService.getOne(newGame.awayTeamId)
+        const season:Season = await this.seasonService.findOneByYear(newGame.seasonYear)
+        const homeTeam:Team = await this.teamService.getOne(newGame.homeTeamId)
+        const awayTeam:Team = await this.teamService.getOne(newGame.awayTeamId)
         if (homeTeam && awayTeam) {
             if (season) {
                 const gameToCreate = {
                     season: season,
                     round: newGame.round,
-                    localisation: newGame.localisation,
+                    location: newGame.location,
                     date: new Date(newGame.date),
                     homeTeam: homeTeam,
                     awayTeam: awayTeam,
@@ -68,7 +71,7 @@ export class GameService {
                 const gameToCreate = {
                     season: newSeason,
                     round: newGame.round,
-                    localisation: newGame.localisation,
+                    location: newGame.location,
                     date: new Date(newGame.date),
                     homeTeam: homeTeam,
                     awayTeam: awayTeam,
@@ -78,5 +81,11 @@ export class GameService {
             }
         }
     }
-    update() { }
+    async updateScore(id,homeScore,awayScore,finish) { 
+        const updateGame = await this.getOne(id)
+        updateGame.homeScore=homeScore
+        updateGame.awayScore=awayScore
+        updateGame.finish=finish
+        return this.gameRepo.save(updateGame)
+    }
 }

@@ -31,11 +31,12 @@ export class GameController {
         return await this.gameServe.create(newGame)
     }
 
-    @UseGuards(AuthGuard)
+    // @UseGuards(AuthGuard)
     @Put(":id")
     async update(
+        @Param('id',ParseIntPipe) id:number,
         @Body() updateGame: UpdateGameDto
     ): Promise<Game> {
-        return
+        return await this.gameServe.updateScore(id,updateGame.homeScore,updateGame.awayScore,updateGame.finish)
     }
 }
