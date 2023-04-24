@@ -25,8 +25,18 @@ import { SeasonModule } from './seasons/season.module';
       synchronize : true,
       extra : {
         validateConnection : false,
-        trustServerCertificate : true
-      }
+        trustServerCertificate : true,
+      },
+      options : {
+        encrypt : true, 
+        packetSize : 16384,
+        
+      },
+      pool : {
+        idleTimeoutMillis : 32000
+      },
+      requestTimeout : 32000,
+      connectionTimeout : 32000
     }),
     UsersModule,
     AuthModule,
