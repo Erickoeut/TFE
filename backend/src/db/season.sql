@@ -1,1 +1,1 @@
-insert into season (year, nbOfRound) values (2022, 9);
+insert into season (year, nb_of_round) values (2022, 9);

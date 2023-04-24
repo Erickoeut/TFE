@@ -19,7 +19,7 @@ export default function TeamDetailsPage() {
 
     return (
         team && <div>
-            <Link to={'/teams'}>
+            <Link to={-1}>
                 <FontAwesomeIcon icon={faArrowLeftLong} size="xl" />
             </Link>
             <h1>{team.teamName}</h1>

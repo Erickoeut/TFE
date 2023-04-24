@@ -31,7 +31,7 @@ export default function AdminLateralBar(){
             <Link to={"/admin/create-game"}>Creer un match</Link>
             <Link to={"/admin/update-result"}>Mettre à jour les scores</Link>
 
-            <button onClick={handleDisconnect}>Déconexion</button>
+            <button onClick={handleDisconnect}>Déconnexion</button>
             
         </div>
     )

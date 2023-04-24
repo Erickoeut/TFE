@@ -16,6 +16,9 @@ import PlayerPage from "../pages/players/players-page"
 import GameSheetUpdatePage from "../pages/admin-pages/game-sheet-page/pages/game-sheet-update-page/game-sheet-update-page"
 import AdminPage from "../pages/admin-pages/admin-page"
 import ResultUpdatePage from "../pages/admin-pages/result-update-page/result-update-page"
+import ResultUpdateIndexPage from "../pages/admin-pages/result-update-page/pages/result-update-index-page/result-update-index-page"
+import ResultUpdateDetailsPage from "../pages/admin-pages/result-update-page/pages/result-update-details-page/result-update-details-page"
+
 
 
 
@@ -79,7 +82,17 @@ const route = [
                     },
                     {
                         path: "update-result",
-                        element: <ResultUpdatePage/>
+                        element: <ResultUpdatePage/>,
+                        children:[
+                            {
+                                index:true,
+                                element:<ResultUpdateIndexPage/>
+                            },
+                            {
+                                path:':id',
+                                element:<ResultUpdateDetailsPage/>
+                            }
+                        ]
                     },
                     {
                         path: "game-sheet",

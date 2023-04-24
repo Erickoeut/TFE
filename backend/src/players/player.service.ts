@@ -12,7 +12,10 @@ export class PlayerService {
     ) {}
 
     async getAll(): Promise<Player[]> {
-        const allPlayers: Player[] = await this.playerRepo.find({relations:{team:true}})
+        const allPlayers: Player[] = await this.playerRepo.find({
+            relations:{team:true},
+            order:{lastName:"ASC"}
+        })
         return allPlayers
     }
 

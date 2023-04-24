@@ -1,8 +1,7 @@
-export default function ResultUpdatePage(){
-    return(
-    <div>
-        <h1>Result update page</h1>
-    
-    </div>
+import { Outlet } from "react-router-dom";
+
+export default function ResultUpdatePage() {
+    return (
+        <Outlet />
     )
 }

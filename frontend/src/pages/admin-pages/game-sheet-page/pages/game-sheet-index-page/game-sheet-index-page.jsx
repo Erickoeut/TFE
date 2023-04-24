@@ -17,7 +17,7 @@ export default function GameSheetIndexPage() {
                         teamName:data.teamName,
                         logo:data.teamLogo
                     }
-                    setTeam({dataTeam})
+                    setTeam(dataTeam)
                     setHomeGames(data.homeGames)
                     setAwayGames(data.awayGames)
                 })
@@ -25,8 +25,8 @@ export default function GameSheetIndexPage() {
     }, [user])
     
     return (
-        user&&<div>
-            <h1>Liste des matchs de {}</h1>
+        user&&team&&<div>
+            <h1>Liste des matchs de {team.teamName}</h1>
             <h2>Matchs a domicile</h2>
             <ul>
                 {homeGames && homeGames.map(g=> <li key={g.id}>Tour{g.round} vs {g.awayTeam.teamName} {!g.finish&&<button> <Link>Inscrire Equipe</Link> </button>}</li>)}
