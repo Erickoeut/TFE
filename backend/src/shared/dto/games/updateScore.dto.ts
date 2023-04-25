@@ -1,6 +1,6 @@
 import { IsBoolean, IsInt, IsString } from "class-validator"
 
-export class UpdateGameDto{
+export class UpdateScoreDto{
     @IsInt()
     homeScore:number
     @IsInt()

@@ -12,7 +12,8 @@ useEffect(()=>{
         console.log(data)
     })
 },[])
-
+const [status,setStatus]= useState(false)
+    
     return (
         game&&<div>
             <h1>Modifier le resultat </h1>
@@ -22,9 +23,9 @@ useEffect(()=>{
                     <input type="number" name="" id="" />
                     <label htmlFor="">Score {game.awayTeam.teamName} </label>
                     <input type="number" name="" id="" />
-                    <select name="">
+                    <select name="" value={status} onChange={(e)=>setStatus(e.target.value)}>
                         <option value="false">Non joué</option>
-                        <option value="false">Terminé</option>
+                        <option value="true">Terminé</option>
                     </select>
                 </form>
             </div>

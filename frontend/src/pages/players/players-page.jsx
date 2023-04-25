@@ -35,6 +35,7 @@ export default function PlayerPage() {
         let positionFiltredTemp
 
         if(filterTeam!==""){
+            console.log(filterTeam);
             teamFiltredTemp=structuredClone(temp.filter(player=>player.team.id === parseInt(filterTeam))) 
         }
         else teamFiltredTemp=temp

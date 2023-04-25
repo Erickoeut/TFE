@@ -1,0 +1,11 @@
+.ResultRow{
+
+    padding: 1rem;
+    &:nth-child(even){
+        background-color:  rgba(0,0, 0, 0.05);
+    }
+    button{
+        margin-left: 1rem;
+    }
+    
+}

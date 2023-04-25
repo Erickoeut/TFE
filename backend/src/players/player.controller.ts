@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, ParseIntPipe, ValidationPipe, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, ParseIntPipe, Delete, UseGuards, } from "@nestjs/common";
 import { PlayerService } from "./player.service";
 import { CreatePlayerDto } from "src/shared/dto/players/createPlayer.dto";
 import { Player } from "src/shared/entities/player.entity";
@@ -30,5 +30,12 @@ export class PlayerController {
         @Body() newPlayer: CreatePlayerDto
     ): Promise<Player> {
         return this.playerServe.createPlayer(newPlayer)
+    }
+    @UseGuards(AuthGuard)
+    @Delete(":id")
+    async deletePlayer(
+        @Param("id",ParseIntPipe) id:number
+    ){
+        return this.playerServe.deletePlayer(id)
     }
 }

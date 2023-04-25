@@ -1,9 +1,11 @@
-import { Injectable, NotFoundException, UseGuards } from "@nestjs/common";
+import { Injectable, NotFoundException, UseGuards,BadRequestException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { AuthGuard } from "src/auth/auth.guard";
+import { PlayerService } from "src/players/player.service";
 import { SeasonService } from "src/seasons/season.service";
 import { CreateGameDto } from "src/shared/dto/games/createGame.dto";
 import { Game } from "src/shared/entities/game.entity";
+
 import { Season } from "src/shared/entities/season.entity";
 import { Team } from "src/shared/entities/team.entity";
 import { TeamService } from "src/teams/team.service";
@@ -14,7 +16,8 @@ export class GameService {
     constructor(
         @InjectRepository(Game) private gameRepo: Repository<Game>,
         private readonly teamService: TeamService,
-        private readonly seasonService: SeasonService
+        private readonly seasonService: SeasonService,
+        private readonly playerService:PlayerService
     ) { }
 
     async getAll(): Promise<Game[]> {
@@ -87,5 +90,26 @@ export class GameService {
         updateGame.awayScore=awayScore
         updateGame.finish=finish
         return this.gameRepo.save(updateGame)
+    }
+
+
+    async updateTeam(gameId:number,teamId:number,playersId:number[]){
+        const game= await this.getOne(gameId)
+        const team = await this.teamService.getOne(teamId)
+        if(team===game.homeTeam){
+            for(let playerId of playersId){
+                game.homePlayers.push(await this.playerService.getOnePlayerById(playerId))
+            }
+            return this.gameRepo.save(game)
+        }
+        else if(team===game.awayTeam){
+            for(let playerId of playersId){
+                game.awayPlayers.push(await this.playerService.getOnePlayerById(playerId))
+            }
+            return this.gameRepo.save(game)
+        }
+        else{
+            throw new BadRequestException("cette equipe ne joue pas ce match")
+        }
     }
 }

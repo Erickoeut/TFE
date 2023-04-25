@@ -2,9 +2,10 @@ import { Controller, Get, Post, Param, Body, ParseIntPipe, Put, UseGuards } from
 import { GameService } from "./game.service";
 import { Game } from "src/shared/entities/game.entity";
 import { CreateGameDto } from "src/shared/dto/games/createGame.dto";
-import { UpdateGameDto } from "src/shared/dto/games/updateGame.dto";
+import { UpdateScoreDto } from "src/shared/dto/games/updateScore.dto";
 import { ApiTags } from "@nestjs/swagger";
 import { AuthGuard } from "src/auth/auth.guard";
+import { UpdateGameSheetDto } from "src/shared/dto/games/updateGameSheet.dto";
 
 @ApiTags('Games')
 @Controller("api/games")
@@ -24,19 +25,28 @@ export class GameController {
     }
 
     @Post()
-    // @UseGuards(AuthGuard)
+    @UseGuards(AuthGuard)
     async create(
         @Body() newGame: CreateGameDto
     ): Promise<Game> {
         return await this.gameServe.create(newGame)
     }
 
-    // @UseGuards(AuthGuard)
-    @Put(":id")
-    async update(
-        @Param('id',ParseIntPipe) id:number,
-        @Body() updateGame: UpdateGameDto
+    @UseGuards(AuthGuard)
+    @Put(":id/score")
+    async updateScore(
+        @Param('id', ParseIntPipe) id: number,
+        @Body() updateGame: UpdateScoreDto
     ): Promise<Game> {
-        return await this.gameServe.updateScore(id,updateGame.homeScore,updateGame.awayScore,updateGame.finish)
+        return await this.gameServe.updateScore(id, updateGame.homeScore, updateGame.awayScore, updateGame.finish)
+    }
+    
+    @UseGuards(AuthGuard)
+    @Put(":id/teams")
+    async updateGameSheet(
+        @Param('id', ParseIntPipe) id: number,
+        @Body() updateGame: UpdateGameSheetDto
+    ): Promise<Game> {
+        return await this.gameServe.updateTeam(id, updateGame.teamId, updateGame.players)
     }
 }

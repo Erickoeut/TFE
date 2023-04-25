@@ -5,6 +5,6 @@ insert into team (team_name , team_logo,base,main_color,second_color) values ('B
 insert into team (team_name , team_logo,base,main_color,second_color) values ('Gent Rugby','https://admin.touch-belgium.be/media/team_logos/gent_logo.png','Gand','#356b51','#ffffff');
 insert into team (team_name , team_logo,base,main_color,second_color) values ('Kituro Rugby','https://admin.touch-belgium.be/media/team_logos/kituro_logo.jpg','Schaerbeek','#177644','#221d23');
 insert into team (team_name , team_logo,base,main_color,second_color) values ('RC La Hulpe','https://admin.touch-belgium.be/media/team_logos/rclhlogo.jpg','La Hulpe','#2d4f34','#7d232d');
-insert into team (team_name , team_logo,base,main_color,second_color) values ('Oudenaarde Rhinos','https://admin.touch-belgium.be/media/team_logos/rhinos_logo.jpeg','Audenarde','#000000','#ffcb53');
+insert into team (team_name , team_logo,base,main_color,second_color) values ('Oudenaarde Rhinos','https://admin.touch-belgium.be/media/team_logos/rhinos_logo.jpeg','Audenarde','#000000','#ffffff');
 insert into team (team_name , team_logo,base,main_color,second_color) values ('RC Luxembourg','https://www.s50static.com/cms/uploads/images/tinymce_images/774364ed8c2d84fdbf5d98f45e0e4c057cd9a_.png','Luxembourg','#00609d','#da394c');
 insert into team (team_name , team_logo,base,main_color,second_color) values ('RFC Liège','http://rugbyliege.be/wp-content/uploads/2019/07/Logo_RFCL_1958_84x100.png','Liege','#3d3d56','#b6474b'); 

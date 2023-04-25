@@ -5,6 +5,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { Game } from "src/shared/entities/game.entity";
 import { TeamModule } from "src/teams/team.module";
 import { SeasonModule } from "src/seasons/season.module";
+import { PlayerModule } from "src/players/player.module";
 
 @Module({
     imports: [
@@ -12,7 +13,8 @@ import { SeasonModule } from "src/seasons/season.module";
             Game
         ]),
         TeamModule,
-        SeasonModule
+        SeasonModule,
+        PlayerModule
     ],
     controllers: [GameController],
     providers: [GameService],
