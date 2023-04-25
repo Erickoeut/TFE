@@ -1,10 +1,11 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 export default function ResultUpdateDetailsPage() {
 const {id} = useParams()
 const [game,setGame]=useState(null)
+const navigate = useNavigate()
 useEffect(()=>{
     axios.get(`http://localhost:3000/api/games/${id}`)
     .then(({data})=>{
@@ -17,6 +18,9 @@ const [status,setStatus]= useState(false)
     return (
         game&&<div>
             <h1>Modifier le resultat </h1>
+            <button onClick={()=>navigate(-1)}>
+                Retour
+            </button>
             <div>
                 <form action="">
                     <label htmlFor="">Score {game.homeTeam.teamName} </label>

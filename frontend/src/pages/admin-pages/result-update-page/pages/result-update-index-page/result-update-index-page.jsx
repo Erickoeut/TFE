@@ -20,11 +20,11 @@ export default function ResultUpdateIndexPage() {
         </div>
     )
 }
-const ResultRow = ({ round, homeTeam, awayTeam ,id}) => {
+const ResultRow = ({ round, homeTeam, awayTeam ,id, homeScore, awayScore,finish}) => {
     const navigate = useNavigate()
     return (
         <div className={style.ResultRow}>
-            Tour {round}  :  {homeTeam.teamName}-{awayTeam.teamName}
+            Tour {round}  :  {homeTeam.teamName} {homeScore} - {awayScore} {awayTeam.teamName}{finish?<p>Terminé</p>:<p>Non joué</p>}
             <button onClick={()=>navigate(`${id}`)}>Modifier</button>
         </div>
     )
