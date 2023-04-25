@@ -1,1 +1,3 @@
-export default function GameSheetUpdatePage(){}
+export default function GameSheetUpdatePage(){
+    return(<div>test</div>)
+}

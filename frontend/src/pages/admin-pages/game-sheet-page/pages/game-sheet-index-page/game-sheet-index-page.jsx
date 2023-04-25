@@ -29,11 +29,11 @@ export default function GameSheetIndexPage() {
             <h1>Liste des matchs de {team.teamName}</h1>
             <h2>Matchs a domicile</h2>
             <ul>
-                {homeGames && homeGames.map(g=> <li key={g.id}>Tour{g.round} vs {g.awayTeam.teamName} {!g.finish&&<button> <Link>Inscrire Equipe</Link> </button>}</li>)}
+                {homeGames && homeGames.map(g=> <li key={g.id}>Tour{g.round} vs {g.awayTeam.teamName} {!g.finish&&<button> <Link to={`${g.id}`}>Inscrire Equipe</Link> </button>}</li>)}
             </ul>
             <h2>Matchs à l'extérieur</h2>
             <ul>
-                {awayGames && awayGames.map(g=> <li key={g.id}>Tour{g.round} vs {g.homeTeam.teamName} {!g.finish&&<button> <Link>Inscrire Equipe</Link> </button>}</li>)}
+                {awayGames && awayGames.map(g=> <li key={g.id}>Tour{g.round} vs {g.homeTeam.teamName} {!g.finish&&<button> <Link to={`${g.id}`}>Inscrire Equipe</Link> </button>}</li>)}
             </ul>
         </div>
         

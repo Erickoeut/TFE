@@ -19,9 +19,9 @@ export default function RankingPage() {
                 <table>
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>Equipe</th>
-                            <th></th>
+                            
+                            <th colSpan='3'>Equipe</th>
+                            
                             <th>Pts</th>
                             <th>Joués</th>
                             <th>G</th>
@@ -51,8 +51,8 @@ const RankingRow = ({ i, id,teamLogo,teamName, gamePlayed, teamPoints, win, draw
     return (
         <tr>
             <td>{i + 1}</td>
-            <td><img src={teamLogo} alt="" /></td>
-            <td onClick={()=>navigate(`/teams/${id}`)}>{teamName}</td>
+            <td><img className={style.teamLink} src={teamLogo} alt="" onClick={()=>navigate(`/teams/${id}`)} /></td>
+            <td className={style.teamLink} onClick={()=>navigate(`/teams/${id}`)}>{teamName}</td>
             <td>{teamPoints}</td>
             <td>{gamePlayed}</td>
             <td>{win}</td>
