@@ -4,7 +4,7 @@ export class UpdateGameSheetDto{
     @IsInt()
     teamId:number
     @IsArray()
-    players:number[]
+    playersIds:number[]
    
     
 }

@@ -12,6 +12,9 @@ export default function RankingPage() {
                 setSeasonDetails({year:data.year})
             })
     }, [])
+
+
+   
     return (
         <div >
             {seasonDetail&&<h1>Classement saison {seasonDetail.year}-{seasonDetail.year+1}</h1>}
@@ -46,13 +49,19 @@ RankingPage.defaultProps = {
     ranking: []
 }
 
-const RankingRow = ({ i, id,teamLogo,teamName, gamePlayed, teamPoints, win, draw, lost, scoreFor, scoreAgainst, scoreDifference }) => {
+const RankingRow = ({ i, id,teamLogo,teamName, gamePlayed, teamPoints, win, draw, lost, scoreFor, scoreAgainst, scoreDifference,mainColor,secondColor }) => {
     const navigate = useNavigate()
+    const normal={}
+    const over={
+        backgroundColor:mainColor,
+        color:secondColor
+    }
+    const [back,setBack]=useState(normal)
     return (
         <tr>
             <td>{i + 1}</td>
-            <td><img className={style.teamLink} src={teamLogo} alt="" onClick={()=>navigate(`/teams/${id}`)} /></td>
-            <td className={style.teamLink} onClick={()=>navigate(`/teams/${id}`)}>{teamName}</td>
+            <td><img className={style.teamLink} src={teamLogo} alt={`${teamName} logo`} onClick={()=>navigate(`/teams/${id}`)} /></td>
+            <td className={style.teamLink} style={back}  onMouseEnter={()=>setBack(over)} onMouseLeave={()=>setBack(normal)} onClick={()=>navigate(`/teams/${id}`)}>{teamName}</td>
             <td>{teamPoints}</td>
             <td>{gamePlayed}</td>
             <td>{win}</td>

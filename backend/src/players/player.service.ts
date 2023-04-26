@@ -24,7 +24,9 @@ export class PlayerService {
         const onePlayer: Player = await this.playerRepo.findOneOrFail({
             where: { id: playerId },
             relations: {
-                team: true
+                team: true,
+                homeGames:{awayTeam:true},
+                awayGames:{homeTeam:true}
             }
         })
         .catch(() => { throw new NotFoundException("il n'y a pas de joueur avec cet id") })

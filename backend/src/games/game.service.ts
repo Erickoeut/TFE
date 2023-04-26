@@ -40,8 +40,8 @@ export class GameService {
                 id: gameId
             },
             relations: {
-                awayTeam: true,
                 homeTeam: true,
+                awayTeam: true,
                 homePlayers: true,
                 awayPlayers:true
             }
@@ -95,14 +95,15 @@ export class GameService {
 
     async updateTeam(gameId:number,teamId:number,playersId:number[]){
         const game= await this.getOne(gameId)
-        const team = await this.teamService.getOne(teamId)
-        if(team===game.homeTeam){
+        if(teamId==game.homeTeam.id){
+            game.homePlayers=[]
             for(let playerId of playersId){
                 game.homePlayers.push(await this.playerService.getOnePlayerById(playerId))
             }
             return this.gameRepo.save(game)
         }
-        else if(team===game.awayTeam){
+        else if(teamId===game.awayTeam.id){
+            game.awayPlayers=[]
             for(let playerId of playersId){
                 game.awayPlayers.push(await this.playerService.getOnePlayerById(playerId))
             }

@@ -32,8 +32,8 @@ export class GameController {
         return await this.gameServe.create(newGame)
     }
 
-    @UseGuards(AuthGuard)
     @Put(":id/score")
+    @UseGuards(AuthGuard)
     async updateScore(
         @Param('id', ParseIntPipe) id: number,
         @Body() updateGame: UpdateScoreDto
@@ -41,12 +41,12 @@ export class GameController {
         return await this.gameServe.updateScore(id, updateGame.homeScore, updateGame.awayScore, updateGame.finish)
     }
     
-    @UseGuards(AuthGuard)
     @Put(":id/teams")
+    @UseGuards(AuthGuard)
     async updateGameSheet(
         @Param('id', ParseIntPipe) id: number,
         @Body() updateGame: UpdateGameSheetDto
     ): Promise<Game> {
-        return await this.gameServe.updateTeam(id, updateGame.teamId, updateGame.players)
+        return await this.gameServe.updateTeam(id, updateGame.teamId, updateGame.playersIds)
     }
 }

@@ -40,7 +40,7 @@ export default function CreateGamePage() {
             "homeTeamId": parseInt(homeTeamId),
             "awayTeamId": parseInt(awayTeamId),
             headers: {
-                'Authorization': `Bearer ${tokenJson}`
+                'Authorization': `Bearer`+tokenJson
             }
         }).then((res) => {
                 setYear('')

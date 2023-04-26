@@ -25,12 +25,11 @@ export default function TeamDetailsPage() {
             <h1>{team.teamName}</h1>
             <div className={style.teamDetails}>
                 <div>
-
                     {<img src={team.teamLogo} alt="" />}
                 </div>
             </div>
             <div className={style.playerIndex}>
-                {team.players.map(player => <PlayerCard key={player.id}{...player} />)}
+                {team.players.map(player => <PlayerCard key={player.id}{...player} team={team}/>)}
             </div>
         </div >
     )

@@ -23,7 +23,9 @@ export default function ResultDetailsPage() {
                 awayScore: data.awayScore,
                 finish: data.finish,
                 awayTeam: data.awayTeam,
-                homeTeam: data.homeTeam
+                homeTeam: data.homeTeam,
+                homePlayers: data.homePlayers,
+                awayPlayers: data.awayPlayers
             }))
             .then(result => {
                 setGame(result)
@@ -48,7 +50,8 @@ export default function ResultDetailsPage() {
 
                 <div className={style.resultDetails}>
                     <div className={style.gameInfos}>
-                        <p>
+                        <div>
+                            <p>
                             Tour {game.round}
                         </p>
                         <p>
@@ -57,25 +60,38 @@ export default function ResultDetailsPage() {
                         <p>
                             localisation : {game.location}
                         </p>
+                        </div>
+                        
                         {weather && <div>
-                            <p>
-                                meteo actuelle:
+                            meteo actuelle:
+                            <p>     <img src={`https://openweathermap.org/img/wn/${weather.icon}@4x.png`} alt="weather-icon" />
                             </p>
-                            <img src={`https://openweathermap.org/img/wn/${weather.icon}@4x.png`} alt="weather-icon" />
                             <p> {weather.skyMeteo} , température : {weather.temp} °C </p>
                         </div>}
                     </div>
                     <div className={style.gameResult}>
                         <div>
-                            {game.homeTeam.teamName}
-                            <img src={game.homeTeam.teamLogo} alt={`logo ${game.homeTeam.name}`} />
+                            <div>
+                                <h2>{game.homeTeam.teamName}</h2>
+                                <img src={game.homeTeam.teamLogo} alt={`logo ${game.homeTeam.name}`} />
+
+                            </div>
+                            <div>
+                                {game.homePlayers.map(player => <p key={player.id}>{player.firstName} {player.lastName.toUpperCase()}</p>)}
+                            </div>
                         </div>
                         <div>
                             {game.homeScore} - {game.awayScore}
                         </div>
                         <div>
-                            {game.awayTeam.teamName}
-                            <img src={game.awayTeam.teamLogo} alt={`logo ${game.awayTeam.name}`} />
+                            <div>
+                                <h2>{game.awayTeam.teamName}</h2>
+                                <img src={game.awayTeam.teamLogo} alt={`logo ${game.awayTeam.name}`} />
+                            </div>
+                            <div>
+
+                                {game.awayPlayers.map(player => <p key={player.id}>{player.firstName} {player.lastName.toUpperCase()}</p>)}
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -29,6 +29,7 @@ export default function LoginPage() {
                 dispatch(userConnect(data.user))
                 localStorage.setItem("token",JSON.stringify(data.accessToken))
                 navigate(-1)
+                console.log(data);
         })
         // console.log("handleSubmit");
     }

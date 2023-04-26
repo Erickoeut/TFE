@@ -1,4 +1,4 @@
-.playerDetails{
+.playerCard{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -9,4 +9,7 @@
     margin: 1rem;
     background-color: rgba(255, 255, 255, 0.952);
     text-align: center;
+    &:hover{
+        cursor: pointer;
+    }
 }
