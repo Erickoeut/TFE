@@ -4,6 +4,7 @@ import { CreatePlayerDto } from "src/shared/dto/players/createPlayer.dto";
 import { Player } from "src/shared/entities/player.entity";
 import { AuthGuard } from "src/auth/auth.guard";
 import { ApiTags } from "@nestjs/swagger";
+import { DeleteResult } from "typeorm";
 
 @ApiTags('Players')
 @Controller("api/players")
@@ -31,11 +32,12 @@ export class PlayerController {
     ): Promise<Player> {
         return this.playerServe.createPlayer(newPlayer)
     }
+    
     @UseGuards(AuthGuard)
     @Delete(":id")
     async deletePlayer(
         @Param("id",ParseIntPipe) id:number
-    ){
+    ): Promise<DeleteResult>{
         return this.playerServe.deletePlayer(id)
     }
 }

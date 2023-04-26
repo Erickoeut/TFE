@@ -35,5 +35,4 @@ export class UsersController{
         const User= await this.userService.findOne(request.user.username) 
         return User
     }
-
 }

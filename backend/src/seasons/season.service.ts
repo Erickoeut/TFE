@@ -35,6 +35,7 @@ export class SeasonService {
         const oneUpdatedSeason = await this.updatenbRoundSeason(oneSeason)
         return oneUpdatedSeason
     }
+    
     //pas dans le controller mais utilisé pour creer un match 
     async findOneByYear(year){
         const season:Season = await this.seasonRepo.findOne({where:{
