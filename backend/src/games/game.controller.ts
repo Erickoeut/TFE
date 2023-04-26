@@ -25,7 +25,7 @@ export class GameController {
     }
 
     @Post()
-    @UseGuards(AuthGuard)
+    // @UseGuards(AuthGuard)
     async create(
         @Body() newGame: CreateGameDto
     ): Promise<Game> {
@@ -33,7 +33,7 @@ export class GameController {
     }
 
     @Put(":id/score")
-    @UseGuards(AuthGuard)
+    // @UseGuards(AuthGuard)
     async updateScore(
         @Param('id', ParseIntPipe) id: number,
         @Body() updateGame: UpdateScoreDto
@@ -42,7 +42,7 @@ export class GameController {
     }
     
     @Put(":id/teams")
-    @UseGuards(AuthGuard)
+    // @UseGuards(AuthGuard)
     async updateGameSheet(
         @Param('id', ParseIntPipe) id: number,
         @Body() updateGame: UpdateGameSheetDto

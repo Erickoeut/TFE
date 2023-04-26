@@ -24,9 +24,7 @@ export default function AdminLateralBar(){
     }
     return(
         <div className={style.AdminLateralBar}>
-            <h2>Admin lateral bar</h2>
-            {team&&<h2>{team.teamName}</h2>}
-            
+            <h2>Admin lateral bar</h2>            
             <Link to={"/admin/game-sheet"} >Feuilles de match</Link>
             <Link to={"/admin/create-game"}>Creer un match</Link>
             <Link to={"/admin/update-result"}>Mettre à jour les scores</Link>

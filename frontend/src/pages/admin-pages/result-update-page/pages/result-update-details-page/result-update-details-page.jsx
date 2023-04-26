@@ -13,6 +13,7 @@ export default function ResultUpdateDetailsPage() {
             })
     }, [])
     
+
     const [homeScore,setHomeScore]= useState("")
     const [awayScore,setAwayScore]= useState("")
 
@@ -20,7 +21,13 @@ export default function ResultUpdateDetailsPage() {
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        axios.put('http://local')
+        axios.put(`http://localhost:3000/api/games/${id}/score`,{
+            "homeScore":parseInt(homeScore),
+            "awayScore":parseInt(awayScore),
+            "finish":!!status
+        }).then(()=>{
+            navigate(-1)
+        })
     }
 
     return (
@@ -36,8 +43,8 @@ export default function ResultUpdateDetailsPage() {
                     <label htmlFor="">Score {game.awayTeam.teamName} </label>
                     <input type="number" value={awayScore} onChange={(e)=>setAwayScore(e.target.value)}/>
                     <select name="" value={status} onChange={(e) => setStatus(e.target.value)}>
-                        <option value="false">Non joué</option>
-                        <option value="true">Terminé</option>
+                        <option value={false}>Non joué</option>
+                        <option value={true}>Terminé</option>
                     </select>
                     <button type="submit">Valider</button>
                 </form>

@@ -37,6 +37,7 @@
     }
 
     td {
+        
         text-align: center;
         flex-direction: row;
         min-width: 4rem;
@@ -51,6 +52,7 @@
     }
 
     .teamLink:hover{
+        transition: 0.4s;
         cursor: pointer;
     }
 }

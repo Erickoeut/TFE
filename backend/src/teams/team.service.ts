@@ -22,11 +22,13 @@ export class TeamService {
                 players: true,
                 homeGames:{
                     season:true,
-                    awayTeam:true
+                    awayTeam:true,
+                    homePlayers:true
                 },
                 awayGames:{
                     season:true,
-                    homeTeam:true
+                    homeTeam:true,
+                    awayPlayers:true
                 }
             }
         }).catch(()=>{

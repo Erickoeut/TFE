@@ -52,16 +52,16 @@ export default function ResultDetailsPage() {
                     <div className={style.gameInfos}>
                         <div>
                             <p>
-                            Tour {game.round}
-                        </p>
-                        <p>
-                            {game.date}
-                        </p>
-                        <p>
-                            localisation : {game.location}
-                        </p>
+                                Tour {game.round}
+                            </p>
+                            <p>
+                                {game.date}
+                            </p>
+                            <p>
+                                localisation : {game.location}
+                            </p>
                         </div>
-                        
+
                         {weather && <div>
                             meteo actuelle:
                             <p>     <img src={`https://openweathermap.org/img/wn/${weather.icon}@4x.png`} alt="weather-icon" />
@@ -71,26 +71,27 @@ export default function ResultDetailsPage() {
                     </div>
                     <div className={style.gameResult}>
                         <div>
-                            <div>
-                                <h2>{game.homeTeam.teamName}</h2>
-                                <img src={game.homeTeam.teamLogo} alt={`logo ${game.homeTeam.name}`} />
 
-                            </div>
-                            <div>
+                            <h2>{game.homeTeam.teamName}</h2>
+                            <img src={game.homeTeam.teamLogo} alt={`logo ${game.homeTeam.name}`} />
+                            <div className={style.players}>
+                                <h2>Joueurs</h2>
                                 {game.homePlayers.map(player => <p key={player.id}>{player.firstName} {player.lastName.toUpperCase()}</p>)}
                             </div>
                         </div>
-                        <div>
+                        <div className={style.score}>
                             {game.homeScore} - {game.awayScore}
                         </div>
                         <div>
-                            <div>
-                                <h2>{game.awayTeam.teamName}</h2>
-                                <img src={game.awayTeam.teamLogo} alt={`logo ${game.awayTeam.name}`} />
-                            </div>
-                            <div>
 
-                                {game.awayPlayers.map(player => <p key={player.id}>{player.firstName} {player.lastName.toUpperCase()}</p>)}
+                            <h2>{game.awayTeam.teamName}</h2>
+                            <img src={game.awayTeam.teamLogo} alt={`logo ${game.awayTeam.name}`} />
+
+                            <div className={style.players}>
+                                <h2>Joueurs</h2>
+                                <ul>
+                                    {game.awayPlayers.map(player => <li key={player.id}>{player.firstName} {player.lastName.toUpperCase()}</li>)}
+                                </ul>
                             </div>
                         </div>
                     </div>

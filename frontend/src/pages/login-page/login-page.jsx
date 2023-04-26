@@ -31,15 +31,8 @@ export default function LoginPage() {
                 navigate(-1)
                 console.log(data);
         })
-        // console.log("handleSubmit");
     }
 
-    // const handleBlopTest = (e) => {
-    //     e.preventDefault();
-    //     axios.get("http://localhost:3000/api/players", { headers: { 'Authorization': `Bearer ${userState.user.accessToken}`}}).then(data => {
-    //         console.log(data)
-    //     })
-    // }
 
     return (<>
         <h1>Login</h1>
