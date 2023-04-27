@@ -113,9 +113,4 @@ export class GameService {
         }
     }
 
-    async deleteGame(id){
-        const gameToDelete = await this.getOne(id)
-
-        return await this.gameRepo.delete(gameToDelete)
-    }
 }

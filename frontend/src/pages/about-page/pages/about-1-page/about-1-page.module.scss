@@ -7,6 +7,7 @@
 
     .AboutPage {
         display: flex;
+        justify-content: space-between;
         height: 100%;
         width: 100%;
         padding: 2rem;
@@ -17,6 +18,7 @@
     }
     .content{
         padding: 2rem;
+        width: 50%;
     }
     h2 {
         font-size: 2rem;
@@ -35,7 +37,7 @@
     }
 
     img {
-        aspect-ratio: 5/6;
+        aspect-ratio: 6/5;
         height: 100%;
         object-fit: cover;
     }

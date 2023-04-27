@@ -38,6 +38,5 @@ export class TeamService {
         if(oneTeam){return oneTeam}
         
     }
-    create() { }
-    delete() { }
+
 }

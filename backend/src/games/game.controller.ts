@@ -50,10 +50,6 @@ export class GameController {
         return await this.gameServe.updateTeam(id, updateGame.teamId, updateGame.playersIds)
     }
 
-    @Delete(":id")
-    async deleteGame(
-        @Param("id",ParseIntPipe)id:number
-        ){
-        return await this.gameServe.deleteGame(id)
-    }
+
+    
 }

@@ -12,11 +12,13 @@ export default function About0Page() {
                     <img src={pp} alt="" />
                 </div>
                 <div className={style.content}>
-                    <h2>Eric KOEUT</h2>
+                    <h2>Eric KOEUT - Développeur JavaScript FullStack</h2>
                     <ul>
                         <li>Français</li>
                         <li>32 ans</li>
                         <li>Ixelles</li>
+                        <li>Formation universitaire en Ingénierie mécanique</li>
+                        <li>Dessinateur industriel en reconversion</li>
                     </ul>
                 </div>
             </div>

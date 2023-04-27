@@ -26,6 +26,8 @@ import About3Page from "../pages/about-page/pages/about-3-page/about-3-page"
 import About2Page from "../pages/about-page/pages/about-2-page/about-2-page"
 import About4Page from "../pages/about-page/pages/about-4-page/about-4-page"
 import About5Page from "../pages/about-page/pages/about-5-page/about-5-page"
+import About6Page from "../pages/about-page/pages/about-6-page/about-6-page"
+import About7Page from "../pages/about-page/pages/about-7-page/about-7-page"
 
 
 
@@ -100,6 +102,14 @@ const route = [
                     {
                         path:'5',
                         element:<About5Page/>
+                    },
+                    {
+                        path:'6',
+                        element:<About6Page/>
+                    },
+                    {
+                        path:'7',
+                        element:<About7Page/>
                     }
                 ]
             },

@@ -12,11 +12,12 @@ function App() {
   const user = useSelector(state=>state.user.user)
   const activeSideBar = useSelector(state=>state.user.activeSideBar)
   const dispatch=useDispatch()
+
   useEffect(()=>{
     if(!user){
-      const tokenJson = JSON.parse(localStorage.getItem('token'))
-      if(tokenJson){
-        axios.get('http://localhost:3000/api/users',{headers: { 'Authorization': `Bearer ${tokenJson}`}})
+      const token = JSON.parse(localStorage.getItem('token'))
+      if(token){
+        axios.get('http://localhost:3000/api/users',{headers: { 'Authorization': `Bearer ${token}`}})
         .then(({data})=>{
           dispatch(userConnect({
             "username":data.username,
@@ -26,6 +27,7 @@ function App() {
         
       }
   },[user])
+  
   return (
     <div className="App">
       <NavBar user={user}/>
