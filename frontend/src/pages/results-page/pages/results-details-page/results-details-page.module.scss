@@ -1,16 +1,17 @@
-.resultDetails{
+.resultDetails {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 2rem;
-    img{
+
+    img {
         width: 10rem;
         object-fit: contain;
     }
 }
 
-.gameInfos{
+.gameInfos {
     display: flex;
     // flex-direction: column;
     justify-content: space-around;
@@ -19,7 +20,8 @@
     width: 100%;
     box-shadow: 0px 0px 30px rgba(51, 51, 51, 0.3);
     padding: 1rem;
-    >div{
+
+    >div {
         height: 100%;
         justify-content: center;
         align-items: center;
@@ -27,17 +29,19 @@
         display: flex;
         // border: 1px solid red;
     }
-    p{
+
+    p {
         display: flex;
         // justify-content: center;
     }
-    img{
+
+    img {
         object-fit: contain;
         height: 5rem;
     }
 }
 
-.gameResult{
+.gameResult {
     box-shadow: 0px 0px 30px rgba(51, 51, 51, 0.3);
     display: flex;
     width: 100%;
@@ -45,19 +49,23 @@
     align-items: flex-start;
     margin: 2rem;
     padding: 1rem;
-    h2{
+
+    h2 {
         width: 100%;
         height: 4rem;
-        background-color: aqua;
+        background-color: rgb(61, 61, 61);
+        color: #ffd885;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    img{
+
+    img {
         object-fit: contain;
         height: 15rem;
     }
-    &>div{
+
+    &>div {
         display: flex;
         width: 45%;
         flex-direction: column;
@@ -65,14 +73,16 @@
         justify-content: space-between;
         padding: 1rem;
     }
-    .score{
+
+    .score {
         width: 10%;
         min-width: 10rem;
         align-self: center;
         justify-content: center;
         font-size: 3rem;
     }
-    .players{
+
+    .players {
         display: flex;
         flex-direction: column;
         align-items: center;

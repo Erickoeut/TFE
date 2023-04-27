@@ -48,9 +48,7 @@ export default function GameSheetUpdatePage() {
             "playersIds": playersId
         }
         const config = {
-            headers: {
-                headers: { Authorization: `Bearer ${token}` }
-            }
+            headers: { Authorization: `Bearer ${token}` }
         }
         axios.put(`http://localhost:3000/api/games/${id}/teams`, body, config).then(() => {
 

@@ -1,7 +1,8 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import style from "./players-page.module.scss"
-import PlayerCard from "../../components/player-card/player-card"
+import style from "./players-index-page.module.scss"
+import PlayerCard from "../../../../components/player-card/player-card"
+
 
 
 export default function PlayerIndexPage() {
@@ -32,15 +33,16 @@ export default function PlayerIndexPage() {
     const handleSubmitFilter = (e)=>{
         e.preventDefault()
         setPlayersSelected(structuredClone(players)) 
+        
         const temp = structuredClone(players)
         let teamFiltredTemp
         let positionFiltredTemp
 
         if(filterTeam!==""){
+            console.log(filterTeam);
             teamFiltredTemp=structuredClone(temp.filter(player=>player.team.id === parseInt(filterTeam))) 
         }
         else teamFiltredTemp=temp
-
         if(filterPosition!==""){
             positionFiltredTemp=structuredClone(teamFiltredTemp.filter(player=>player.position===filterPosition))
         }

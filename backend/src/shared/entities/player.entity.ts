@@ -25,10 +25,10 @@ export class Player{
     @ManyToOne(()=>Team,team=>team.id)
     team: Team
 
-    @ManyToMany(()=>Game,game=>game.homePlayers)
+    @ManyToMany(()=>Game,game=>game.homePlayers,{onDelete:'CASCADE'})
     homeGames:Game[]
 
-    @ManyToMany(()=>Game,game=>game.awayPlayers)
+    @ManyToMany(()=>Game,game=>game.awayPlayers,{onDelete:'CASCADE'})
     awayGames:Game[]
 
     

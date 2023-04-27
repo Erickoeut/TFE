@@ -74,10 +74,10 @@ export default function ResultDetailsPage() {
 
                             <h2>{game.homeTeam.teamName}</h2>
                             <img src={game.homeTeam.teamLogo} alt={`logo ${game.homeTeam.name}`} />
-                            <div className={style.players}>
+                            {game.homePlayers.length>0&&<div className={style.players}>
                                 <h2>Joueurs</h2>
                                 {game.homePlayers.map(player => <p key={player.id}>{player.firstName} {player.lastName.toUpperCase()}</p>)}
-                            </div>
+                            </div>}
                         </div>
                         <div className={style.score}>
                             {game.homeScore} - {game.awayScore}
@@ -87,12 +87,12 @@ export default function ResultDetailsPage() {
                             <h2>{game.awayTeam.teamName}</h2>
                             <img src={game.awayTeam.teamLogo} alt={`logo ${game.awayTeam.name}`} />
 
-                            <div className={style.players}>
+                            {game.awayPlayers.lenght>0&&<div className={style.players}>
                                 <h2>Joueurs</h2>
                                 <ul>
                                     {game.awayPlayers.map(player => <li key={player.id}>{player.firstName} {player.lastName.toUpperCase()}</li>)}
                                 </ul>
-                            </div>
+                            </div>}
                         </div>
                     </div>
                 </div>

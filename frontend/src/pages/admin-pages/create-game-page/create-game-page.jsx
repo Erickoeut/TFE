@@ -38,9 +38,9 @@ export default function CreateGamePage() {
             "location": location,
             "date": date.toString(),
             "homeTeamId": parseInt(homeTeamId),
-            "awayTeamId": parseInt(awayTeamId),
+            "awayTeamId": parseInt(awayTeamId)},{
             headers: {
-                'Authorization': `Bearer`+tokenJson
+                'Authorization': `Bearer `+tokenJson
             }
         }).then((res) => {
                 setYear('')

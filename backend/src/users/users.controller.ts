@@ -31,8 +31,8 @@ export class UsersController{
     @Get()
     async getOne(
         @Request() request 
-    ):Promise<User>{
-        const User= await this.userService.findOne(request.user.username) 
+    ):Promise<any>{
+        const User= await this.userService.getOne(request.user.username) 
         return User
     }
 }

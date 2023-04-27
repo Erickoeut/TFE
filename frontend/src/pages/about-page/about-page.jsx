@@ -10,7 +10,7 @@ export default function AboutPage() {
             <p>
                 Je m'appelle Eric KOEUT.
             </p>
-            <img src={pp} alt="" srcset="" />
+            <img src={pp}/>
             <p>
                 Diplomé d'une licence en ingénieries mécanique à Lyon durant laquel j'ai pu avoir approche la programmation informatique (calculs scientifiques en python), j'ai commencé ma carrière professionelle en tant que dessinateur industriel en France, puis en Belgique. A la fin de mon CDD en septembre dernier, j'ai eu l'opportunité d'entrer dans le domaine du developpement web grace à la formation de developpeur Javascript FullStack organisé par Bruxelles formation, en collaboration avec Actiris. Les cours ont lieu a Digital City et sont donnés par les formateurs de BSTORM.
             </p>

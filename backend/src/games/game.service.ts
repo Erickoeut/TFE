@@ -113,4 +113,10 @@ export class GameService {
             throw new BadRequestException("cette equipe ne joue pas ce match")
         }
     }
+
+    async deleteGame(id){
+        const gameToDelete = await this.getOne(id)
+
+        return await this.gameRepo.delete(gameToDelete)
+    }
 }

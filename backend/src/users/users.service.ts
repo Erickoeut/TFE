@@ -22,6 +22,21 @@ export class UsersService {
 
         return user
     }
+    async getOne(username: string): Promise<any> {
+        const user = await this.userRepo.findOneOrFail({
+            select:{
+                username:true,
+                email:true,
+                role:true,
+                teamId:true
+            },
+            where: {username: username} })
+            .catch(() => {
+                throw new NotFoundException("Cet utilisateur n'existe pas")
+            })
+
+        return user
+    }
     @UseGuards(AuthGuard)
     async createOne(newUser: CreateUserDto): Promise<User> {
         const usernameExist = await this.userRepo.findOne({ where: { username: newUser.username } })
@@ -54,7 +69,6 @@ export class UsersService {
             .catch(() => {
                 throw new BadRequestException("cet utilisateur n'existe pas")
             })
-
         userExist.role = userToUpdate.newRole
         return this.userRepo.save(userExist)
     }

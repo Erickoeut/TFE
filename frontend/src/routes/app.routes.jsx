@@ -18,6 +18,8 @@ import AdminPage from "../pages/admin-pages/admin-page"
 import ResultUpdatePage from "../pages/admin-pages/result-update-page/result-update-page"
 import ResultUpdateIndexPage from "../pages/admin-pages/result-update-page/pages/result-update-index-page/result-update-index-page"
 import ResultUpdateDetailsPage from "../pages/admin-pages/result-update-page/pages/result-update-details-page/result-update-details-page"
+import PlayerIndexPage from "../pages/players/pages/players-index-page/players-index-page"
+import PlayerDetailPage from "../pages/players/pages/players-details-page/players-details-page"
 
 
 
@@ -114,7 +116,17 @@ const route = [
 
             {
                 path: "players",
-                element: <PlayerPage />
+                element: <PlayerPage />,
+                children:[
+                    {
+                        index:true,
+                        element:<PlayerIndexPage/>
+                    },
+                    {
+                        path:":id",
+                        element:<PlayerDetailPage/>
+                    }
+                ]
             }
         ]
     }

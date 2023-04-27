@@ -41,11 +41,11 @@ export class Game{
     @JoinColumn({name:'season_id'})
     season:Season
 
-    @ManyToMany(()=>Player,player=>player.homeGames)
+    @ManyToMany(()=>Player,player=>player.homeGames,{onDelete:'CASCADE'})
     @JoinTable()
     homePlayers:Player[]
 
-    @ManyToMany(()=>Player,player=>player.awayGames)
+    @ManyToMany(()=>Player,player=>player.awayGames,{onDelete:'CASCADE'})
     @JoinTable()
     awayPlayers:Player[]
 }
