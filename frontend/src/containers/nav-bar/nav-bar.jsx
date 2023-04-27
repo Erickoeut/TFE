@@ -11,6 +11,7 @@ export default function NavBar({ user }) {
                 <Link to={"/"}>
                     <img src="https://touch-belgium.be/_nuxt/img/navbar-logo.0e3ed7d.png" />
                 </Link>
+                
                 <ul>
                     <li>
                         <NavLink to={"/ranking"}>
@@ -24,7 +25,7 @@ export default function NavBar({ user }) {
                     </li>
                     <li>
                         <NavLink to={"/teams"}>
-                            Les équipes
+                            Les clubs
                         </NavLink>
                     </li>
                     <li>
