@@ -5,7 +5,6 @@ import { PlayerService } from "src/players/player.service";
 import { SeasonService } from "src/seasons/season.service";
 import { CreateGameDto } from "src/shared/dto/games/createGame.dto";
 import { Game } from "src/shared/entities/game.entity";
-
 import { Season } from "src/shared/entities/season.entity";
 import { Team } from "src/shared/entities/team.entity";
 import { TeamService } from "src/teams/team.service";
@@ -51,7 +50,6 @@ export class GameService {
         return oneGame
     }
 
-
     async create(newGame: CreateGameDto): Promise<any> {
         const season:Season = await this.seasonService.findOneByYear(newGame.seasonYear)
         const homeTeam:Team = await this.teamService.getOne(newGame.homeTeamId)
@@ -84,6 +82,7 @@ export class GameService {
             }
         }
     }
+
     async updateScore(id,homeScore,awayScore,finish) { 
         const updateGame = await this.getOne(id)
         updateGame.homeScore=homeScore

@@ -20,6 +20,11 @@ import ResultUpdateIndexPage from "../pages/admin-pages/result-update-page/pages
 import ResultUpdateDetailsPage from "../pages/admin-pages/result-update-page/pages/result-update-details-page/result-update-details-page"
 import PlayerIndexPage from "../pages/players/pages/players-index-page/players-index-page"
 import PlayerDetailPage from "../pages/players/pages/players-details-page/players-details-page"
+import About0Page from "../pages/about-page/pages/about-0-page/about-0-page"
+import About1Page from "../pages/about-page/pages/about-1-page/about-1-page"
+import About3Page from "../pages/about-page/pages/about-3-page/about-3-page"
+import About2Page from "../pages/about-page/pages/about-2-page/about-2-page"
+import About4Page from "../pages/about-page/pages/about-4-page/about-4-page"
 
 
 
@@ -68,7 +73,30 @@ const route = [
             },
             {
                 path: "about",
-                element: <AboutPage />
+                element: <AboutPage />,
+                children:[
+                    {
+                        index:true,
+                        element:<About0Page/>
+                    },
+                    {
+                        path:'1',
+                        element:<About1Page/>
+                    },
+                    {
+                        path:'2',
+                        element:<About2Page/>
+                        
+                    },
+                    {
+                        path:'3',
+                        element:<About3Page/>
+                    },
+                    {
+                        path:'4',
+                        element:<About4Page/>
+                    }
+                ]
             },
             {
                 path: "login",

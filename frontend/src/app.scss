@@ -1,17 +1,22 @@
-.App{
+.App {
     display: flex;
     flex-direction: column;
 }
 
-main{
+main {
     display: flex;
-    min-height: 90vh;
+    min-height: 87vh;
+    flex-grow: 1;
     // background-color: #B5332C;
-    &>div{
 
+    &>div {
+        // border: 1px solid;
         padding: 2rem 1rem;
+        display: flex;
+        flex-direction: column
     }
-    &>div:first-child{
+
+    &>div:first-child {
         flex-grow: 1;
     }
 }
