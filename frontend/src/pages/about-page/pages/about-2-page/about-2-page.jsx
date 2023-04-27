@@ -1,21 +1,28 @@
 import style from "./about-2-page.module.scss"
-import uml from "../../../../assets/images/uml.png"
+import react from "../../../../assets/images/react.png"
+import nest from "../../../../assets/images/nest.jpeg"
+import sql from "../../../../assets/images/sql-server.svg"
+
 import { useNavigate } from "react-router-dom"
-export default function About2Page(){
+export default function About2Page() {
     const navigate = useNavigate()
-    return(<div className={style.aboutDetails} >
-    <h1>Le Projet</h1>
-    <div className={style.About1Page}>
-        <div>
-            <img src={uml} alt="" />
+    return (
+        <div className={style.aboutDetails}>
+            <h1>Les technologies</h1>
+            <div className={style.AboutPage}>
+
+                <div>
+                    <img src={react} alt="" />
+                    <img src={nest} alt="" />
+                    <img src={sql} alt="" />
+
+                </div>
+
+            </div>
+            <div className={style.buttons}>
+                <button onClick={() => navigate('/about/1')}>←</button>
+                <button onClick={() => navigate('/about/3')}>→</button>
+            </div>
         </div>
-        <div>
-            <h2>Le touch</h2>
-        </div>
-    </div>
-    <div className={style.buttons}>
-        <button onClick={() => navigate('/about/1')}>←</button>
-        <button onClick={() => navigate('/about/3')}>→</button>
-    </div>
-</div>)
+    )
 }

@@ -7,16 +7,16 @@ export default function About0Page() {
     return (
         <div className={style.aboutDetails}>
             <h1>A propos</h1>
-            <div className={style.About0Page}>
+            <div className={style.AboutPage}>
                 <div>
                     <img src={pp} alt="" />
                 </div>
-                <div>
+                <div className={style.content}>
+                    <h2>Eric KOEUT</h2>
                     <ul>
-                        <li><h2>Eric KOEUT</h2></li>
                         <li>Français</li>
                         <li>32 ans</li>
-                        <li></li>
+                        <li>Ixelles</li>
                     </ul>
                 </div>
             </div>

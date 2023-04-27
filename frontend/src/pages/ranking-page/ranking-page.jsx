@@ -4,27 +4,27 @@ import style from './ranking-page.module.scss'
 import { useNavigate } from "react-router-dom"
 export default function RankingPage() {
     const [ranking, setRanking] = useState([])
-    const [seasonDetail,setSeasonDetails]= useState(null)
+    const [seasonDetail, setSeasonDetails] = useState(null)
     useEffect(() => {
         axios.get('http://localhost:3000/api/seasons/1/ranking')
             .then(({ data }) => {
                 setRanking(data.ranking)
-                setSeasonDetails({year:data.year})
+                setSeasonDetails({ year: data.year })
             })
     }, [])
 
 
-   
+
     return (
         <div >
-            {seasonDetail&&<h1>Classement saison {seasonDetail.year}-{seasonDetail.year+1}</h1>}
+            {seasonDetail && <h1>Classement saison {seasonDetail.year}-{seasonDetail.year + 1}</h1>}
             <div className={style.RankingPage}>
                 <table>
                     <thead>
                         <tr>
-                            
+
                             <th colSpan='3'>Equipe</th>
-                            
+
                             <th>Pts</th>
                             <th>Joués</th>
                             <th>G</th>
@@ -34,7 +34,7 @@ export default function RankingPage() {
                             <th>-</th>
                             <th>diff</th>
                         </tr>
-                        
+
                     </thead>
                     <tbody>
                         {ranking.map((team, i) => <RankingRow key={team.id}{...team} i={i} />)}
@@ -49,19 +49,19 @@ RankingPage.defaultProps = {
     ranking: []
 }
 
-const RankingRow = ({ i, id,teamLogo,teamName, gamePlayed, teamPoints, win, draw, lost, scoreFor, scoreAgainst, scoreDifference,mainColor,secondColor }) => {
+const RankingRow = ({ i, id, teamLogo, teamName, gamePlayed, teamPoints, win, draw, lost, scoreFor, scoreAgainst, scoreDifference, mainColor, secondColor }) => {
     const navigate = useNavigate()
-    const normal={}
-    const over={
-        backgroundColor:mainColor,
-        color:secondColor
+    const normal = {}
+    const over = {
+        backgroundColor: mainColor,
+        color: secondColor
     }
-    const [back,setBack]=useState(normal)
+    const [back, setBack] = useState(normal)
     return (
         <tr>
             <td>{i + 1}</td>
-            <td><img className={style.teamLink} src={teamLogo} alt={`${teamName} logo`} onClick={()=>navigate(`/teams/${id}`)} /></td>
-            <td className={style.teamLink} style={back}  onMouseEnter={()=>setBack(over)} onMouseLeave={()=>setBack(normal)} onClick={()=>navigate(`/teams/${id}`)}>{teamName}</td>
+            <td><img className={style.teamLink} src={teamLogo} alt={`${teamName} logo`} onClick={() => navigate(`/teams/${id}`)} /></td>
+            <td className={style.teamLink} style={back} onMouseEnter={() => setBack(over)} onMouseLeave={() => setBack(normal)} onClick={() => navigate(`/teams/${id}`)}>{teamName}</td>
             <td>{teamPoints}</td>
             <td>{gamePlayed}</td>
             <td>{win}</td>

@@ -1,21 +1,51 @@
 .aboutDetails {
     display: flex;
     flex-direction: column;
-    // align-items: center;
-    justify-content: space-between;
-    height: 87vh;
-    padding: 1rem 10rem ;
-    >div {
+    align-items: center;
+    height: 70vh;
+    padding: 1rem 10rem;
+
+    .AboutPage {
         display: flex;
+        height: 100%;
+        width: 100%;
+        padding: 2rem;
+        margin: 1rem;
+        min-width: 60vw;
+        max-width: 80vw;
+        box-shadow: 0px 0px 30px rgba(51, 51, 51, 0.3);
+    }
+    .content{
+        padding: 2rem;
+    }
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    ul {
+        margin: 0 2rem;
+        list-style: disc;
+
+        li {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+
+        }
     }
 
     img {
-        width: 30rem;
-        height: 30rem;
+        aspect-ratio: 5/6;
+        height: 100%;
         object-fit: cover;
     }
-    .buttons{
+
+
+    .buttons {
         display: flex;
         justify-content: center;
+        button{
+            margin: 0.5rem;
+        }
     }
 }
