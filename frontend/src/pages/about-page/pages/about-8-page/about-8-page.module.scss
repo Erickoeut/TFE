@@ -4,47 +4,40 @@
     align-items: center;
     height: 70vh;
     padding: 1rem 10rem;
+    font-size: 1.5rem;
     h1{
         margin: 0;
     }
     .AboutPage {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         height: 100%;
         width: 100%;
         padding: 2rem;
         margin: 1rem;
         // min-width: 60vw;
-        // max-width: 80vw;
+        max-width: 80vw;
         box-shadow: 0px 0px 30px rgba(51, 51, 51, 0.3);
     }
-    .content{
-        padding: 2rem;
+    img{
         width: 50%;
+        object-fit: contain;
     }
-    h2 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    ul {
-        margin: 0 2rem;
-        list-style: disc;
-
-        li {
-            font-size: 1.3rem;
-            margin-bottom: 1.3rem;
-
+    .content{
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+        height: 70vh;
+        padding: 2rem;
+        justify-content: center;
+        img{
+            margin: 1rem;
+            object-fit: contain;
+            width: 35%;
+            height: 35%;
         }
     }
-
-    img {
-        aspect-ratio: 16/9;
-        height: 100%;
-        object-fit: cover;
-    }
-
-
+    
     .buttons {
         display: flex;
         justify-content: center;

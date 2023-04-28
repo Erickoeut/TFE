@@ -17,7 +17,7 @@ export default function About2Page() {
 
                     </div>
                     <div>
-                        <h2>Back_end</h2>
+                        <h2>Back-end</h2>
                         <img src={nest} alt="" />
 
                     </div>

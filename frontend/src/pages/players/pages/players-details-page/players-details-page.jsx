@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import style from "./players-details-page.module.scss"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 export default function PlayerDetailPage() {
     const [player, setPlayer] = useState(null)
     const { id } = useParams()
@@ -14,6 +16,9 @@ export default function PlayerDetailPage() {
     return (
         player && <div>
             <h1>{player.firstName} {player.lastName}</h1>
+            <Link to={-1}>
+                <FontAwesomeIcon icon={faArrowLeftLong} size="xl" />
+            </Link>
             <div className={style.playerDetails}>
 
                 <ul>

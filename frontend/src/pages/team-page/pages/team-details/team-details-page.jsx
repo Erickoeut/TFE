@@ -19,10 +19,10 @@ export default function TeamDetailsPage() {
 
     return (
         team && <div>
+            <h1>{team.teamName}</h1>
             <Link to={-1}>
                 <FontAwesomeIcon icon={faArrowLeftLong} size="xl" />
             </Link>
-            <h1>{team.teamName}</h1>
             <div className={style.teamDetails}>
                 <div>
                     {<img src={team.teamLogo} alt="" />}

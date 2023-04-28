@@ -21,15 +21,32 @@
     }
     img{
         width: 50%;
-        object-fit: contain;
+        height: 100%;
+        object-fit: cover;
+    }
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    ul {
+        margin: 0 2rem;
+        list-style: disc;
+
+        li {
+            font-size: 1.3rem;
+            margin-bottom: 1.3rem;
+
+        }
     }
     .content{
         display: flex;
-        flex-wrap: wrap;
+        // flex-wrap: wrap;
+        flex-direction: column;
         width: 50%;
         height: 70vh;
         padding: 2rem;
-        justify-content: center;
+        // justify-content: center;
         img{
             margin: 1rem;
             object-fit: contain;
