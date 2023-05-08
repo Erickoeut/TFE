@@ -24,7 +24,7 @@ export default function RankingPage() {
                         <tr>
 
                             <th colSpan='3'>Equipe</th>
-
+                            
                             <th>Pts</th>
                             <th>Joués</th>
                             <th>G</th>
