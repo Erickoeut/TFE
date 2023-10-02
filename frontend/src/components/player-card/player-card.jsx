@@ -16,12 +16,12 @@ export default function PlayerCard  ({ firstName, lastName, position, age,team ,
                 <h2>
                     {firstName} {lastName.toUpperCase()}
                 </h2>
-                {/* <p>
+                <p>
                     {position}
-                </p> */}
-                {/* <p>
-                    {age} ans
-                </p> */}
+                </p>
+                <p>
+                    Club : {team.teamName} 
+                </p>
             </div>
         </>
     )
