@@ -49,7 +49,5 @@ export class GameController {
     ): Promise<Game> {
         return await this.gameServe.updateTeam(id, updateGame.teamId, updateGame.playersIds)
     }
-
-
     
 }
