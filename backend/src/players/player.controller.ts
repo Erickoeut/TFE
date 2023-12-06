@@ -25,7 +25,7 @@ export class PlayerController {
         return await this.playerServe.getOnePlayerById(playerId)
     }
 
-    @UseGuards(AuthGuard)
+    // @UseGuards(AuthGuard)
     @Post()
     async createPlayer(
         @Body() newPlayer: CreatePlayerDto
