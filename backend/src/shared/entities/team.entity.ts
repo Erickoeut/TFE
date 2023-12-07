@@ -7,10 +7,10 @@ export class Team{
     @PrimaryGeneratedColumn()
     id:number;
 
-    @Column({name:'team_name'})
+    @Column({name:'name'})
     teamName:string
 
-    @Column({name:'team_logo'})
+    @Column({name:'logo'})
     teamLogo:string
 
     @Column()

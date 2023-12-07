@@ -1,3 +1,15 @@
+-- SQLite
+insert into season (year, nb_of_round) values (2022, 9);
+insert into team (name , logo,base,main_color,second_color) values ('BBRFC Celtic','https://admin.touch-belgium.be/media/team_logos/bbrfcceltic_logo.png','Ixelles','#1a2857','#00984b');
+insert into team (name , logo,base,main_color,second_color) values ('Boitsfort RC','https://admin.touch-belgium.be/media/team_logos/boitsfort_logo.jpg','Boitsfort','#1e3d62','#fffffd');
+insert into team (name , logo,base,main_color,second_color) values ('Brussels citizens','https://admin.touch-belgium.be/media/team_logos/citizens_logo.jpg','Auderghem','#7e2223','#ffcb53');
+insert into team (name , logo,base,main_color,second_color) values ('BUC St Josse','https://admin.touch-belgium.be/media/team_logos/buc_logo.png','Saint-Josse','#ea2419','#ffffff');
+insert into team (name , logo,base,main_color,second_color) values ('Gent Rugby','https://admin.touch-belgium.be/media/team_logos/gent_logo.png','Gand','#356b51','#ffffff');
+insert into team (name , logo,base,main_color,second_color) values ('Kituro Rugby','https://admin.touch-belgium.be/media/team_logos/kituro_logo.jpg','Schaerbeek','#177644','#221d23');
+insert into team (name , logo,base,main_color,second_color) values ('RC La Hulpe','https://admin.touch-belgium.be/media/team_logos/rclhlogo.jpg','La Hulpe','#2d4f34','#7d232d');
+insert into team (name , logo,base,main_color,second_color) values ('Oudenaarde Rhinos','https://admin.touch-belgium.be/media/team_logos/rhinos_logo.jpeg','Audenarde','#000000','#ffffff');
+insert into team (name , logo,base,main_color,second_color) values ('RC Luxembourg','https://www.s50static.com/cms/uploads/images/tinymce_images/774364ed8c2d84fdbf5d98f45e0e4c057cd9a_.png','Luxembourg','#00609d','#da394c');
+insert into team (name , logo,base,main_color,second_color) values ('RFC Liège','https://admin.touch-belgium.be/media/team_logos/liege.jpg','Liege','#3d3d56','#b6474b'); 
 insert into player (first_name, last_name, age, gender, teamId, position) values ('Ernestus', 'Kirkup', 37, 'Male', 7, 'wing');
 insert into player (first_name, last_name, age, gender, teamId, position) values ('Jillane', 'Aspinwall', 39, 'Female', 2, 'middle');
 insert into player (first_name, last_name, age, gender, teamId, position) values ('Ajay', 'Minter', 21, 'Female', 6, 'middle');
@@ -299,3 +311,44 @@ insert into player (first_name, last_name, age, gender, teamId, position) values
 insert into player (first_name, last_name, age, gender, teamId, position) values ('Theodor', 'Ciobotaro', 23, 'Male', 4, 'wing');
 insert into player (first_name, last_name, age, gender, teamId, position) values ('Way', 'Caro', 17, 'Male', 6, 'middle');
 insert into player (first_name, last_name, age, gender, teamId, position) values ('Eric', 'KOEUT', 32, 'Male', 1, 'middle');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,1,'Boitsfort', 'championship','23-10-2022',1,5,7,1,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,1,'Boitsfort', 'championship','23-10-2022',6,4,4,9,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,1,'Boitsfort', 'championship','23-10-2022',9,2,4,10,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,1,'Boitsfort', 'championship','23-10-2022',7,8,5,15,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,1,'Boitsfort', 'championship','23-10-2022',10,3,4,5,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,2,'Boitsfort', 'championship','23-10-2022',4,1,14,6,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,2,'Boitsfort', 'championship','23-10-2022',6,8,12,2,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,2,'Boitsfort', 'championship','23-10-2022',2,5,9,6,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,2,'Boitsfort', 'championship','23-10-2022',10,7,10,4,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,2,'Boitsfort', 'championship','23-10-2022',3,9,1,10,'true');
+
+
+
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,3,'Gand', 'championship','20-11-2022',1,2,2,6,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,3,'Gand', 'championship','20-11-2022',5,3,10,0,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,3,'Gand', 'championship','20-11-2022',9,7,13,0,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,3,'Gand', 'championship','20-11-2022',8,4,0,12,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,3,'Gand', 'championship','20-11-2022',10,6,0,10,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,4,'Gand', 'championship','20-11-2022',5,7,17,1,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,4,'Gand', 'championship','20-11-2022',3,2,2,13,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,4,'Gand', 'championship','20-11-2022',8,1,1,7,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,4,'Gand', 'championship','20-11-2022',6,9,9,2,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,4,'Gand', 'championship','20-11-2022',10,4,0,10,'true');
+
+
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,5,'Schaerbeek', 'championship','12-02-2023',1,3,6,1,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,5,'Schaerbeek', 'championship','12-02-2023',2,7,17,0,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,5,'Schaerbeek', 'championship','12-02-2023',9,4,0,11,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,5,'Schaerbeek', 'championship','12-02-2023',5,6,2,10,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,5,'Schaerbeek', 'championship','12-02-2023',10,8,0,10,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,6,'Schaerbeek', 'championship','12-02-2023',9,8,6,5,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,6,'Schaerbeek', 'championship','12-02-2023',3,7,8,3,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,6,'Schaerbeek', 'championship','12-02-2023',6,2,7,9,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,6,'Schaerbeek', 'championship','12-02-2023',5,4,3,13,'true');
+insert into game (season_id,round,location,type,date,home_team_id,away_team_id,home_score,away_score,finish) values (1,6,'Schaerbeek', 'championship','12-02-2023',10,1,0,10,'true');
+insert into users (username, email, password, role, team_id) values ('crowbrey0', 'zwoollaston0@indiegogo.com', 'lBAZXT', 'admin', 2);
+insert into users (username, email, password, role, team_id) values ('rmuddimer1', 'gkittman1@tumblr.com', 'HMPSYq0u', 'trainer', 5);
+insert into users (username, email, password, role, team_id) values ('msewill2', 'cshegog2@exblog.jp', '4OzQLZFw', 'trainer', 6);
+insert into users (username, email, password, role, team_id) values ('lmcgarahan3', 'ueyckelberg3@wiley.com', 'MfF9V7', 'trainer', 4);
+insert into users (username, email, password, role, team_id) values ('pzuanazzi4', 'lpendrill4@google.pl', 'gn3HZgLJI', 'trainer', 7);
+insert into users (username, email, password, role, team_id) values ('user1', 'user1@email.be', 'gn3HZgLJI', '''trainer''', 1);
